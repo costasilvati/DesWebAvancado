@@ -6,7 +6,7 @@
 
 ------------------------------------------------------------------------
 
-# 1. O que é JavaScript no contexto do Node.js
+## 1. O que é JavaScript no contexto do Node.js
 
 JavaScript é uma linguagem de programação originalmente criada para execução em navegadores.\
 Com o **Node.js**, o JavaScript também pode ser executado **no servidor**, permitindo o desenvolvimento de aplicações back-end.
@@ -25,7 +25,7 @@ console.log("Hello Node.js");
 
 ------------------------------------------------------------------------
 
-# 2. Declaração de Variáveis
+## 2. Declaração de Variáveis
 
 JavaScript possui três formas principais de declarar variáveis:
 
@@ -52,7 +52,7 @@ Boa prática:
 
 ------------------------------------------------------------------------
 
-# 3. Tipos de Dados
+## 3. Tipos de Dados
 
 JavaScript é **dinamicamente tipada**, ou seja, o tipo é definido em tempo de execução.
 
@@ -80,7 +80,7 @@ console.log(typeof ativo);
 
 ------------------------------------------------------------------------
 
-# 4. Operadores Matemáticos
+## 4. Operadores Matemáticos
 
 | Operador | Descrição        |
 |----------|------------------|
@@ -104,7 +104,7 @@ console.log(a ** 2);
 
 ------------------------------------------------------------------------
 
-# 5. Operadores Relacionais
+## 5. Operadores Relacionais
 
 | Operador | Significado                     |
 |----------|---------------------------------|
@@ -129,7 +129,7 @@ Boa prática: usar **sempre `===`**.
 
 ------------------------------------------------------------------------
 
-# 6. Operadores Lógicos
+## 6. Operadores Lógicos
 
 | Operador          | Significado |     |     |
 |-------------------|-------------|-----|-----|
@@ -150,9 +150,9 @@ if (idade >= 18 && possuiCarteira) {
 
 ------------------------------------------------------------------------
 
-# 7. Estruturas Condicionais
+## 7. Estruturas Condicionais
 
-## if / else
+### if / else
 
 ``` javascript
 let idade = 18;
@@ -166,7 +166,7 @@ if (idade >= 18) {
 
 ------------------------------------------------------------------------
 
-## switch
+### switch
 
 ``` javascript
 let dia = 2;
@@ -185,9 +185,9 @@ switch(dia){
 
 ------------------------------------------------------------------------
 
-# 8. Estruturas de Repetição
+## 8. Estruturas de Repetição
 
-## for
+### for
 
 ``` javascript
 for (let i = 0; i < 5; i++) {
@@ -197,7 +197,7 @@ for (let i = 0; i < 5; i++) {
 
 ------------------------------------------------------------------------
 
-## while
+### while
 
 ``` javascript
 let i = 0;
@@ -210,7 +210,7 @@ while (i < 5) {
 
 ------------------------------------------------------------------------
 
-## for...of (muito comum em JavaScript)
+### for...of (muito comum em JavaScript)
 
 ``` javascript
 let numeros = [1,2,3,4];
@@ -222,11 +222,11 @@ for (let n of numeros) {
 
 ------------------------------------------------------------------------
 
-# 9. Funções
+## 9. Funções
 
 Funções podem ser declaradas de várias formas.
 
-## Função tradicional
+### Função tradicional
 
 ``` javascript
 function soma(a, b){
@@ -238,7 +238,7 @@ console.log(soma(5,3));
 
 ------------------------------------------------------------------------
 
-## Arrow Function
+### Arrow Function
 
 Muito utilizada em aplicações Node.js modernas.
 
@@ -258,7 +258,7 @@ const soma = (a,b) => a + b;
 
 ------------------------------------------------------------------------
 
-# 10. Arrays
+## 10. Arrays
 
 Arrays armazenam coleções de valores.
 
@@ -278,7 +278,7 @@ for (let n of numeros) {
 
 ------------------------------------------------------------------------
 
-# 11. Objetos
+## 11. Objetos
 
 Objetos são estruturas chave-valor.
 
@@ -302,7 +302,7 @@ for (let chave in usuario){
 
 ------------------------------------------------------------------------
 
-# 12. Template Strings
+## 12. Template Strings
 
 Permitem interpolação de variáveis.
 
@@ -315,7 +315,7 @@ console.log(`Nome: ${nome}, Idade: ${idade}`);
 
 ------------------------------------------------------------------------
 
-# 13. Módulos no Node.js
+## 13. Módulos no Node.js
 
 Node.js utiliza **módulos** para organizar código.
 
@@ -331,7 +331,7 @@ module.exports = soma;
 
 ------------------------------------------------------------------------
 
-## Importando
+### Importando
 
 ``` javascript
 const soma = require('./soma');
@@ -341,7 +341,7 @@ console.log(soma(2,3));
 
 ------------------------------------------------------------------------
 
-# 14. Boas práticas iniciais
+## 14. Boas práticas iniciais
 
 -   utilizar **const sempre que possível**
 -   preferir **=== em vez de ==**
@@ -351,7 +351,7 @@ console.log(soma(2,3));
 
 ------------------------------------------------------------------------
 
-# 15. Executando programas Node.js
+## 15. Executando programas Node.js
 
 Estrutura típica:
 
@@ -370,7 +370,7 @@ node index.js
 
 ------------------------------------------------------------------------
 
-# 16. Próximos conceitos importantes em Node.js
+## 16. Próximos conceitos importantes em Node.js
 
 Após dominar a sintaxe básica, os próximos tópicos normalmente incluem:
 
@@ -381,6 +381,190 @@ Após dominar a sintaxe básica, os próximos tópicos normalmente incluem:
 -   Express
 -   APIs REST
 -   acesso a banco de dados
+
+------------------------------------------------------------------------
+
+# Atividade em Sala — Desafio JavaScript (Node.js)
+
+**Disciplina:** Desenvolvimento Web Avançado\
+
+------------------------------------------------------------------------
+
+## Desafio: Construindo um Mini Processador de Dados
+
+Você recebeu um conjunto de dados simulando registros de usuários de um sistema.
+
+``` javascript
+const usuarios = [
+  { nome: "Ana", idade: 20, ativo: true, compras: [100, 50, 25] },
+  { nome: "Bruno", idade: 17, ativo: false, compras: [30, 20] },
+  { nome: "Carlos", idade: 32, ativo: true, compras: [200, 150, 50, 100] },
+  { nome: "Diana", idade: 25, ativo: true, compras: [] },
+  { nome: "Eduardo", idade: 15, ativo: false, compras: [10] }
+];
+```
+
+Seu objetivo é desenvolver um **script Node.js** que processe esses dados e gere relatórios.
+
+------------------------------------------------------------------------
+
+## Parte 1 — Total de Compras por Usuário
+
+Utilizando **arrow functions**, calcule o valor total de compras de cada usuário.
+
+Resultado esperado:
+
+```         
+Ana: total = 175
+Bruno: total = 50
+Carlos: total = 500
+Diana: total = 0
+Eduardo: total = 10
+```
+
+------------------------------------------------------------------------
+
+## Parte 2 — Usuários Ativos
+
+Utilizando **arrow functions**, filtre apenas os usuários que estão **ativos**.
+
+Resultado esperado:
+
+```         
+Ana
+Carlos
+Diana
+```
+
+------------------------------------------------------------------------
+
+## Parte 3 — Usuários Maiores de Idade
+
+Liste apenas usuários com **idade \>= 18**.
+
+Utilize **arrow functions**.
+
+------------------------------------------------------------------------
+
+## Parte 4 — Usuário com Maior Volume de Compras
+
+Determine qual usuário possui o **maior total de compras**.
+
+Resultado esperado (aproximado):
+
+```         
+Usuário com maior volume: Carlos
+Total: 500
+```
+
+------------------------------------------------------------------------
+
+## Parte 5 — Desafio de Coerção de Tipos
+
+Analise o seguinte código:
+
+``` javascript
+console.log("5" + 2);
+console.log("5" - 2);
+console.log(true + 1);
+console.log(false == 0);
+console.log(false === 0);
+```
+
+Explique **por que cada resultado ocorre**.
+
+Dica: pesquise sobre **coerção de tipos em JavaScript**.
+
+------------------------------------------------------------------------
+
+## Parte 6 — Desafio Arrow Function vs Function
+
+Observe os dois códigos:
+
+### Código 1
+
+``` javascript
+const pessoa = {
+  nome: "Maria",
+  falar: function(){
+    console.log(this.nome);
+  }
+};
+
+pessoa.falar();
+```
+
+### Código 2
+
+``` javascript
+const pessoa = {
+  nome: "Maria",
+  falar: () => {
+    console.log(this.nome);
+  }
+};
+
+pessoa.falar();
+```
+
+Execute os dois exemplos e responda:
+
+1.  Qual deles funciona corretamente?
+2.  Por que o outro não funciona?
+3.  Qual é o comportamento de `this` em arrow functions?
+
+------------------------------------------------------------------------
+
+## Parte 7 — Desafio Final
+
+Crie uma função chamada `gerarRelatorio`.
+
+Ela deve retornar um objeto contendo:
+
+```         
+{
+ totalUsuarios: X,
+ usuariosAtivos: X,
+ usuariosInativos: X,
+ mediaIdade: X,
+ maiorComprador: "nome"
+}
+```
+
+Utilize **arrow functions sempre que possível**.
+
+Exemplo de saída:
+
+``` javascript
+{
+ totalUsuarios: 5,
+ usuariosAtivos: 3,
+ usuariosInativos: 2,
+ mediaIdade: 21.8,
+ maiorComprador: "Carlos"
+}
+```
+
+------------------------------------------------------------------------
+
+## Regras do Desafio
+
+-   Utilize **arrow functions sempre que possível**
+-   Utilize **arrays e objetos**
+-   Utilize **console.log para exibir os resultados**
+-   Não utilizar bibliotecas externas
+
+------------------------------------------------------------------------
+
+## Desafio Extra (para quem terminar antes)
+
+Implemente uma função que retorne:
+
+-   o **usuário mais jovem**
+-   o **usuário mais velho**
+-   o **valor médio das compras por usuário**
+
+Utilizando **arrow functions e métodos de array**.
 
 ------------------------------------------------------------------------
 
