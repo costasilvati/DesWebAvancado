@@ -358,9 +358,8 @@ display: none;
 <strong>Contexto:</strong> Programação Back-end com Node.js<br />
 <strong>Data:</strong> 10/03/2026</p>
 <hr />
-</div>
-<div id="o-que-é-javascript-no-contexto-do-node.js" class="section level1">
-<h1>1. O que é JavaScript no contexto do Node.js</h1>
+<div id="o-que-é-javascript-no-contexto-do-node.js" class="section level2">
+<h2>1. O que é JavaScript no contexto do Node.js</h2>
 <p>JavaScript é uma linguagem de programação originalmente criada para
 execução em navegadores.<br />
 Com o <strong>Node.js</strong>, o JavaScript também pode ser executado
@@ -373,8 +372,8 @@ interpretador:</p>
 <pre class="javascript"><code>console.log(&quot;Hello Node.js&quot;);</code></pre>
 <hr />
 </div>
-<div id="declaração-de-variáveis" class="section level1">
-<h1>2. Declaração de Variáveis</h1>
+<div id="declaração-de-variáveis" class="section level2">
+<h2>2. Declaração de Variáveis</h2>
 <p>JavaScript possui três formas principais de declarar variáveis:</p>
 <table>
 <thead>
@@ -415,8 +414,8 @@ console.log(idade);</code></pre>
 </ul>
 <hr />
 </div>
-<div id="tipos-de-dados" class="section level1">
-<h1>3. Tipos de Dados</h1>
+<div id="tipos-de-dados" class="section level2">
+<h2>3. Tipos de Dados</h2>
 <p>JavaScript é <strong>dinamicamente tipada</strong>, ou seja, o tipo é
 definido em tempo de execução.</p>
 <p>Tipos primitivos principais:</p>
@@ -460,8 +459,8 @@ console.log(typeof idade);
 console.log(typeof ativo);</code></pre>
 <hr />
 </div>
-<div id="operadores-matemáticos" class="section level1">
-<h1>4. Operadores Matemáticos</h1>
+<div id="operadores-matemáticos" class="section level2">
+<h2>4. Operadores Matemáticos</h2>
 <table>
 <thead>
 <tr class="header">
@@ -505,8 +504,8 @@ console.log(a % b);
 console.log(a ** 2);</code></pre>
 <hr />
 </div>
-<div id="operadores-relacionais" class="section level1">
-<h1>5. Operadores Relacionais</h1>
+<div id="operadores-relacionais" class="section level2">
+<h2>5. Operadores Relacionais</h2>
 <table>
 <thead>
 <tr class="header">
@@ -550,8 +549,8 @@ console.log(x === y);</code></pre>
 <p>Boa prática: usar <strong>sempre <code>===</code></strong>.</p>
 <hr />
 </div>
-<div id="operadores-lógicos" class="section level1">
-<h1>6. Operadores Lógicos</h1>
+<div id="operadores-lógicos" class="section level2">
+<h2>6. Operadores Lógicos</h2>
 <table>
 <thead>
 <tr class="header">
@@ -591,10 +590,10 @@ if (idade &gt;= 18 &amp;&amp; possuiCarteira) {
 }</code></pre>
 <hr />
 </div>
-<div id="estruturas-condicionais" class="section level1">
-<h1>7. Estruturas Condicionais</h1>
-<div id="if-else" class="section level2">
-<h2>if / else</h2>
+<div id="estruturas-condicionais" class="section level2">
+<h2>7. Estruturas Condicionais</h2>
+<div id="if-else" class="section level3">
+<h3>if / else</h3>
 <pre class="javascript"><code>let idade = 18;
 
 if (idade &gt;= 18) {
@@ -604,8 +603,8 @@ if (idade &gt;= 18) {
 }</code></pre>
 <hr />
 </div>
-<div id="switch" class="section level2">
-<h2>switch</h2>
+<div id="switch" class="section level3">
+<h3>switch</h3>
 <pre class="javascript"><code>let dia = 2;
 
 switch(dia){
@@ -621,17 +620,17 @@ switch(dia){
 <hr />
 </div>
 </div>
-<div id="estruturas-de-repetição" class="section level1">
-<h1>8. Estruturas de Repetição</h1>
-<div id="for" class="section level2">
-<h2>for</h2>
+<div id="estruturas-de-repetição" class="section level2">
+<h2>8. Estruturas de Repetição</h2>
+<div id="for" class="section level3">
+<h3>for</h3>
 <pre class="javascript"><code>for (let i = 0; i &lt; 5; i++) {
     console.log(i);
 }</code></pre>
 <hr />
 </div>
-<div id="while" class="section level2">
-<h2>while</h2>
+<div id="while" class="section level3">
+<h3>while</h3>
 <pre class="javascript"><code>let i = 0;
 
 while (i &lt; 5) {
@@ -640,8 +639,8 @@ while (i &lt; 5) {
 }</code></pre>
 <hr />
 </div>
-<div id="forof-muito-comum-em-javascript" class="section level2">
-<h2>for…of (muito comum em JavaScript)</h2>
+<div id="forof-muito-comum-em-javascript" class="section level3">
+<h3>for…of (muito comum em JavaScript)</h3>
 <pre class="javascript"><code>let numeros = [1,2,3,4];
 
 for (let n of numeros) {
@@ -650,11 +649,11 @@ for (let n of numeros) {
 <hr />
 </div>
 </div>
-<div id="funções" class="section level1">
-<h1>9. Funções</h1>
+<div id="funções" class="section level2">
+<h2>9. Funções</h2>
 <p>Funções podem ser declaradas de várias formas.</p>
-<div id="função-tradicional" class="section level2">
-<h2>Função tradicional</h2>
+<div id="função-tradicional" class="section level3">
+<h3>Função tradicional</h3>
 <pre class="javascript"><code>function soma(a, b){
     return a + b;
 }
@@ -662,19 +661,21 @@ for (let n of numeros) {
 console.log(soma(5,3));</code></pre>
 <hr />
 </div>
-<div id="arrow-function" class="section level2">
-<h2>Arrow Function</h2>
+<div id="arrow-function" class="section level3">
+<h3>Arrow Function</h3>
 <p>Muito utilizada em aplicações Node.js modernas.</p>
 <pre class="javascript"><code>const soma = (a, b) =&gt; {
     return a + b;
 };</code></pre>
 <p>Versão reduzida:</p>
 <pre class="javascript"><code>const soma = (a,b) =&gt; a + b;</code></pre>
+<p><a href="aula2_arrow_function.md">Leia mais sobre arrow
+functions</a></p>
 <hr />
 </div>
 </div>
-<div id="arrays" class="section level1">
-<h1>10. Arrays</h1>
+<div id="arrays" class="section level2">
+<h2>10. Arrays</h2>
 <p>Arrays armazenam coleções de valores.</p>
 <pre class="javascript"><code>let numeros = [10, 20, 30];
 
@@ -685,8 +686,8 @@ console.log(numeros[0]);</code></pre>
 }</code></pre>
 <hr />
 </div>
-<div id="objetos" class="section level1">
-<h1>11. Objetos</h1>
+<div id="objetos" class="section level2">
+<h2>11. Objetos</h2>
 <p>Objetos são estruturas chave-valor.</p>
 <pre class="javascript"><code>let usuario = {
     nome: &quot;Ana&quot;,
@@ -701,8 +702,8 @@ console.log(usuario.nome);</code></pre>
 }</code></pre>
 <hr />
 </div>
-<div id="template-strings" class="section level1">
-<h1>12. Template Strings</h1>
+<div id="template-strings" class="section level2">
+<h2>12. Template Strings</h2>
 <p>Permitem interpolação de variáveis.</p>
 <pre class="javascript"><code>let nome = &quot;João&quot;;
 let idade = 30;
@@ -710,9 +711,10 @@ let idade = 30;
 console.log(`Nome: ${nome}, Idade: ${idade}`);</code></pre>
 <hr />
 </div>
-<div id="módulos-no-node.js" class="section level1">
-<h1>13. Módulos no Node.js</h1>
+<div id="módulos-no-node.js" class="section level2">
+<h2>13. Módulos no Node.js</h2>
 <p>Node.js utiliza <strong>módulos</strong> para organizar código.</p>
+</div>
 <div id="exportando" class="section level2">
 <h2>Exportando</h2>
 <pre class="javascript"><code>function soma(a,b){
@@ -721,17 +723,16 @@ console.log(`Nome: ${nome}, Idade: ${idade}`);</code></pre>
 
 module.exports = soma;</code></pre>
 <hr />
-</div>
-<div id="importando" class="section level2">
-<h2>Importando</h2>
+<div id="importando" class="section level3">
+<h3>Importando</h3>
 <pre class="javascript"><code>const soma = require(&#39;./soma&#39;);
 
 console.log(soma(2,3));</code></pre>
 <hr />
 </div>
 </div>
-<div id="boas-práticas-iniciais" class="section level1">
-<h1>14. Boas práticas iniciais</h1>
+<div id="boas-práticas-iniciais" class="section level2">
+<h2>14. Boas práticas iniciais</h2>
 <ul>
 <li>utilizar <strong>const sempre que possível</strong></li>
 <li>preferir <strong>=== em vez de ==</strong></li>
@@ -741,8 +742,8 @@ console.log(soma(2,3));</code></pre>
 </ul>
 <hr />
 </div>
-<div id="executando-programas-node.js" class="section level1">
-<h1>15. Executando programas Node.js</h1>
+<div id="executando-programas-node.js" class="section level2">
+<h2>15. Executando programas Node.js</h2>
 <p>Estrutura típica:</p>
 <pre><code>projeto/
  ├── index.js
@@ -752,8 +753,8 @@ console.log(soma(2,3));</code></pre>
 <pre class="bash"><code>node index.js</code></pre>
 <hr />
 </div>
-<div id="próximos-conceitos-importantes-em-node.js" class="section level1">
-<h1>16. Próximos conceitos importantes em Node.js</h1>
+<div id="próximos-conceitos-importantes-em-node.js" class="section level2">
+<h2>16. Próximos conceitos importantes em Node.js</h2>
 <p>Após dominar a sintaxe básica, os próximos tópicos normalmente
 incluem:</p>
 <ul>
@@ -766,7 +767,155 @@ incluem:</p>
 <li>acesso a banco de dados</li>
 </ul>
 <hr />
+</div>
+</div>
+<div id="atividade-em-sala-desafio-javascript-node.js" class="section level1">
+<h1>Atividade em Sala — Desafio JavaScript (Node.js)</h1>
+<p><strong>Disciplina:</strong> Desenvolvimento Web Avançado<br />
+</p>
+<hr />
+<div id="desafio-construindo-um-mini-processador-de-dados" class="section level2">
+<h2>Desafio: Construindo um Mini Processador de Dados</h2>
+<p>Você recebeu um conjunto de dados simulando registros de usuários de
+um sistema.</p>
+<pre class="javascript"><code>const usuarios = [
+  { nome: &quot;Ana&quot;, idade: 20, ativo: true, compras: [100, 50, 25] },
+  { nome: &quot;Bruno&quot;, idade: 17, ativo: false, compras: [30, 20] },
+  { nome: &quot;Carlos&quot;, idade: 32, ativo: true, compras: [200, 150, 50, 100] },
+  { nome: &quot;Diana&quot;, idade: 25, ativo: true, compras: [] },
+  { nome: &quot;Eduardo&quot;, idade: 15, ativo: false, compras: [10] }
+];</code></pre>
+<p>Seu objetivo é desenvolver um <strong>script Node.js</strong> que
+processe esses dados e gere relatórios.</p>
+<hr />
+</div>
+<div id="parte-1-total-de-compras-por-usuário" class="section level2">
+<h2>Parte 1 — Total de Compras por Usuário</h2>
+<p>Utilizando <strong>arrow functions</strong>, calcule o valor total de
+compras de cada usuário.</p>
+<p>Resultado esperado:</p>
+<pre><code>Ana: total = 175
+Bruno: total = 50
+Carlos: total = 500
+Diana: total = 0
+Eduardo: total = 10</code></pre>
+<hr />
+</div>
+<div id="parte-2-usuários-ativos" class="section level2">
+<h2>Parte 2 — Usuários Ativos</h2>
+<p>Utilizando <strong>arrow functions</strong>, filtre apenas os
+usuários que estão <strong>ativos</strong>.</p>
+<p>Resultado esperado:</p>
+<pre><code>Ana
+Carlos
+Diana</code></pre>
+<hr />
+</div>
+<div id="parte-3-usuários-maiores-de-idade" class="section level2">
+<h2>Parte 3 — Usuários Maiores de Idade</h2>
+<p>Liste apenas usuários com <strong>idade &gt;= 18</strong>.</p>
+<p>Utilize <strong>arrow functions</strong>.</p>
+<hr />
+</div>
+<div id="parte-4-usuário-com-maior-volume-de-compras" class="section level2">
+<h2>Parte 4 — Usuário com Maior Volume de Compras</h2>
+<p>Determine qual usuário possui o <strong>maior total de
+compras</strong>.</p>
+<p>Resultado esperado (aproximado):</p>
+<pre><code>Usuário com maior volume: Carlos
+Total: 500</code></pre>
+<hr />
+</div>
+<div id="parte-5-desafio-de-coerção-de-tipos" class="section level2">
+<h2>Parte 5 — Desafio de Coerção de Tipos</h2>
+<p>Analise o seguinte código:</p>
+<pre class="javascript"><code>console.log(&quot;5&quot; + 2);
+console.log(&quot;5&quot; - 2);
+console.log(true + 1);
+console.log(false == 0);
+console.log(false === 0);</code></pre>
+<p>Explique <strong>por que cada resultado ocorre</strong>.</p>
+<p>Dica: pesquise sobre <strong>coerção de tipos em
+JavaScript</strong>.</p>
+<hr />
+</div>
+<div id="parte-6-desafio-arrow-function-vs-function" class="section level2">
+<h2>Parte 6 — Desafio Arrow Function vs Function</h2>
+<p>Observe os dois códigos:</p>
+<div id="código-1" class="section level3">
+<h3>Código 1</h3>
+<pre class="javascript"><code>const pessoa = {
+  nome: &quot;Maria&quot;,
+  falar: function(){
+    console.log(this.nome);
+  }
+};
+
+pessoa.falar();</code></pre>
+</div>
+<div id="código-2" class="section level3">
+<h3>Código 2</h3>
+<pre class="javascript"><code>const pessoa = {
+  nome: &quot;Maria&quot;,
+  falar: () =&gt; {
+    console.log(this.nome);
+  }
+};
+
+pessoa.falar();</code></pre>
+<p>Execute os dois exemplos e responda:</p>
+<ol style="list-style-type: decimal">
+<li>Qual deles funciona corretamente?</li>
+<li>Por que o outro não funciona?</li>
+<li>Qual é o comportamento de <code>this</code> em arrow functions?</li>
+</ol>
+<hr />
+</div>
+</div>
+<div id="parte-7-desafio-final" class="section level2">
+<h2>Parte 7 — Desafio Final</h2>
+<p>Crie uma função chamada <code>gerarRelatorio</code>.</p>
+<p>Ela deve retornar um objeto contendo:</p>
+<pre><code>{
+ totalUsuarios: X,
+ usuariosAtivos: X,
+ usuariosInativos: X,
+ mediaIdade: X,
+ maiorComprador: &quot;nome&quot;
+}</code></pre>
+<p>Utilize <strong>arrow functions sempre que possível</strong>.</p>
+<p>Exemplo de saída:</p>
+<pre class="javascript"><code>{
+ totalUsuarios: 5,
+ usuariosAtivos: 3,
+ usuariosInativos: 2,
+ mediaIdade: 21.8,
+ maiorComprador: &quot;Carlos&quot;
+}</code></pre>
+<hr />
+</div>
+<div id="regras-do-desafio" class="section level2">
+<h2>Regras do Desafio</h2>
+<ul>
+<li>Utilize <strong>arrow functions sempre que possível</strong></li>
+<li>Utilize <strong>arrays e objetos</strong></li>
+<li>Utilize <strong>console.log para exibir os resultados</strong></li>
+<li>Não utilizar bibliotecas externas</li>
+</ul>
+<hr />
+</div>
+<div id="desafio-extra-para-quem-terminar-antes" class="section level2">
+<h2>Desafio Extra (para quem terminar antes)</h2>
+<p>Implemente uma função que retorne:</p>
+<ul>
+<li>o <strong>usuário mais jovem</strong></li>
+<li>o <strong>usuário mais velho</strong></li>
+<li>o <strong>valor médio das compras por usuário</strong></li>
+</ul>
+<p>Utilizando <strong>arrow functions e métodos de array</strong>.</p>
+<hr />
 <pre><code></code></pre>
+</div>
 </div>
 
 
