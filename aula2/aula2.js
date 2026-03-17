@@ -39,5 +39,6 @@ const soma2 = (a, b) => {
     return a+b;
 };
 
+
 //Executar:
 // Abra o terminal e digite: node meu_arquivo.js

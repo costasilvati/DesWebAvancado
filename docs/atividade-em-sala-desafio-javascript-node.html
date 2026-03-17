@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Capítulo 3 Atividade em Sala — Desafio JavaScript (Node.js) | Desenvolvimento web Avançado</title>
+
+    <meta name="author" content="Juliana Costa Silva" />
+  
+   <meta name="description" content="<p>This is a minimal book of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Capítulo 3 Atividade em Sala — Desafio JavaScript (Node.js) | Desenvolvimento web Avançado" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>This is a minimal book of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 3 Atividade em Sala — Desafio JavaScript (Node.js) | Desenvolvimento web Avançado" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal book of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.9.0/transition.js"></script>
+    <script src="libs/bs3compat-0.9.0/tabs.js"></script>
+    <script src="libs/bs3compat-0.9.0/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+      <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Desenvolvimento web Avançado</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="atividade-em-sala-desafio-javascript-node.js" class="section level1" number="3">
+<h1><span class="header-section-number">Capítulo 3</span> Atividade em Sala — Desafio JavaScript (Node.js)</h1>
+<p><strong>Disciplina:</strong> Desenvolvimento Web Avançado<br />
+</p>
+<hr />
+<div id="desafio-construindo-um-mini-processador-de-dados" class="section level2 unnumbered">
+<h2>Desafio: Construindo um Mini Processador de Dados</h2>
+<p>Você recebeu um conjunto de dados simulando registros de usuários de um sistema.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb27-1"><a href="atividade-em-sala-desafio-javascript-node.html#cb27-1" tabindex="-1"></a><span class="kw">const</span> usuarios <span class="op">=</span> [</span>
+<span id="cb27-2"><a href="atividade-em-sala-desafio-javascript-node.html#cb27-2" tabindex="-1"></a>  { <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Ana&quot;</span><span class="op">,</span> <span class="dt">idade</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span> <span class="dt">ativo</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">compras</span><span class="op">:</span> [<span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">25</span>] }<span class="op">,</span></span>
+<span id="cb27-3"><a href="atividade-em-sala-desafio-javascript-node.html#cb27-3" tabindex="-1"></a>  { <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Bruno&quot;</span><span class="op">,</span> <span class="dt">idade</span><span class="op">:</span> <span class="dv">17</span><span class="op">,</span> <span class="dt">ativo</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span> <span class="dt">compras</span><span class="op">:</span> [<span class="dv">30</span><span class="op">,</span> <span class="dv">20</span>] }<span class="op">,</span></span>
+<span id="cb27-4"><a href="atividade-em-sala-desafio-javascript-node.html#cb27-4" tabindex="-1"></a>  { <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Carlos&quot;</span><span class="op">,</span> <span class="dt">idade</span><span class="op">:</span> <span class="dv">32</span><span class="op">,</span> <span class="dt">ativo</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">compras</span><span class="op">:</span> [<span class="dv">200</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">100</span>] }<span class="op">,</span></span>
+<span id="cb27-5"><a href="atividade-em-sala-desafio-javascript-node.html#cb27-5" tabindex="-1"></a>  { <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Diana&quot;</span><span class="op">,</span> <span class="dt">idade</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span> <span class="dt">ativo</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">compras</span><span class="op">:</span> [] }<span class="op">,</span></span>
+<span id="cb27-6"><a href="atividade-em-sala-desafio-javascript-node.html#cb27-6" tabindex="-1"></a>  { <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Eduardo&quot;</span><span class="op">,</span> <span class="dt">idade</span><span class="op">:</span> <span class="dv">15</span><span class="op">,</span> <span class="dt">ativo</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span> <span class="dt">compras</span><span class="op">:</span> [<span class="dv">10</span>] }</span>
+<span id="cb27-7"><a href="atividade-em-sala-desafio-javascript-node.html#cb27-7" tabindex="-1"></a>]<span class="op">;</span></span></code></pre></div>
+<p>Seu objetivo é desenvolver um <strong>script Node.js</strong> que processe esses dados e gere relatórios.</p>
+<hr />
+</div>
+<div id="parte-1-total-de-compras-por-usuário" class="section level2 unnumbered">
+<h2>Parte 1 — Total de Compras por Usuário</h2>
+<p>Utilizando <strong>arrow functions</strong>, calcule o valor total de compras de cada usuário.</p>
+<p>Resultado esperado:</p>
+<pre><code>Ana: total = 175
+Bruno: total = 50
+Carlos: total = 500
+Diana: total = 0
+Eduardo: total = 10</code></pre>
+<hr />
+</div>
+<div id="parte-2-usuários-ativos" class="section level2 unnumbered">
+<h2>Parte 2 — Usuários Ativos</h2>
+<p>Utilizando <strong>arrow functions</strong>, filtre apenas os usuários que estão <strong>ativos</strong>.</p>
+<p>Resultado esperado:</p>
+<pre><code>Ana
+Carlos
+Diana</code></pre>
+<hr />
+</div>
+<div id="parte-3-usuários-maiores-de-idade" class="section level2 unnumbered">
+<h2>Parte 3 — Usuários Maiores de Idade</h2>
+<p>Liste apenas usuários com <strong>idade &gt;= 18</strong>.</p>
+<p>Utilize <strong>arrow functions</strong>.</p>
+<hr />
+</div>
+<div id="parte-4-usuário-com-maior-volume-de-compras" class="section level2 unnumbered">
+<h2>Parte 4 — Usuário com Maior Volume de Compras</h2>
+<p>Determine qual usuário possui o <strong>maior total de compras</strong>.</p>
+<p>Resultado esperado (aproximado):</p>
+<pre><code>Usuário com maior volume: Carlos
+Total: 500</code></pre>
+<hr />
+</div>
+<div id="parte-5-desafio-de-coerção-de-tipos" class="section level2 unnumbered">
+<h2>Parte 5 — Desafio de Coerção de Tipos</h2>
+<p>Analise o seguinte código:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb31-1"><a href="atividade-em-sala-desafio-javascript-node.html#cb31-1" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;5&quot;</span> <span class="op">+</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb31-2"><a href="atividade-em-sala-desafio-javascript-node.html#cb31-2" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;5&quot;</span> <span class="op">-</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb31-3"><a href="atividade-em-sala-desafio-javascript-node.html#cb31-3" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">true</span> <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb31-4"><a href="atividade-em-sala-desafio-javascript-node.html#cb31-4" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">false</span> <span class="op">==</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb31-5"><a href="atividade-em-sala-desafio-javascript-node.html#cb31-5" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">false</span> <span class="op">===</span> <span class="dv">0</span>)<span class="op">;</span></span></code></pre></div>
+<p>Explique <strong>por que cada resultado ocorre</strong>.</p>
+<p>Dica: pesquise sobre <strong>coerção de tipos em JavaScript</strong>.</p>
+<hr />
+</div>
+<div id="parte-6-desafio-arrow-function-vs-function" class="section level2 unnumbered">
+<h2>Parte 6 — Desafio Arrow Function vs Function</h2>
+<p>Observe os dois códigos:</p>
+<div id="código-1" class="section level3" number="3.0.1">
+<h3><span class="header-section-number">3.0.1</span> Código 1</h3>
+<div class="sourceCode" id="cb32"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb32-1"><a href="atividade-em-sala-desafio-javascript-node.html#cb32-1" tabindex="-1"></a><span class="kw">const</span> pessoa <span class="op">=</span> {</span>
+<span id="cb32-2"><a href="atividade-em-sala-desafio-javascript-node.html#cb32-2" tabindex="-1"></a>  <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Maria&quot;</span><span class="op">,</span></span>
+<span id="cb32-3"><a href="atividade-em-sala-desafio-javascript-node.html#cb32-3" tabindex="-1"></a>  <span class="dt">falar</span><span class="op">:</span> <span class="kw">function</span>(){</span>
+<span id="cb32-4"><a href="atividade-em-sala-desafio-javascript-node.html#cb32-4" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">this</span><span class="op">.</span><span class="at">nome</span>)<span class="op">;</span></span>
+<span id="cb32-5"><a href="atividade-em-sala-desafio-javascript-node.html#cb32-5" tabindex="-1"></a>  }</span>
+<span id="cb32-6"><a href="atividade-em-sala-desafio-javascript-node.html#cb32-6" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb32-7"><a href="atividade-em-sala-desafio-javascript-node.html#cb32-7" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="atividade-em-sala-desafio-javascript-node.html#cb32-8" tabindex="-1"></a>pessoa<span class="op">.</span><span class="fu">falar</span>()<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="código-2" class="section level3" number="3.0.2">
+<h3><span class="header-section-number">3.0.2</span> Código 2</h3>
+<div class="sourceCode" id="cb33"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb33-1"><a href="atividade-em-sala-desafio-javascript-node.html#cb33-1" tabindex="-1"></a><span class="kw">const</span> pessoa <span class="op">=</span> {</span>
+<span id="cb33-2"><a href="atividade-em-sala-desafio-javascript-node.html#cb33-2" tabindex="-1"></a>  <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Maria&quot;</span><span class="op">,</span></span>
+<span id="cb33-3"><a href="atividade-em-sala-desafio-javascript-node.html#cb33-3" tabindex="-1"></a>  <span class="dt">falar</span><span class="op">:</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb33-4"><a href="atividade-em-sala-desafio-javascript-node.html#cb33-4" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">this</span><span class="op">.</span><span class="at">nome</span>)<span class="op">;</span></span>
+<span id="cb33-5"><a href="atividade-em-sala-desafio-javascript-node.html#cb33-5" tabindex="-1"></a>  }</span>
+<span id="cb33-6"><a href="atividade-em-sala-desafio-javascript-node.html#cb33-6" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb33-7"><a href="atividade-em-sala-desafio-javascript-node.html#cb33-7" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="atividade-em-sala-desafio-javascript-node.html#cb33-8" tabindex="-1"></a>pessoa<span class="op">.</span><span class="fu">falar</span>()<span class="op">;</span></span></code></pre></div>
+<p>Execute os dois exemplos e responda:</p>
+<ol style="list-style-type: decimal">
+<li>Qual deles funciona corretamente?</li>
+<li>Por que o outro não funciona?</li>
+<li>Qual é o comportamento de <code>this</code> em arrow functions?</li>
+</ol>
+<hr />
+</div>
+</div>
+<div id="parte-7-desafio-final" class="section level2 unnumbered">
+<h2>Parte 7 — Desafio Final</h2>
+<p>Crie uma função chamada <code>gerarRelatorio</code>.</p>
+<p>Ela deve retornar um objeto contendo:</p>
+<pre><code>{
+ totalUsuarios: X,
+ usuariosAtivos: X,
+ usuariosInativos: X,
+ mediaIdade: X,
+ maiorComprador: &quot;nome&quot;
+}</code></pre>
+<p>Utilize <strong>arrow functions sempre que possível</strong>.</p>
+<p>Exemplo de saída:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb35-1"><a href="atividade-em-sala-desafio-javascript-node.html#cb35-1" tabindex="-1"></a>{</span>
+<span id="cb35-2"><a href="atividade-em-sala-desafio-javascript-node.html#cb35-2" tabindex="-1"></a> <span class="dt">totalUsuarios</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span></span>
+<span id="cb35-3"><a href="atividade-em-sala-desafio-javascript-node.html#cb35-3" tabindex="-1"></a> <span class="dt">usuariosAtivos</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span></span>
+<span id="cb35-4"><a href="atividade-em-sala-desafio-javascript-node.html#cb35-4" tabindex="-1"></a> <span class="dt">usuariosInativos</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb35-5"><a href="atividade-em-sala-desafio-javascript-node.html#cb35-5" tabindex="-1"></a> <span class="dt">mediaIdade</span><span class="op">:</span> <span class="fl">21.8</span><span class="op">,</span></span>
+<span id="cb35-6"><a href="atividade-em-sala-desafio-javascript-node.html#cb35-6" tabindex="-1"></a> <span class="dt">maiorComprador</span><span class="op">:</span> <span class="st">&quot;Carlos&quot;</span></span>
+<span id="cb35-7"><a href="atividade-em-sala-desafio-javascript-node.html#cb35-7" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+</div>
+<div id="regras-do-desafio" class="section level2 unnumbered">
+<h2>Regras do Desafio</h2>
+<ul>
+<li>Utilize <strong>arrow functions sempre que possível</strong></li>
+<li>Utilize <strong>arrays e objetos</strong></li>
+<li>Utilize <strong>console.log para exibir os resultados</strong></li>
+<li>Não utilizar bibliotecas externas</li>
+</ul>
+<hr />
+</div>
+<div id="desafio-extra-para-quem-terminar-antes" class="section level2 unnumbered">
+<h2>Desafio Extra (para quem terminar antes)</h2>
+<p>Implemente uma função que retorne:</p>
+<ul>
+<li>o <strong>usuário mais jovem</strong></li>
+<li>o <strong>usuário mais velho</strong></li>
+<li>o <strong>valor médio das compras por usuário</strong></li>
+</ul>
+<p>Utilizando <strong>arrow functions e métodos de array</strong>.</p>
+<hr />
+
+</div>
+</div>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Desenvolvimento web Avançado</strong>" was written by Juliana Costa Silva. It was last built on 2026-03-17.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+
+</html>

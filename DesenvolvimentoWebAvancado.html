@@ -1,0 +1,1432 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Desenvolvimento web Avançado</title>
+
+    <meta name="author" content="Juliana Costa Silva" />
+  
+   <meta name="description" content="<p>This is a minimal book of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Desenvolvimento web Avançado" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>This is a minimal book of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Desenvolvimento web Avançado" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal book of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.9.0/transition.js"></script>
+    <script src="libs/bs3compat-0.9.0/tabs.js"></script>
+    <script src="libs/bs3compat-0.9.0/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+      <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<!--bookdown:title:start-->
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Desenvolvimento web Avançado</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<!--bookdown:toc:end-->
+<!--bookdown:body:start-->
+<div id="about" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> About</h1>
+<p>This is a <em>sample</em> book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports; for example, a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
+<div id="usage" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Usage</h2>
+<p>Each <strong>bookdown</strong> chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter <em>must</em> start with a first-level heading: <code># A good chapter</code>, and can contain one (and only one) first-level heading.</p>
+<p>Use second-level and higher headings within chapters like: <code>## A short section</code> or <code>### An even shorter section</code>.</p>
+<p>The <code>index.Rmd</code> file is required, and is also your first book chapter. It will be the homepage when you render the book.</p>
+</div>
+<div id="render-book" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Render book</h2>
+<p>You can render the HTML version of this example book without changing anything:</p>
+<ol style="list-style-type: decimal">
+<li><p>Find the <strong>Build</strong> pane in the RStudio IDE, and</p></li>
+<li><p>Click on <strong>Build Book</strong>, then select your output format, or select “All formats” if you’d like to use multiple formats from the same book source files.</p></li>
+</ol>
+<p>Or build the book from the R console:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>bookdown<span class="sc">::</span><span class="fu">render_book</span>()</span></code></pre></div>
+<p>To render this example to PDF as a <code>bookdown::pdf_book</code>, you’ll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/tinytex/</a>.</p>
+</div>
+<div id="preview-book" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Preview book</h2>
+<p>As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in “Preview book”, or from the R console:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>bookdown<span class="sc">::</span><span class="fu">serve_book</span>()</span></code></pre></div>
+<!--chapter:end:index.Rmd-->
+</div>
+</div>
+<div id="javascript-básico-para-node.js" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> JavaScript Básico para Node.js</h1>
+<p><strong>Disciplina:</strong> Desenvolvimento Web Avançado<br />
+<strong>Contexto:</strong> Programação Back-end com Node.js<br />
+<strong>Data:</strong> 10/03/2026</p>
+<hr />
+<div id="o-que-é-javascript-no-contexto-do-node.js" class="section level2 unnumbered">
+<h2 class="unnumbered">1. O que é JavaScript no contexto do Node.js</h2>
+<p>JavaScript é uma linguagem de programação originalmente criada para execução em navegadores.<br />
+Com o <strong>Node.js</strong>, o JavaScript também pode ser executado <strong>no servidor</strong>, permitindo o desenvolvimento de aplicações back-end.</p>
+<p>Em Node.js, scripts JavaScript são executados diretamente pelo interpretador:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">node</span> arquivo.js</span></code></pre></div>
+<p>Exemplo simples:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Hello Node.js&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="declaração-de-variáveis" class="section level2 unnumbered">
+<h2 class="unnumbered">2. Declaração de Variáveis</h2>
+<p>JavaScript possui três formas principais de declarar variáveis:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Palavra-chave</th>
+<th>Escopo</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>var</code></td>
+<td>função</td>
+<td>legado, evitar em código moderno</td>
+</tr>
+<tr class="even">
+<td><code>let</code></td>
+<td>bloco</td>
+<td>variável mutável</td>
+</tr>
+<tr class="odd">
+<td><code>const</code></td>
+<td>bloco</td>
+<td>valor constante</td>
+</tr>
+</tbody>
+</table>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">let</span> nome <span class="op">=</span> <span class="st">&quot;Ana&quot;</span><span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="kw">const</span> idade <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(nome)<span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(idade)<span class="op">;</span></span></code></pre></div>
+<p>Boa prática:</p>
+<ul>
+<li>usar <strong>const por padrão</strong></li>
+<li>usar <strong>let quando o valor precisa mudar</strong></li>
+</ul>
+<hr />
+</div>
+<div id="tipos-de-dados" class="section level2 unnumbered">
+<h2 class="unnumbered">3. Tipos de Dados</h2>
+<p>JavaScript é <strong>dinamicamente tipada</strong>, ou seja, o tipo é definido em tempo de execução.</p>
+<p>Tipos primitivos principais:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>string</td>
+<td><code>"Olá"</code></td>
+</tr>
+<tr class="even">
+<td>number</td>
+<td><code>10</code>, <code>3.14</code></td>
+</tr>
+<tr class="odd">
+<td>boolean</td>
+<td><code>true</code>, <code>false</code></td>
+</tr>
+<tr class="even">
+<td>null</td>
+<td>ausência de valor</td>
+</tr>
+<tr class="odd">
+<td>undefined</td>
+<td>variável declarada sem valor</td>
+</tr>
+</tbody>
+</table>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">let</span> nome <span class="op">=</span> <span class="st">&quot;Carlos&quot;</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="kw">let</span> idade <span class="op">=</span> <span class="dv">30</span><span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="kw">let</span> ativo <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">typeof</span> nome)<span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">typeof</span> idade)<span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">typeof</span> ativo)<span class="op">;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="operadores-matemáticos" class="section level2 unnumbered">
+<h2 class="unnumbered">4. Operadores Matemáticos</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Operador</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>+</code></td>
+<td>soma</td>
+</tr>
+<tr class="even">
+<td><code>-</code></td>
+<td>subtração</td>
+</tr>
+<tr class="odd">
+<td><code>*</code></td>
+<td>multiplicação</td>
+</tr>
+<tr class="even">
+<td><code>/</code></td>
+<td>divisão</td>
+</tr>
+<tr class="odd">
+<td><code>%</code></td>
+<td>resto da divisão</td>
+</tr>
+<tr class="even">
+<td><code>**</code></td>
+<td>potência</td>
+</tr>
+</tbody>
+</table>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">let</span> a <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="kw">let</span> b <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a <span class="op">+</span> b)<span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a <span class="op">%</span> b)<span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a <span class="op">**</span> <span class="dv">2</span>)<span class="op">;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="operadores-relacionais" class="section level2 unnumbered">
+<h2 class="unnumbered">5. Operadores Relacionais</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Operador</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&gt;</code></td>
+<td>maior</td>
+</tr>
+<tr class="even">
+<td><code>&lt;</code></td>
+<td>menor</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;=</code></td>
+<td>maior ou igual</td>
+</tr>
+<tr class="even">
+<td><code>&lt;=</code></td>
+<td>menor ou igual</td>
+</tr>
+<tr class="odd">
+<td><code>==</code></td>
+<td>igualdade (com coerção de tipo)</td>
+</tr>
+<tr class="even">
+<td><code>===</code></td>
+<td>igualdade estrita</td>
+</tr>
+</tbody>
+</table>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">let</span> x <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="kw">let</span> y <span class="op">=</span> <span class="st">&quot;10&quot;</span><span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(x <span class="op">==</span> y)<span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(x <span class="op">===</span> y)<span class="op">;</span></span></code></pre></div>
+<p>Boa prática: usar <strong>sempre <code>===</code></strong>.</p>
+<hr />
+</div>
+<div id="operadores-lógicos" class="section level2 unnumbered">
+<h2 class="unnumbered">6. Operadores Lógicos</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Operador</th>
+<th>Significado</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>&amp;&amp;</code></td>
+<td>AND</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>|             |</code></td>
+<td>OR</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>!</code></td>
+<td>NOT</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">let</span> idade <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="kw">let</span> possuiCarteira <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="cf">if</span> (idade <span class="op">&gt;=</span> <span class="dv">18</span> <span class="op">&amp;&amp;</span> possuiCarteira) {</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Pode dirigir&quot;</span>)<span class="op">;</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+</div>
+<div id="estruturas-condicionais" class="section level2 unnumbered">
+<h2 class="unnumbered">7. Estruturas Condicionais</h2>
+<div id="if-else" class="section level3" number="2.0.1">
+<h3><span class="header-section-number">2.0.1</span> if / else</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="kw">let</span> idade <span class="op">=</span> <span class="dv">18</span><span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="cf">if</span> (idade <span class="op">&gt;=</span> <span class="dv">18</span>) {</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Maior de idade&quot;</span>)<span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Menor de idade&quot;</span>)<span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+</div>
+<div id="switch" class="section level3 unnumbered">
+<h3 class="unnumbered">switch</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">let</span> dia <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="cf">switch</span>(dia){</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">1</span><span class="op">:</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Segunda&quot;</span>)<span class="op">;</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>        <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">2</span><span class="op">:</span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Terça&quot;</span>)<span class="op">;</span></span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a>        <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a>    <span class="cf">default</span><span class="op">:</span></span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Outro dia&quot;</span>)<span class="op">;</span></span>
+<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="estruturas-de-repetição" class="section level2 unnumbered">
+<h2 class="unnumbered">8. Estruturas de Repetição</h2>
+<div id="for" class="section level3 unnumbered">
+<h3 class="unnumbered">for</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(i)<span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+</div>
+<div id="while" class="section level3 unnumbered">
+<h3 class="unnumbered">while</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="cf">while</span> (i <span class="op">&lt;</span> <span class="dv">5</span>) {</span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(i)<span class="op">;</span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>    i<span class="op">++;</span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+</div>
+<div id="forof-muito-comum-em-javascript" class="section level3 unnumbered">
+<h3 class="unnumbered">for…of (muito comum em JavaScript)</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="kw">let</span> numeros <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">4</span>]<span class="op">;</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">let</span> n <span class="kw">of</span> numeros) {</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(n)<span class="op">;</span></span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="funções" class="section level2 unnumbered">
+<h2 class="unnumbered">9. Funções</h2>
+<p>Funções podem ser declaradas de várias formas.</p>
+<div id="função-tradicional" class="section level3" number="2.0.2">
+<h3><span class="header-section-number">2.0.2</span> Função tradicional</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">soma</span>(a<span class="op">,</span> b){</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>}</span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">soma</span>(<span class="dv">5</span><span class="op">,</span><span class="dv">3</span>))<span class="op">;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="arrow-function" class="section level3 unnumbered">
+<h3 class="unnumbered">Arrow Function</h3>
+<p>Muito utilizada em aplicações Node.js modernas.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="kw">const</span> soma <span class="op">=</span> (a<span class="op">,</span> b) <span class="kw">=&gt;</span> {</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<p>Versão reduzida:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="kw">const</span> soma <span class="op">=</span> (a<span class="op">,</span>b) <span class="kw">=&gt;</span> a <span class="op">+</span> b<span class="op">;</span></span></code></pre></div>
+<p><a href="aula2_arrow_function.md">Leia mais sobre arrow functions</a></p>
+<hr />
+</div>
+</div>
+<div id="arrays" class="section level2 unnumbered">
+<h2 class="unnumbered">10. Arrays</h2>
+<p>Arrays armazenam coleções de valores.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="kw">let</span> numeros <span class="op">=</span> [<span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">30</span>]<span class="op">;</span></span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(numeros[<span class="dv">0</span>])<span class="op">;</span></span></code></pre></div>
+<p>Iteração:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">let</span> n <span class="kw">of</span> numeros) {</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(n)<span class="op">;</span></span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+</div>
+<div id="objetos" class="section level2 unnumbered">
+<h2 class="unnumbered">11. Objetos</h2>
+<p>Objetos são estruturas chave-valor.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="kw">let</span> usuario <span class="op">=</span> {</span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>    <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Ana&quot;</span><span class="op">,</span></span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>    <span class="dt">idade</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span></span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a>    <span class="dt">ativo</span><span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(usuario<span class="op">.</span><span class="at">nome</span>)<span class="op">;</span></span></code></pre></div>
+<p>Iteração:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">let</span> chave <span class="kw">in</span> usuario){</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(chave<span class="op">,</span> usuario[chave])<span class="op">;</span></span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+</div>
+<div id="template-strings" class="section level2 unnumbered">
+<h2 class="unnumbered">12. Template Strings</h2>
+<p>Permitem interpolação de variáveis.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="kw">let</span> nome <span class="op">=</span> <span class="st">&quot;João&quot;</span><span class="op">;</span></span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="kw">let</span> idade <span class="op">=</span> <span class="dv">30</span><span class="op">;</span></span>
+<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`Nome: </span><span class="sc">${</span>nome<span class="sc">}</span><span class="vs">, Idade: </span><span class="sc">${</span>idade<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="módulos-no-node.js" class="section level2 unnumbered">
+<h2 class="unnumbered">13. Módulos no Node.js</h2>
+<p>Node.js utiliza <strong>módulos</strong> para organizar código.</p>
+</div>
+<div id="exportando" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Exportando</h2>
+<div class="sourceCode" id="cb23"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">soma</span>(a<span class="op">,</span>b){</span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>    <span class="cf">return</span> a<span class="op">+</span>b<span class="op">;</span></span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a>}</span>
+<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a>module<span class="op">.</span><span class="at">exports</span> <span class="op">=</span> soma<span class="op">;</span></span></code></pre></div>
+<hr />
+<div id="importando" class="section level3 unnumbered">
+<h3 class="unnumbered">Importando</h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="kw">const</span> soma <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;./soma&#39;</span>)<span class="op">;</span></span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">soma</span>(<span class="dv">2</span><span class="op">,</span><span class="dv">3</span>))<span class="op">;</span></span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="boas-práticas-iniciais" class="section level2 unnumbered">
+<h2 class="unnumbered">Boas práticas iniciais</h2>
+<ul>
+<li>utilizar <strong>const sempre que possível</strong></li>
+<li>preferir <strong>=== em vez de ==</strong></li>
+<li>usar <strong>arrow functions</strong></li>
+<li>manter funções pequenas</li>
+<li>organizar código em <strong>módulos</strong></li>
+</ul>
+<hr />
+</div>
+<div id="executando-programas-node.js" class="section level2 unnumbered">
+<h2 class="unnumbered">Executando programas Node.js</h2>
+<p>Estrutura típica:</p>
+<pre><code>projeto/
+ ├── index.js
+ ├── utils.js
+ └── package.json</code></pre>
+<p>Executar:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="ex">node</span> index.js</span></code></pre></div>
+<hr />
+</div>
+<div id="próximos-conceitos-importantes-em-node.js" class="section level2 unnumbered">
+<h2 class="unnumbered">Próximos conceitos importantes em Node.js</h2>
+<p>Após dominar a sintaxe básica, os próximos tópicos normalmente incluem:</p>
+<ul>
+<li>JSON</li>
+<li>manipulação de arquivos</li>
+<li>módulos NPM</li>
+<li>criação de servidores HTTP</li>
+<li>Express</li>
+<li>APIs REST</li>
+<li>acesso a banco de dados</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="atividade-em-sala-desafio-javascript-node.js" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Atividade em Sala — Desafio JavaScript (Node.js)</h1>
+<p><strong>Disciplina:</strong> Desenvolvimento Web Avançado<br />
+</p>
+<hr />
+<div id="desafio-construindo-um-mini-processador-de-dados" class="section level2 unnumbered">
+<h2 class="unnumbered">Desafio: Construindo um Mini Processador de Dados</h2>
+<p>Você recebeu um conjunto de dados simulando registros de usuários de um sistema.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="kw">const</span> usuarios <span class="op">=</span> [</span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>  { <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Ana&quot;</span><span class="op">,</span> <span class="dt">idade</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span> <span class="dt">ativo</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">compras</span><span class="op">:</span> [<span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">25</span>] }<span class="op">,</span></span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a>  { <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Bruno&quot;</span><span class="op">,</span> <span class="dt">idade</span><span class="op">:</span> <span class="dv">17</span><span class="op">,</span> <span class="dt">ativo</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span> <span class="dt">compras</span><span class="op">:</span> [<span class="dv">30</span><span class="op">,</span> <span class="dv">20</span>] }<span class="op">,</span></span>
+<span id="cb27-4"><a href="#cb27-4" tabindex="-1"></a>  { <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Carlos&quot;</span><span class="op">,</span> <span class="dt">idade</span><span class="op">:</span> <span class="dv">32</span><span class="op">,</span> <span class="dt">ativo</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">compras</span><span class="op">:</span> [<span class="dv">200</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">100</span>] }<span class="op">,</span></span>
+<span id="cb27-5"><a href="#cb27-5" tabindex="-1"></a>  { <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Diana&quot;</span><span class="op">,</span> <span class="dt">idade</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span> <span class="dt">ativo</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">compras</span><span class="op">:</span> [] }<span class="op">,</span></span>
+<span id="cb27-6"><a href="#cb27-6" tabindex="-1"></a>  { <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Eduardo&quot;</span><span class="op">,</span> <span class="dt">idade</span><span class="op">:</span> <span class="dv">15</span><span class="op">,</span> <span class="dt">ativo</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span> <span class="dt">compras</span><span class="op">:</span> [<span class="dv">10</span>] }</span>
+<span id="cb27-7"><a href="#cb27-7" tabindex="-1"></a>]<span class="op">;</span></span></code></pre></div>
+<p>Seu objetivo é desenvolver um <strong>script Node.js</strong> que processe esses dados e gere relatórios.</p>
+<hr />
+</div>
+<div id="parte-1-total-de-compras-por-usuário" class="section level2 unnumbered">
+<h2 class="unnumbered">Parte 1 — Total de Compras por Usuário</h2>
+<p>Utilizando <strong>arrow functions</strong>, calcule o valor total de compras de cada usuário.</p>
+<p>Resultado esperado:</p>
+<pre><code>Ana: total = 175
+Bruno: total = 50
+Carlos: total = 500
+Diana: total = 0
+Eduardo: total = 10</code></pre>
+<hr />
+</div>
+<div id="parte-2-usuários-ativos" class="section level2 unnumbered">
+<h2 class="unnumbered">Parte 2 — Usuários Ativos</h2>
+<p>Utilizando <strong>arrow functions</strong>, filtre apenas os usuários que estão <strong>ativos</strong>.</p>
+<p>Resultado esperado:</p>
+<pre><code>Ana
+Carlos
+Diana</code></pre>
+<hr />
+</div>
+<div id="parte-3-usuários-maiores-de-idade" class="section level2 unnumbered">
+<h2 class="unnumbered">Parte 3 — Usuários Maiores de Idade</h2>
+<p>Liste apenas usuários com <strong>idade &gt;= 18</strong>.</p>
+<p>Utilize <strong>arrow functions</strong>.</p>
+<hr />
+</div>
+<div id="parte-4-usuário-com-maior-volume-de-compras" class="section level2 unnumbered">
+<h2 class="unnumbered">Parte 4 — Usuário com Maior Volume de Compras</h2>
+<p>Determine qual usuário possui o <strong>maior total de compras</strong>.</p>
+<p>Resultado esperado (aproximado):</p>
+<pre><code>Usuário com maior volume: Carlos
+Total: 500</code></pre>
+<hr />
+</div>
+<div id="parte-5-desafio-de-coerção-de-tipos" class="section level2 unnumbered">
+<h2 class="unnumbered">Parte 5 — Desafio de Coerção de Tipos</h2>
+<p>Analise o seguinte código:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;5&quot;</span> <span class="op">+</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;5&quot;</span> <span class="op">-</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb31-3"><a href="#cb31-3" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">true</span> <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb31-4"><a href="#cb31-4" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">false</span> <span class="op">==</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb31-5"><a href="#cb31-5" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">false</span> <span class="op">===</span> <span class="dv">0</span>)<span class="op">;</span></span></code></pre></div>
+<p>Explique <strong>por que cada resultado ocorre</strong>.</p>
+<p>Dica: pesquise sobre <strong>coerção de tipos em JavaScript</strong>.</p>
+<hr />
+</div>
+<div id="parte-6-desafio-arrow-function-vs-function" class="section level2 unnumbered">
+<h2 class="unnumbered">Parte 6 — Desafio Arrow Function vs Function</h2>
+<p>Observe os dois códigos:</p>
+<div id="código-1" class="section level3" number="3.0.1">
+<h3><span class="header-section-number">3.0.1</span> Código 1</h3>
+<div class="sourceCode" id="cb32"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="kw">const</span> pessoa <span class="op">=</span> {</span>
+<span id="cb32-2"><a href="#cb32-2" tabindex="-1"></a>  <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Maria&quot;</span><span class="op">,</span></span>
+<span id="cb32-3"><a href="#cb32-3" tabindex="-1"></a>  <span class="dt">falar</span><span class="op">:</span> <span class="kw">function</span>(){</span>
+<span id="cb32-4"><a href="#cb32-4" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">this</span><span class="op">.</span><span class="at">nome</span>)<span class="op">;</span></span>
+<span id="cb32-5"><a href="#cb32-5" tabindex="-1"></a>  }</span>
+<span id="cb32-6"><a href="#cb32-6" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb32-7"><a href="#cb32-7" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="#cb32-8" tabindex="-1"></a>pessoa<span class="op">.</span><span class="fu">falar</span>()<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="código-2" class="section level3" number="3.0.2">
+<h3><span class="header-section-number">3.0.2</span> Código 2</h3>
+<div class="sourceCode" id="cb33"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="kw">const</span> pessoa <span class="op">=</span> {</span>
+<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a>  <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Maria&quot;</span><span class="op">,</span></span>
+<span id="cb33-3"><a href="#cb33-3" tabindex="-1"></a>  <span class="dt">falar</span><span class="op">:</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb33-4"><a href="#cb33-4" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">this</span><span class="op">.</span><span class="at">nome</span>)<span class="op">;</span></span>
+<span id="cb33-5"><a href="#cb33-5" tabindex="-1"></a>  }</span>
+<span id="cb33-6"><a href="#cb33-6" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb33-7"><a href="#cb33-7" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="#cb33-8" tabindex="-1"></a>pessoa<span class="op">.</span><span class="fu">falar</span>()<span class="op">;</span></span></code></pre></div>
+<p>Execute os dois exemplos e responda:</p>
+<ol style="list-style-type: decimal">
+<li>Qual deles funciona corretamente?</li>
+<li>Por que o outro não funciona?</li>
+<li>Qual é o comportamento de <code>this</code> em arrow functions?</li>
+</ol>
+<hr />
+</div>
+</div>
+<div id="parte-7-desafio-final" class="section level2 unnumbered">
+<h2 class="unnumbered">Parte 7 — Desafio Final</h2>
+<p>Crie uma função chamada <code>gerarRelatorio</code>.</p>
+<p>Ela deve retornar um objeto contendo:</p>
+<pre><code>{
+ totalUsuarios: X,
+ usuariosAtivos: X,
+ usuariosInativos: X,
+ mediaIdade: X,
+ maiorComprador: &quot;nome&quot;
+}</code></pre>
+<p>Utilize <strong>arrow functions sempre que possível</strong>.</p>
+<p>Exemplo de saída:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a>{</span>
+<span id="cb35-2"><a href="#cb35-2" tabindex="-1"></a> <span class="dt">totalUsuarios</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span></span>
+<span id="cb35-3"><a href="#cb35-3" tabindex="-1"></a> <span class="dt">usuariosAtivos</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span></span>
+<span id="cb35-4"><a href="#cb35-4" tabindex="-1"></a> <span class="dt">usuariosInativos</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb35-5"><a href="#cb35-5" tabindex="-1"></a> <span class="dt">mediaIdade</span><span class="op">:</span> <span class="fl">21.8</span><span class="op">,</span></span>
+<span id="cb35-6"><a href="#cb35-6" tabindex="-1"></a> <span class="dt">maiorComprador</span><span class="op">:</span> <span class="st">&quot;Carlos&quot;</span></span>
+<span id="cb35-7"><a href="#cb35-7" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+</div>
+<div id="regras-do-desafio" class="section level2 unnumbered">
+<h2 class="unnumbered">Regras do Desafio</h2>
+<ul>
+<li>Utilize <strong>arrow functions sempre que possível</strong></li>
+<li>Utilize <strong>arrays e objetos</strong></li>
+<li>Utilize <strong>console.log para exibir os resultados</strong></li>
+<li>Não utilizar bibliotecas externas</li>
+</ul>
+<hr />
+</div>
+<div id="desafio-extra-para-quem-terminar-antes" class="section level2 unnumbered">
+<h2 class="unnumbered">Desafio Extra (para quem terminar antes)</h2>
+<p>Implemente uma função que retorne:</p>
+<ul>
+<li>o <strong>usuário mais jovem</strong></li>
+<li>o <strong>usuário mais velho</strong></li>
+<li>o <strong>valor médio das compras por usuário</strong></li>
+</ul>
+<p>Utilizando <strong>arrow functions e métodos de array</strong>.</p>
+<hr />
+<!--chapter:end:02-aula2_conteudo.Rmd-->
+</div>
+</div>
+<div id="arrow-functions-em-javascript" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Arrow Functions em JavaScript</h1>
+<p>As <strong>Arrow Functions</strong> são uma forma mais concisa de declarar funções em JavaScript.<br />
+Elas foram introduzidas no <strong>ECMAScript 6 (ES6)</strong> e são amplamente utilizadas em aplicações modernas, especialmente em projetos <strong>Node.js</strong>.</p>
+<p>Seu principal objetivo é:</p>
+<ul>
+<li>reduzir a verbosidade da sintaxe</li>
+<li>tornar funções mais expressivas</li>
+<li>facilitar o uso de funções como argumentos (callbacks)</li>
+<li>preservar o contexto de <code>this</code></li>
+</ul>
+<hr />
+<div id="funções-tradicionais-em-javascript" class="section level2 unnumbered">
+<h2 class="unnumbered">Funções tradicionais em JavaScript</h2>
+<p>Antes do ES6, a forma mais comum de declarar funções era:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">soma</span>(a<span class="op">,</span> b) {</span>
+<span id="cb36-2"><a href="#cb36-2" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></span>
+<span id="cb36-3"><a href="#cb36-3" tabindex="-1"></a>}</span></code></pre></div>
+<p>Uso:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">soma</span>(<span class="dv">2</span><span class="op">,</span><span class="dv">3</span>))<span class="op">;</span></span></code></pre></div>
+<p>Esse modelo é muito semelhante ao que encontramos em linguagens como <strong>C, Java ou C#</strong>.</p>
+<div id="comparação" class="section level3 unnumbered">
+<h3 class="unnumbered">Comparação</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Linguagem</th>
+<th>Função</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C</td>
+<td><code>int soma(int a, int b)</code></td>
+</tr>
+<tr class="even">
+<td>Java</td>
+<td><code>int soma(int a, int b)</code></td>
+</tr>
+<tr class="odd">
+<td>JavaScript</td>
+<td><code>function soma(a,b)</code></td>
+</tr>
+</tbody>
+</table>
+<p>A diferença principal é que <strong>JavaScript não exige declaração de tipo</strong>.</p>
+<hr />
+</div>
+</div>
+<div id="arrow-functions-sintaxe-básica" class="section level2 unnumbered">
+<h2 class="unnumbered">2. Arrow Functions — Sintaxe Básica</h2>
+<p>A mesma função pode ser escrita usando <strong>Arrow Function</strong>:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb38-1"><a href="#cb38-1" tabindex="-1"></a><span class="kw">const</span> soma <span class="op">=</span> (a<span class="op">,</span> b) <span class="kw">=&gt;</span> {</span>
+<span id="cb38-2"><a href="#cb38-2" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></span>
+<span id="cb38-3"><a href="#cb38-3" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<p>Uso:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">soma</span>(<span class="dv">2</span><span class="op">,</span><span class="dv">3</span>))<span class="op">;</span></span></code></pre></div>
+<p>Componentes da sintaxe:</p>
+<pre><code>(parametros) =&gt; { corpo da função }</code></pre>
+<hr />
+</div>
+</div>
+<div id="versão-simplificada" class="section level1 unnumbered">
+<h1 class="unnumbered">3. Versão simplificada</h1>
+<p>Quando a função possui <strong>apenas uma expressão</strong>, o <code>return</code> pode ser omitido:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a><span class="kw">const</span> soma <span class="op">=</span> (a<span class="op">,</span> b) <span class="kw">=&gt;</span> a <span class="op">+</span> b<span class="op">;</span></span></code></pre></div>
+<p>Esse estilo é muito comum em <strong>Node.js</strong>, especialmente em:</p>
+<ul>
+<li>callbacks</li>
+<li>manipulação de arrays</li>
+<li>APIs assíncronas</li>
+</ul>
+<hr />
+</div>
+<div id="arrow-function-com-um-único-parâmetro" class="section level1 unnumbered">
+<h1 class="unnumbered">4. Arrow Function com um único parâmetro</h1>
+<p>Quando há apenas <strong>um parâmetro</strong>, os parênteses podem ser omitidos:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a><span class="kw">const</span> quadrado <span class="op">=</span> x <span class="kw">=&gt;</span> x <span class="op">*</span> x<span class="op">;</span></span>
+<span id="cb42-2"><a href="#cb42-2" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">quadrado</span>(<span class="dv">5</span>))<span class="op">;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="comparação-com-outras-linguagens" class="section level1 unnumbered">
+<h1 class="unnumbered">5. Comparação com outras linguagens</h1>
+<p>As arrow functions possuem semelhanças com <strong>lambda expressions</strong> presentes em outras linguagens.</p>
+<div id="java" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Java</h2>
+<div class="sourceCode" id="cb43"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a><span class="op">(</span>a<span class="op">,</span> b<span class="op">)</span> <span class="op">-&gt;</span> a <span class="op">+</span> b</span></code></pre></div>
+<p>Usado com interfaces funcionais.</p>
+<hr />
+</div>
+<div id="c" class="section level2 unnumbered">
+<h2 class="unnumbered">C</h2>
+<div class="sourceCode" id="cb44"><pre class="sourceCode csharp"><code class="sourceCode cs"><span id="cb44-1"><a href="#cb44-1" tabindex="-1"></a><span class="op">(</span>a<span class="op">,</span> b<span class="op">)</span> <span class="op">=&gt;</span> a <span class="op">+</span> b</span></code></pre></div>
+<p>Muito utilizado com LINQ.</p>
+<hr />
+</div>
+<div id="python" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Python</h2>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a><span class="kw">lambda</span> a, b: a <span class="op">+</span> b</span></code></pre></div>
+<p>Funções anônimas simples.</p>
+<hr />
+</div>
+<div id="javascript" class="section level2 unnumbered">
+<h2 class="unnumbered">JavaScript</h2>
+<div class="sourceCode" id="cb46"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a>(a<span class="op">,</span> b) <span class="kw">=&gt;</span> a <span class="op">+</span> b</span></code></pre></div>
+<p>JavaScript permite usar arrow functions <strong>como qualquer outra função</strong>, inclusive armazenando em variáveis.</p>
+<hr />
+</div>
+<div id="uso-com-arrays-muito-comum-em-node.js" class="section level2 unnumbered">
+<h2 class="unnumbered">6. Uso com arrays (muito comum em Node.js)</h2>
+<p>Arrow functions aparecem frequentemente em métodos de arrays.</p>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a><span class="kw">let</span> numeros <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">5</span>]<span class="op">;</span></span>
+<span id="cb47-2"><a href="#cb47-2" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" tabindex="-1"></a><span class="kw">let</span> dobrados <span class="op">=</span> numeros<span class="op">.</span><span class="fu">map</span>(n <span class="kw">=&gt;</span> n <span class="op">*</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb47-4"><a href="#cb47-4" tabindex="-1"></a></span>
+<span id="cb47-5"><a href="#cb47-5" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(dobrados)<span class="op">;</span></span></code></pre></div>
+<p>Equivalente com função tradicional:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb48-1"><a href="#cb48-1" tabindex="-1"></a><span class="kw">let</span> dobrados <span class="op">=</span> numeros<span class="op">.</span><span class="fu">map</span>(<span class="kw">function</span>(n){</span>
+<span id="cb48-2"><a href="#cb48-2" tabindex="-1"></a>    <span class="cf">return</span> n <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb48-3"><a href="#cb48-3" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p>A arrow function reduz bastante a quantidade de código.</p>
+<hr />
+</div>
+<div id="arrow-functions-e-o-comportamento-de-this" class="section level2 unnumbered">
+<h2 class="unnumbered">7. Arrow Functions e o comportamento de <code>this</code></h2>
+<p>Uma das diferenças mais importantes entre <strong>funções tradicionais</strong> e <strong>arrow functions</strong> é o comportamento de <code>this</code>.</p>
+<div id="função-tradicional-1" class="section level3 unnumbered">
+<h3 class="unnumbered">Função tradicional</h3>
+<p>O valor de <code>this</code> depende de <strong>como a função é chamada</strong>.</p>
+</div>
+<div id="arrow-function-1" class="section level3 unnumbered">
+<h3 class="unnumbered">Arrow Function</h3>
+<p>A arrow function <strong>não cria seu próprio <code>this</code></strong>.
+Ela utiliza o <code>this</code> do <strong>escopo onde foi definida</strong>.</p>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb49-1"><a href="#cb49-1" tabindex="-1"></a><span class="kw">const</span> pessoa <span class="op">=</span> {</span>
+<span id="cb49-2"><a href="#cb49-2" tabindex="-1"></a>    <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Ana&quot;</span><span class="op">,</span></span>
+<span id="cb49-3"><a href="#cb49-3" tabindex="-1"></a>    <span class="dt">falar</span><span class="op">:</span> <span class="kw">function</span>(){</span>
+<span id="cb49-4"><a href="#cb49-4" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">this</span><span class="op">.</span><span class="at">nome</span>)<span class="op">;</span></span>
+<span id="cb49-5"><a href="#cb49-5" tabindex="-1"></a>    }</span>
+<span id="cb49-6"><a href="#cb49-6" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb49-7"><a href="#cb49-7" tabindex="-1"></a></span>
+<span id="cb49-8"><a href="#cb49-8" tabindex="-1"></a>pessoa<span class="op">.</span><span class="fu">falar</span>()<span class="op">;</span></span></code></pre></div>
+<p>Agora usando arrow function:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb50-1"><a href="#cb50-1" tabindex="-1"></a><span class="kw">const</span> pessoa <span class="op">=</span> {</span>
+<span id="cb50-2"><a href="#cb50-2" tabindex="-1"></a>    <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Ana&quot;</span><span class="op">,</span></span>
+<span id="cb50-3"><a href="#cb50-3" tabindex="-1"></a>    <span class="dt">falar</span><span class="op">:</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb50-4"><a href="#cb50-4" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">this</span><span class="op">.</span><span class="at">nome</span>)<span class="op">;</span></span>
+<span id="cb50-5"><a href="#cb50-5" tabindex="-1"></a>    }</span>
+<span id="cb50-6"><a href="#cb50-6" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<p>Nesse caso, <code>this</code> não se refere ao objeto <code>pessoa</code>.</p>
+<p>Por isso:</p>
+<p>⚠ <strong>Arrow functions não devem ser usadas como métodos de objetos.</strong></p>
+<hr />
+</div>
+</div>
+<div id="quando-usar-arrow-functions" class="section level2 unnumbered">
+<h2 class="unnumbered">8. Quando usar Arrow Functions</h2>
+<p>Arrow functions são ideais para:</p>
+<ul>
+<li>callbacks</li>
+<li>funções pequenas</li>
+<li>operações em arrays</li>
+<li>programação funcional</li>
+<li>manipulação de promessas</li>
+<li>código assíncrono</li>
+</ul>
+<p>Exemplo comum em Node.js:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb51-1"><a href="#cb51-1" tabindex="-1"></a><span class="pp">setTimeout</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb51-2"><a href="#cb51-2" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Executado após 2 segundos&quot;</span>)<span class="op">;</span></span>
+<span id="cb51-3"><a href="#cb51-3" tabindex="-1"></a>}<span class="op">,</span> <span class="dv">2000</span>)<span class="op">;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="quando-não-usar-arrow-functions" class="section level2 unnumbered">
+<h2 class="unnumbered">9. Quando NÃO usar Arrow Functions</h2>
+<p>Evite usar arrow functions em:</p>
+<ul>
+<li>métodos de objetos</li>
+<li>construtores</li>
+<li>quando precisar de <code>this</code> dinâmico</li>
+</ul>
+<p>Exemplo incorreto:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb52-1"><a href="#cb52-1" tabindex="-1"></a><span class="kw">const</span> Usuario <span class="op">=</span> (nome) <span class="kw">=&gt;</span> {</span>
+<span id="cb52-2"><a href="#cb52-2" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">nome</span> <span class="op">=</span> nome<span class="op">;</span></span>
+<span id="cb52-3"><a href="#cb52-3" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<p>Arrow functions <strong>não funcionam como construtores</strong>.</p>
+<hr />
+</div>
+<div id="resumo" class="section level2 unnumbered">
+<h2 class="unnumbered">10. Resumo</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Característica</th>
+<th>Função tradicional</th>
+<th>Arrow Function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sintaxe curta</td>
+<td>❌</td>
+<td>✔</td>
+</tr>
+<tr class="even">
+<td>Suporte a <code>this</code> próprio</td>
+<td>✔</td>
+<td>❌</td>
+</tr>
+<tr class="odd">
+<td>Boa para callbacks</td>
+<td>✔</td>
+<td>✔✔</td>
+</tr>
+<tr class="even">
+<td>Pode ser construtor</td>
+<td>✔</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="conclusão" class="section level2 unnumbered">
+<h2 class="unnumbered">Conclusão</h2>
+<p>Arrow functions são uma ferramenta essencial no desenvolvimento moderno com JavaScript e Node.js.
+Elas permitem escrever código mais conciso e legível, especialmente em cenários com <strong>callbacks, manipulação de dados e programação assíncrona</strong>.</p>
+<!--chapter:end:02-aula2_function.Rmd-->
+</div>
+</div>
+<div id="cross" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Cross-references</h1>
+<p>Cross-references make it easier for your readers to find and link to elements in your book.</p>
+<div id="chapters-and-sub-chapters" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Chapters and sub-chapters</h2>
+<p>There are two steps to cross-reference any heading:</p>
+<ol style="list-style-type: decimal">
+<li>Label the heading: <code># Hello world {#nice-label}</code>.
+<ul>
+<li>Leave the label off if you like the automated heading generated based on your heading title: for example, <code># Hello world</code> = <code># Hello world {#hello-world}</code>.</li>
+<li>To label an un-numbered heading, use: <code># Hello world {-#nice-label}</code> or <code>{# Hello world .unnumbered}</code>.</li>
+</ul></li>
+<li>Next, reference the labeled heading anywhere in the text using <code>\@ref(nice-label)</code>; for example, please see Chapter @ref(cross).
+<ul>
+<li>If you prefer text as the link instead of a numbered reference use: <a href="#cross">any text you want can go here</a>.</li>
+</ul></li>
+</ol>
+</div>
+<div id="captioned-figures-and-tables" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Captioned figures and tables</h2>
+<p>Figures and tables <em>with captions</em> can also be cross-referenced from elsewhere in your book using <code>\@ref(fig:chunk-label)</code> and <code>\@ref(tab:chunk-label)</code>, respectively.</p>
+<p>See Figure @ref(fig:nice-fig).</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))</span>
+<span id="cb53-2"><a href="#cb53-2" tabindex="-1"></a><span class="fu">plot</span>(pressure, <span class="at">type =</span> <span class="st">&#39;b&#39;</span>, <span class="at">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<img src="02-cross-refs_files/figure-html/nice-fig-1.png" alt="Plot with connected points showing that vapor pressure of mercury increases exponentially as temperature increases." width="80%" />
+<p class="caption">
+(#fig:nice-fig)Here is a nice figure!
+</p>
+</div>
+<p>Don’t miss Table @ref(tab:nice-tab).</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb54-2"><a href="#cb54-2" tabindex="-1"></a>  <span class="fu">head</span>(pressure, <span class="dv">10</span>), <span class="at">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</span>
+<span id="cb54-3"><a href="#cb54-3" tabindex="-1"></a>  <span class="at">booktabs =</span> <span class="cn">TRUE</span></span>
+<span id="cb54-4"><a href="#cb54-4" tabindex="-1"></a>)</span></code></pre></div>
+<table>
+<caption>(#tab:nice-tab)Here is a nice table!</caption>
+<thead>
+<tr class="header">
+<th align="right">temperature</th>
+<th align="right">pressure</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">0.0002</td>
+</tr>
+<tr class="even">
+<td align="right">20</td>
+<td align="right">0.0012</td>
+</tr>
+<tr class="odd">
+<td align="right">40</td>
+<td align="right">0.0060</td>
+</tr>
+<tr class="even">
+<td align="right">60</td>
+<td align="right">0.0300</td>
+</tr>
+<tr class="odd">
+<td align="right">80</td>
+<td align="right">0.0900</td>
+</tr>
+<tr class="even">
+<td align="right">100</td>
+<td align="right">0.2700</td>
+</tr>
+<tr class="odd">
+<td align="right">120</td>
+<td align="right">0.7500</td>
+</tr>
+<tr class="even">
+<td align="right">140</td>
+<td align="right">1.8500</td>
+</tr>
+<tr class="odd">
+<td align="right">160</td>
+<td align="right">4.2000</td>
+</tr>
+<tr class="even">
+<td align="right">180</td>
+<td align="right">8.8000</td>
+</tr>
+</tbody>
+</table>
+<!--chapter:end:02-cross-refs.Rmd-->
+</div>
+</div>
+<div id="javascript-e-orientação-a-objetos" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Javascript e Orientação a Objetos</h1>
+<div id="hash-tables-tabelas-de-hash" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Hash Tables (Tabelas de Hash)</h2>
+<p>Em JavaScript, não existe uma estrutura chamada explicitamente “hash table” como em outras linguagens (ex: <code>HashMap</code> em Java). No entanto, <strong>objetos (<code>Object</code>) e estruturas como <code>Map</code></strong> implementam esse conceito internamente.</p>
+<p>Uma hash table é uma estrutura que armazena pares <strong>chave → valor</strong>, permitindo acesso eficiente.</p>
+<div id="uso-com-object" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Uso com Object</h3>
+<div class="sourceCode" id="cb55"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb55-1"><a href="#cb55-1" tabindex="-1"></a><span class="kw">const</span> usuario <span class="op">=</span> {</span>
+<span id="cb55-2"><a href="#cb55-2" tabindex="-1"></a>  <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Ana&quot;</span><span class="op">,</span></span>
+<span id="cb55-3"><a href="#cb55-3" tabindex="-1"></a>  <span class="dt">idade</span><span class="op">:</span> <span class="dv">25</span></span>
+<span id="cb55-4"><a href="#cb55-4" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="leitura" class="section level3" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Leitura</h3>
+<div class="sourceCode" id="cb56"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb56-1"><a href="#cb56-1" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(usuario<span class="op">.</span><span class="at">nome</span>)<span class="op">;</span></span>
+<span id="cb56-2"><a href="#cb56-2" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(usuario[<span class="st">&quot;idade&quot;</span>])<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="inserção-e-atualização" class="section level3" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> Inserção e atualização</h3>
+<div class="sourceCode" id="cb57"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb57-1"><a href="#cb57-1" tabindex="-1"></a>usuario<span class="op">.</span><span class="at">email</span> <span class="op">=</span> <span class="st">&quot;ana@email.com&quot;</span><span class="op">;</span></span>
+<span id="cb57-2"><a href="#cb57-2" tabindex="-1"></a>usuario<span class="op">.</span><span class="at">idade</span> <span class="op">=</span> <span class="dv">26</span><span class="op">;</span></span></code></pre></div>
+</div>
+<div id="uso-com-map-mais-moderno" class="section level3" number="6.1.4">
+<h3><span class="header-section-number">6.1.4</span> Uso com Map (mais moderno)</h3>
+<div class="sourceCode" id="cb58"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb58-1"><a href="#cb58-1" tabindex="-1"></a><span class="kw">const</span> mapa <span class="op">=</span> <span class="kw">new</span> <span class="bu">Map</span>()<span class="op">;</span></span>
+<span id="cb58-2"><a href="#cb58-2" tabindex="-1"></a></span>
+<span id="cb58-3"><a href="#cb58-3" tabindex="-1"></a>mapa<span class="op">.</span><span class="fu">set</span>(<span class="st">&quot;nome&quot;</span><span class="op">,</span> <span class="st">&quot;Carlos&quot;</span>)<span class="op">;</span></span>
+<span id="cb58-4"><a href="#cb58-4" tabindex="-1"></a>mapa<span class="op">.</span><span class="fu">set</span>(<span class="st">&quot;idade&quot;</span><span class="op">,</span> <span class="dv">30</span>)<span class="op">;</span></span>
+<span id="cb58-5"><a href="#cb58-5" tabindex="-1"></a></span>
+<span id="cb58-6"><a href="#cb58-6" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(mapa<span class="op">.</span><span class="fu">get</span>(<span class="st">&quot;nome&quot;</span>))<span class="op">;</span></span></code></pre></div>
+<p>📌 Segundo a documentação do MDN, <code>Map</code> é recomendado quando:</p>
+<ul>
+<li>as chaves não são apenas strings</li>
+<li>há necessidade de melhor controle de iteração</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="classes-e-objetos" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Classes e Objetos</h2>
+<p>JavaScript é uma linguagem baseada em protótipos, mas a partir do ES6 introduziu a sintaxe de <strong>classes</strong>, que facilita o uso de conceitos de orientação a objetos.</p>
+<div id="declaração-de-classe" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Declaração de Classe</h3>
+<div class="sourceCode" id="cb59"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb59-1"><a href="#cb59-1" tabindex="-1"></a><span class="kw">class</span> Pessoa {</span>
+<span id="cb59-2"><a href="#cb59-2" tabindex="-1"></a>  <span class="fu">constructor</span>(nome<span class="op">,</span> idade) {</span>
+<span id="cb59-3"><a href="#cb59-3" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">nome</span> <span class="op">=</span> nome<span class="op">;</span></span>
+<span id="cb59-4"><a href="#cb59-4" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">idade</span> <span class="op">=</span> idade<span class="op">;</span></span>
+<span id="cb59-5"><a href="#cb59-5" tabindex="-1"></a>  }</span>
+<span id="cb59-6"><a href="#cb59-6" tabindex="-1"></a></span>
+<span id="cb59-7"><a href="#cb59-7" tabindex="-1"></a>  <span class="fu">apresentar</span>() {</span>
+<span id="cb59-8"><a href="#cb59-8" tabindex="-1"></a>    <span class="cf">return</span> <span class="vs">`Olá, meu nome é </span><span class="sc">${</span><span class="kw">this</span><span class="op">.</span><span class="at">nome</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb59-9"><a href="#cb59-9" tabindex="-1"></a>  }</span>
+<span id="cb59-10"><a href="#cb59-10" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="instanciação" class="section level3" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Instanciação</h3>
+<div class="sourceCode" id="cb60"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb60-1"><a href="#cb60-1" tabindex="-1"></a><span class="kw">const</span> p1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Pessoa</span>(<span class="st">&quot;Ana&quot;</span><span class="op">,</span> <span class="dv">25</span>)<span class="op">;</span></span>
+<span id="cb60-2"><a href="#cb60-2" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(p1<span class="op">.</span><span class="fu">apresentar</span>())<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="leitura-de-atributos" class="section level3" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Leitura de atributos</h3>
+<div class="sourceCode" id="cb61"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb61-1"><a href="#cb61-1" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(p1<span class="op">.</span><span class="at">nome</span>)<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="observação" class="section level3" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> Observação</h3>
+<p>Apesar da sintaxe de classe, o JavaScript continua sendo baseado em <strong>protótipos</strong> (MDN).</p>
+<hr />
+</div>
+</div>
+<div id="criação-de-objetos" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Criação de Objetos</h2>
+<p>Objetos são estruturas fundamentais em JavaScript, representando coleções de pares chave-valor.</p>
+<div id="forma-literal-mais-comum" class="section level3" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Forma literal (mais comum)</h3>
+<div class="sourceCode" id="cb62"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb62-1"><a href="#cb62-1" tabindex="-1"></a><span class="kw">const</span> carro <span class="op">=</span> {</span>
+<span id="cb62-2"><a href="#cb62-2" tabindex="-1"></a>  <span class="dt">marca</span><span class="op">:</span> <span class="st">&quot;Toyota&quot;</span><span class="op">,</span></span>
+<span id="cb62-3"><a href="#cb62-3" tabindex="-1"></a>  <span class="dt">modelo</span><span class="op">:</span> <span class="st">&quot;Corolla&quot;</span><span class="op">,</span></span>
+<span id="cb62-4"><a href="#cb62-4" tabindex="-1"></a>  <span class="dt">ano</span><span class="op">:</span> <span class="dv">2020</span></span>
+<span id="cb62-5"><a href="#cb62-5" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="acesso" class="section level3" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Acesso</h3>
+<div class="sourceCode" id="cb63"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb63-1"><a href="#cb63-1" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(carro<span class="op">.</span><span class="at">marca</span>)<span class="op">;</span></span>
+<span id="cb63-2"><a href="#cb63-2" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(carro[<span class="st">&quot;modelo&quot;</span>])<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="método-dentro-do-objeto" class="section level3" number="6.3.3">
+<h3><span class="header-section-number">6.3.3</span> Método dentro do objeto</h3>
+<div class="sourceCode" id="cb64"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb64-1"><a href="#cb64-1" tabindex="-1"></a><span class="kw">const</span> pessoa <span class="op">=</span> {</span>
+<span id="cb64-2"><a href="#cb64-2" tabindex="-1"></a>  <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Ana&quot;</span><span class="op">,</span></span>
+<span id="cb64-3"><a href="#cb64-3" tabindex="-1"></a>  <span class="fu">falar</span>() {</span>
+<span id="cb64-4"><a href="#cb64-4" tabindex="-1"></a>    <span class="cf">return</span> <span class="vs">`Oi, sou </span><span class="sc">${</span><span class="kw">this</span><span class="op">.</span><span class="at">nome</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb64-5"><a href="#cb64-5" tabindex="-1"></a>  }</span>
+<span id="cb64-6"><a href="#cb64-6" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb64-7"><a href="#cb64-7" tabindex="-1"></a></span>
+<span id="cb64-8"><a href="#cb64-8" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(pessoa<span class="op">.</span><span class="fu">falar</span>())<span class="op">;</span></span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="programação-funcional" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Programação Funcional</h2>
+<p>JavaScript possui forte suporte à programação funcional, permitindo tratar funções como <strong>valores de primeira classe</strong>.</p>
+<p>Isso significa que funções podem:</p>
+<ul>
+<li>ser armazenadas em variáveis</li>
+<li>ser passadas como argumento</li>
+<li>ser retornadas por outras funções</li>
+</ul>
+<div id="exemplo" class="section level3" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Exemplo</h3>
+<div class="sourceCode" id="cb65"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb65-1"><a href="#cb65-1" tabindex="-1"></a><span class="kw">const</span> soma <span class="op">=</span> (a<span class="op">,</span> b) <span class="kw">=&gt;</span> a <span class="op">+</span> b<span class="op">;</span></span>
+<span id="cb65-2"><a href="#cb65-2" tabindex="-1"></a></span>
+<span id="cb65-3"><a href="#cb65-3" tabindex="-1"></a><span class="kw">function</span> <span class="fu">executar</span>(funcao<span class="op">,</span> a<span class="op">,</span> b) {</span>
+<span id="cb65-4"><a href="#cb65-4" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">funcao</span>(a<span class="op">,</span> b)<span class="op">;</span></span>
+<span id="cb65-5"><a href="#cb65-5" tabindex="-1"></a>}</span>
+<span id="cb65-6"><a href="#cb65-6" tabindex="-1"></a></span>
+<span id="cb65-7"><a href="#cb65-7" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">executar</span>(soma<span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>))<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="funções-puras" class="section level3" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> Funções puras</h3>
+<p>Funções que:</p>
+<ul>
+<li>não alteram estado externo</li>
+<li>sempre retornam o mesmo resultado para a mesma entrada</li>
+</ul>
+<div class="sourceCode" id="cb66"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb66-1"><a href="#cb66-1" tabindex="-1"></a><span class="kw">const</span> dobro <span class="op">=</span> x <span class="kw">=&gt;</span> x <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span></code></pre></div>
+<p>📌 Segundo MDN, programação funcional melhora:</p>
+<ul>
+<li>legibilidade</li>
+<li>reutilização</li>
+<li>previsibilidade do código</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="var-let-e-const" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> var, let e const</h2>
+<p>JavaScript possui três formas principais de declarar variáveis.</p>
+<div id="var" class="section level3" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> var</h3>
+<ul>
+<li>escopo de função</li>
+<li>permite reatribuição</li>
+<li>permite redeclaração</li>
+</ul>
+<div class="sourceCode" id="cb67"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb67-1"><a href="#cb67-1" tabindex="-1"></a><span class="kw">var</span> x <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb67-2"><a href="#cb67-2" tabindex="-1"></a><span class="kw">var</span> x <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="let" class="section level3" number="6.5.2">
+<h3><span class="header-section-number">6.5.2</span> let</h3>
+<ul>
+<li>escopo de bloco (<code>{}</code>)</li>
+<li>permite reatribuição</li>
+<li>não permite redeclaração no mesmo escopo</li>
+</ul>
+<div class="sourceCode" id="cb68"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb68-1"><a href="#cb68-1" tabindex="-1"></a><span class="kw">let</span> y <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb68-2"><a href="#cb68-2" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="const" class="section level3" number="6.5.3">
+<h3><span class="header-section-number">6.5.3</span> const</h3>
+<ul>
+<li>escopo de bloco</li>
+<li>não permite reatribuição</li>
+<li>deve ser inicializada na declaração</li>
+</ul>
+<div class="sourceCode" id="cb69"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb69-1"><a href="#cb69-1" tabindex="-1"></a><span class="kw">const</span> z <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span></code></pre></div>
+<p>⚠ Importante:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb70-1"><a href="#cb70-1" tabindex="-1"></a><span class="kw">const</span> obj <span class="op">=</span> { <span class="dt">nome</span><span class="op">:</span> <span class="st">&quot;Ana&quot;</span> }<span class="op">;</span></span>
+<span id="cb70-2"><a href="#cb70-2" tabindex="-1"></a>obj<span class="op">.</span><span class="at">nome</span> <span class="op">=</span> <span class="st">&quot;Maria&quot;</span><span class="op">;</span> <span class="co">// permitido</span></span></code></pre></div>
+<p>O que é constante é a <strong>referência</strong>, não o conteúdo.</p>
+<p>📌 Boas práticas (MDN / W3Schools):</p>
+<ul>
+<li>usar <code>const</code> por padrão</li>
+<li>usar <code>let</code> quando houver reatribuição</li>
+<li>evitar <code>var</code></li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="map" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> map()</h2>
+<p>O método <code>map()</code> cria um <strong>novo array</strong> transformando os elementos do array original.</p>
+<div id="exemplo-1" class="section level3" number="6.6.1">
+<h3><span class="header-section-number">6.6.1</span> Exemplo</h3>
+<div class="sourceCode" id="cb71"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb71-1"><a href="#cb71-1" tabindex="-1"></a><span class="kw">const</span> numeros <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">;</span></span>
+<span id="cb71-2"><a href="#cb71-2" tabindex="-1"></a></span>
+<span id="cb71-3"><a href="#cb71-3" tabindex="-1"></a><span class="kw">const</span> dobrados <span class="op">=</span> numeros<span class="op">.</span><span class="fu">map</span>(n <span class="kw">=&gt;</span> n <span class="op">*</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb71-4"><a href="#cb71-4" tabindex="-1"></a></span>
+<span id="cb71-5"><a href="#cb71-5" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(dobrados)<span class="op">;</span> <span class="co">// [2, 4, 6]</span></span></code></pre></div>
+</div>
+<div id="características" class="section level3" number="6.6.2">
+<h3><span class="header-section-number">6.6.2</span> Características</h3>
+<ul>
+<li>não altera o array original</li>
+<li>retorna um novo array</li>
+<li>muito usado em programação funcional</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="filter" class="section level2" number="6.7">
+<h2><span class="header-section-number">6.7</span> filter()</h2>
+<p>O método <code>filter()</code> retorna um novo array contendo apenas os elementos que atendem a uma condição.</p>
+<div id="exemplo-2" class="section level3" number="6.7.1">
+<h3><span class="header-section-number">6.7.1</span> Exemplo</h3>
+<div class="sourceCode" id="cb72"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb72-1"><a href="#cb72-1" tabindex="-1"></a><span class="kw">const</span> numeros <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">;</span></span>
+<span id="cb72-2"><a href="#cb72-2" tabindex="-1"></a></span>
+<span id="cb72-3"><a href="#cb72-3" tabindex="-1"></a><span class="kw">const</span> pares <span class="op">=</span> numeros<span class="op">.</span><span class="fu">filter</span>(n <span class="kw">=&gt;</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb72-4"><a href="#cb72-4" tabindex="-1"></a></span>
+<span id="cb72-5"><a href="#cb72-5" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(pares)<span class="op">;</span> <span class="co">// [2, 4]</span></span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="reduce" class="section level2" number="6.8">
+<h2><span class="header-section-number">6.8</span> reduce()</h2>
+<p>O método <code>reduce()</code> reduz um array a um único valor.</p>
+<div id="exemplo-3" class="section level3" number="6.8.1">
+<h3><span class="header-section-number">6.8.1</span> Exemplo</h3>
+<div class="sourceCode" id="cb73"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb73-1"><a href="#cb73-1" tabindex="-1"></a><span class="kw">const</span> numeros <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>]<span class="op">;</span></span>
+<span id="cb73-2"><a href="#cb73-2" tabindex="-1"></a></span>
+<span id="cb73-3"><a href="#cb73-3" tabindex="-1"></a><span class="kw">const</span> soma <span class="op">=</span> numeros<span class="op">.</span><span class="fu">reduce</span>((acumulador<span class="op">,</span> valor) <span class="kw">=&gt;</span> {</span>
+<span id="cb73-4"><a href="#cb73-4" tabindex="-1"></a>  <span class="cf">return</span> acumulador <span class="op">+</span> valor<span class="op">;</span></span>
+<span id="cb73-5"><a href="#cb73-5" tabindex="-1"></a>}<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb73-6"><a href="#cb73-6" tabindex="-1"></a></span>
+<span id="cb73-7"><a href="#cb73-7" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(soma)<span class="op">;</span> <span class="co">// 10</span></span></code></pre></div>
+</div>
+<div id="forma-simplificada" class="section level3" number="6.8.2">
+<h3><span class="header-section-number">6.8.2</span> Forma simplificada</h3>
+<div class="sourceCode" id="cb74"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb74-1"><a href="#cb74-1" tabindex="-1"></a><span class="kw">const</span> soma <span class="op">=</span> numeros<span class="op">.</span><span class="fu">reduce</span>((acc<span class="op">,</span> v) <span class="kw">=&gt;</span> acc <span class="op">+</span> v<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="integração-map-filter-reduce" class="section level2" number="6.9">
+<h2><span class="header-section-number">6.9</span> Integração: map + filter + reduce</h2>
+<p>Muito comum em Node.js e aplicações modernas:</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb75-1"><a href="#cb75-1" tabindex="-1"></a><span class="kw">const</span> numeros <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">5</span><span class="op">,</span><span class="dv">6</span>]<span class="op">;</span></span>
+<span id="cb75-2"><a href="#cb75-2" tabindex="-1"></a></span>
+<span id="cb75-3"><a href="#cb75-3" tabindex="-1"></a><span class="kw">const</span> resultado <span class="op">=</span> numeros</span>
+<span id="cb75-4"><a href="#cb75-4" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filter</span>(n <span class="kw">=&gt;</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">0</span>)</span>
+<span id="cb75-5"><a href="#cb75-5" tabindex="-1"></a>  <span class="op">.</span><span class="fu">map</span>(n <span class="kw">=&gt;</span> n <span class="op">*</span> <span class="dv">2</span>)</span>
+<span id="cb75-6"><a href="#cb75-6" tabindex="-1"></a>  <span class="op">.</span><span class="fu">reduce</span>((acc<span class="op">,</span> n) <span class="kw">=&gt;</span> acc <span class="op">+</span> n<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb75-7"><a href="#cb75-7" tabindex="-1"></a></span>
+<span id="cb75-8"><a href="#cb75-8" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(resultado)<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="atividade-em-sala-processamento-funcional-de-dados-em-node.js" class="section level2" number="6.10">
+<h2><span class="header-section-number">6.10</span> Atividade em Sala — Processamento Funcional de Dados em Node.js</h2>
+<div id="cenário" class="section level3" number="6.10.1">
+<h3><span class="header-section-number">6.10.1</span> Cenário</h3>
+<p>Você está desenvolvendo um módulo de backend que processa dados de pedidos de um sistema de e-commerce.</p>
+<p>Considere o seguinte conjunto de dados:</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb76-1"><a href="#cb76-1" tabindex="-1"></a><span class="kw">const</span> pedidos <span class="op">=</span> [</span>
+<span id="cb76-2"><a href="#cb76-2" tabindex="-1"></a>  { <span class="dt">id</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">cliente</span><span class="op">:</span> <span class="st">&quot;Ana&quot;</span><span class="op">,</span> <span class="dt">total</span><span class="op">:</span> <span class="dv">120</span><span class="op">,</span> <span class="dt">status</span><span class="op">:</span> <span class="st">&quot;aprovado&quot;</span> }<span class="op">,</span></span>
+<span id="cb76-3"><a href="#cb76-3" tabindex="-1"></a>  { <span class="dt">id</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">cliente</span><span class="op">:</span> <span class="st">&quot;Bruno&quot;</span><span class="op">,</span> <span class="dt">total</span><span class="op">:</span> <span class="dv">80</span><span class="op">,</span> <span class="dt">status</span><span class="op">:</span> <span class="st">&quot;pendente&quot;</span> }<span class="op">,</span></span>
+<span id="cb76-4"><a href="#cb76-4" tabindex="-1"></a>  { <span class="dt">id</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">cliente</span><span class="op">:</span> <span class="st">&quot;Ana&quot;</span><span class="op">,</span> <span class="dt">total</span><span class="op">:</span> <span class="dv">200</span><span class="op">,</span> <span class="dt">status</span><span class="op">:</span> <span class="st">&quot;aprovado&quot;</span> }<span class="op">,</span></span>
+<span id="cb76-5"><a href="#cb76-5" tabindex="-1"></a>  { <span class="dt">id</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span> <span class="dt">cliente</span><span class="op">:</span> <span class="st">&quot;Carlos&quot;</span><span class="op">,</span> <span class="dt">total</span><span class="op">:</span> <span class="dv">50</span><span class="op">,</span> <span class="dt">status</span><span class="op">:</span> <span class="st">&quot;cancelado&quot;</span> }<span class="op">,</span></span>
+<span id="cb76-6"><a href="#cb76-6" tabindex="-1"></a>  { <span class="dt">id</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">cliente</span><span class="op">:</span> <span class="st">&quot;Bruno&quot;</span><span class="op">,</span> <span class="dt">total</span><span class="op">:</span> <span class="dv">150</span><span class="op">,</span> <span class="dt">status</span><span class="op">:</span> <span class="st">&quot;aprovado&quot;</span> }</span>
+<span id="cb76-7"><a href="#cb76-7" tabindex="-1"></a>]<span class="op">;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="manipulação-básica-map-e-filter" class="section level3 unnumbered">
+<h3 class="unnumbered">Manipulação Básica (map e filter)</h3>
+<ol style="list-style-type: decimal">
+<li>Crie um novo array contendo apenas pedidos com status <code>"aprovado"</code></li>
+<li>Gere um array contendo apenas os nomes dos clientes desses pedidos</li>
+</ol>
+<p>Utilize <code>filter</code> e <code>map</code></p>
+<hr />
+</div>
+<div id="agregação-de-dados-reduce" class="section level3 unnumbered">
+<h3 class="unnumbered">Agregação de Dados (reduce)</h3>
+<p>Calcule:</p>
+<ul>
+<li>o valor total de vendas (somente pedidos aprovados)</li>
+<li>o valor médio das vendas</li>
+</ul>
+<p>Utilize <code>reduce</code></p>
+<hr />
+</div>
+<div id="hash-table-agrupamento-por-cliente" class="section level3 unnumbered">
+<h3 class="unnumbered">Hash Table (Agrupamento por Cliente)</h3>
+<p>Crie uma estrutura que agrupe os pedidos por cliente.</p>
+<p>Resultado esperado:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb77-1"><a href="#cb77-1" tabindex="-1"></a>{</span>
+<span id="cb77-2"><a href="#cb77-2" tabindex="-1"></a>  <span class="dt">Ana</span><span class="op">:</span> [ <span class="op">...</span> ]<span class="op">,</span></span>
+<span id="cb77-3"><a href="#cb77-3" tabindex="-1"></a>  <span class="dt">Bruno</span><span class="op">:</span> [ <span class="op">...</span> ]<span class="op">,</span></span>
+<span id="cb77-4"><a href="#cb77-4" tabindex="-1"></a>  <span class="dt">Carlos</span><span class="op">:</span> [ <span class="op">...</span> ]</span>
+<span id="cb77-5"><a href="#cb77-5" tabindex="-1"></a>}</span></code></pre></div>
+<p>Utilize:</p>
+<ul>
+<li><code>Object</code> OU <code>Map</code></li>
+<li><code>reduce</code></li>
+</ul>
+<hr />
+</div>
+<div id="classe-modelagem" class="section level3 unnumbered">
+<h3 class="unnumbered">Classe (Modelagem)</h3>
+<p>Crie uma classe <code>Pedido</code> com:</p>
+<ul>
+<li>atributos: <code>id</code>, <code>cliente</code>, <code>total</code>, <code>status</code></li>
+<li>método: <code>isAprovado()</code> → retorna true/false</li>
+</ul>
+<p>Recrie o array de pedidos utilizando a classe.</p>
+<hr />
+</div>
+<div id="programação-funcional-1" class="section level3" number="6.10.2">
+<h3><span class="header-section-number">6.10.2</span> Programação Funcional</h3>
+<p>Implemente uma função pura:</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb78-1"><a href="#cb78-1" tabindex="-1"></a><span class="kw">const</span> calcularTotalCliente <span class="op">=</span> (pedidos<span class="op">,</span> nomeCliente) <span class="kw">=&gt;</span> { <span class="op">...</span> }</span></code></pre></div>
+<p>Essa função deve:</p>
+<ul>
+<li>receber a lista de pedidos</li>
+<li>retornar o total gasto por um cliente</li>
+</ul>
+<p>Não modificar o array original</p>
+<hr />
+</div>
+<div id="desafio-com-map-filter-reduce" class="section level3 unnumbered">
+<h3 class="unnumbered">Desafio com map + filter + reduce</h3>
+<p>Gere o seguinte resultado:</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb79-1"><a href="#cb79-1" tabindex="-1"></a>[</span>
+<span id="cb79-2"><a href="#cb79-2" tabindex="-1"></a>  { <span class="dt">cliente</span><span class="op">:</span> <span class="st">&quot;Ana&quot;</span><span class="op">,</span> <span class="dt">total</span><span class="op">:</span> <span class="dv">320</span> }<span class="op">,</span></span>
+<span id="cb79-3"><a href="#cb79-3" tabindex="-1"></a>  { <span class="dt">cliente</span><span class="op">:</span> <span class="st">&quot;Bruno&quot;</span><span class="op">,</span> <span class="dt">total</span><span class="op">:</span> <span class="dv">150</span> }</span>
+<span id="cb79-4"><a href="#cb79-4" tabindex="-1"></a>]</span></code></pre></div>
+<p>Regras:</p>
+<ul>
+<li>considerar apenas pedidos aprovados</li>
+<li>agrupar por cliente</li>
+<li>calcular total por cliente</li>
+</ul>
+<hr />
+</div>
+<div id="var-let-e-const-análise" class="section level3 unnumbered">
+<h3 class="unnumbered">var, let e const (Análise)</h3>
+<p>Analise o código:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb80-1"><a href="#cb80-1" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb80-2"><a href="#cb80-2" tabindex="-1"></a>  <span class="pp">setTimeout</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb80-3"><a href="#cb80-3" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(i)<span class="op">;</span></span>
+<span id="cb80-4"><a href="#cb80-4" tabindex="-1"></a>  }<span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span></span>
+<span id="cb80-5"><a href="#cb80-5" tabindex="-1"></a>}</span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Qual será a saída?</li>
+<li>Reescreva usando <code>let</code></li>
+<li>Explique a diferença de comportamento</li>
+</ol>
+<hr />
+</div>
+<div id="entrega" class="section level3 unnumbered">
+<h3 class="unnumbered">Entrega</h3>
+<p>O aluno deve entregar:</p>
+<ul>
+<li>link para o arquivo .js no guthub</li>
+</ul>
+</div>
+<div id="desafio-extra" class="section level3 unnumbered">
+<h3 class="unnumbered">Desafio Extra</h3>
+<ol style="list-style-type: decimal">
+<li>Ordenar clientes pelo maior valor gasto</li>
+<li>Retornar o cliente que mais comprou</li>
+<li>Converter o resultado final para JSON (<code>JSON.stringify</code>)</li>
+</ol>
+<hr />
+</div>
+<div id="dica" class="section level3 unnumbered">
+<h3 class="unnumbered">Dica</h3>
+<p>Evite loops tradicionais (<code>for</code>) sempre que possível.
+Priorize <strong>programação funcional</strong>.</p>
+<!--chapter:end:aula3.Rmd-->
+</div>
+</div>
+</div>
+<!--bookdown:body:end-->
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Desenvolvimento web Avançado</strong>" was written by Juliana Costa Silva. It was last built on 2026-03-17.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+
+</html>
