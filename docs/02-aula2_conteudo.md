@@ -254,8 +254,6 @@ Versão reduzida:
 const soma = (a,b) => a + b;
 ```
 
-<!--[Leia mais sobre arrow functions](aula2_arrow_function.md) -->
-
 ## Arrow Functions em JavaScript
 
 As **Arrow Functions** são uma forma mais concisa de declarar funções em JavaScript.  
@@ -289,16 +287,6 @@ console.log(soma(2,3));
 ```
 
 Esse modelo é muito semelhante ao que encontramos em linguagens como **C, Java ou C#**.
-
-#### Comparação {-}
-
-| Linguagem  | Função                   |
-| ---------- | ------------------------ |
-| C          | `int soma(int a, int b)` |
-| Java       | `int soma(int a, int b)` |
-| JavaScript | `function soma(a,b)`     |
-
-A diferença principal é que **JavaScript não exige declaração de tipo**.
 
 ---
 
@@ -355,42 +343,6 @@ const quadrado = x => x * x;
 
 console.log(quadrado(5));
 ```
-
----
-
-## Comparação com outras linguagens {-}
-
-As arrow functions possuem semelhanças com **lambda expressions** presentes em outras linguagens.
-
-## Java
-
-
-``` java
-(a, b) -> a + b
-```
-
-Usado com interfaces funcionais.
-
----
-
-## C# {-}
-
-
-``` csharp
-(a, b) => a + b
-```
-
-Muito utilizado com LINQ.
-
----
-
-## Python
-
-```python
-lambda a, b: a + b
-```
-
-Funções anônimas simples.
 
 ---
 
@@ -476,7 +428,7 @@ Por isso:
 
 ---
 
-## Quando usar Arrow Functions {-}
+### Quando usar Arrow Functions {-}
 
 Arrow functions são ideais para:
 
@@ -497,7 +449,7 @@ setTimeout(() => {
 
 ---
 
-## Quando NÃO usar Arrow Functions {-}
+### Quando NÃO usar Arrow Functions {-}
 
 Evite usar arrow functions em:
 
@@ -515,10 +467,11 @@ const Usuario = (nome) => {
 
 Arrow functions **não funcionam como construtores**.
 
-## Conclusão {-}
+### Conclusão {-}
 
 Arrow functions são uma ferramenta essencial no desenvolvimento moderno com JavaScript e Node.js.
 Elas permitem escrever código mais conciso e legível, especialmente em cenários com **callbacks, manipulação de dados e programação assíncrona**.
+
 
 ------------------------------------------------------------------------
 

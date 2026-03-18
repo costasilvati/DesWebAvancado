@@ -1,6 +1,3 @@
-arrow-functions-em-javascript
-java
-python
 javascript-basico-para-nodejs
 o-que-é-javascript-no-contexto-do-node.js
 declaração-de-variáveis
@@ -8,9 +5,7 @@ tipos-de-dados
 estruturas-condicionais
 estruturas-de-repetição
 funções
-arrow-functions-em-javascript-1
-java-1
-python-1
+arrow-functions-em-javascript
 arrays
 objetos
 template-strings
