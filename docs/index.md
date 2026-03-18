@@ -1,7 +1,7 @@
 --- 
 title: "Desenvolvimento web Avançado"
 author: "Juliana Costa Silva"
-date: "2026-03-17"
+date: "2026-03-18"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -14,44 +14,78 @@ description: |
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
+# Sobre este livro {-}
 
-# About
+Este livro foi desenvolvido como material de apoio para a disciplina de **Desenvolvimento Web Avançado**, com foco na construção de aplicações back-end utilizando **JavaScript e Node.js**.
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
+Ao longo dos capítulos, o leitor é conduzido de uma revisão estruturada da linguagem JavaScript — considerando conceitos fundamentais como variáveis, funções, objetos, programação funcional e manipulação de dados — até a implementação prática de uma **API completa**, incluindo:
 
-## Usage 
+- criação de servidores com Node.js  
+- organização de projetos com NPM  
+- construção de APIs REST com Express  
+- manipulação e persistência de dados  
+- autenticação de usuários  
+- integração com bancos de dados  
 
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
+O material foi pensado para estudantes que já possuem conhecimentos prévios em lógica de programação e outras linguagens, permitindo uma abordagem mais direta e aplicada aos desafios do desenvolvimento moderno.
 
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
+---
 
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
+## Abordagem didática {-}
 
-## Render book
+A organização deste livro segue uma abordagem orientada à prática, inspirada na metodologia [**ABC-LD (_Aquisition. Behavior and Construction - Learning Design_)**](https://abc-ld.org), na qual cada conteúdo é estruturado em três momentos:
 
-You can render the HTML version of this example book without changing anything:
+- **Aquisition:** apresentação dos conceitos fundamentais e exemplos iniciais  
+- **Behavior:** exploração guiada dos conceitos  
+- **Construction:** desenvolvimento de soluções práticas e progressivas  
 
-1. Find the **Build** pane in the RStudio IDE, and
+Essa abordagem busca promover não apenas a compreensão teórica, mas também o desenvolvimento de habilidades técnicas por meio da experimentação.
 
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
+---
 
-Or build the book from the R console:
+## Estrutura do conteúdo{-}
 
+O livro está organizado de forma incremental, permitindo que o leitor evolua gradualmente:
 
-``` r
-bookdown::render_book()
-```
+- fundamentos de JavaScript no contexto de back-end  
+- manipulação de dados e programação funcional  
+- comunicação via WebServices  
+- introdução ao ambiente Node.js  
+- gerenciamento de dependências com NPM  
+- construção de APIs com Express  
+- tratamento de requisições e erros  
+- uso de JSON e integração com banco de dados  
+- autenticação e estruturação de aplicações reais  
 
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
+Ao final do percurso, o leitor será capaz de compreender e implementar os principais componentes de uma aplicação web moderna no lado do servidor.
 
-## Preview book
+---
 
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
+## Objetivo{-}
 
+O principal objetivo deste material é proporcionar uma base sólida para o desenvolvimento de aplicações back-end, conectando conceitos fundamentais da linguagem JavaScript com práticas utilizadas no mercado.
 
-``` r
-bookdown::serve_book()
-```
+Mais do que apresentar ferramentas, este livro busca desenvolver no leitor a capacidade de:
 
+- estruturar soluções escaláveis  
+- compreender o fluxo de dados em aplicações web  
+- aplicar boas práticas de desenvolvimento  
+- evoluir de exercícios simples para projetos completos  
 
+---
 
+## Público-alvo {-}
+
+Este livro é destinado a:
+
+- estudantes de cursos de Computação e áreas afins  
+- desenvolvedores iniciantes em Node.js  
+- alunos que já possuem experiência com outras linguagens e desejam migrar para o ecossistema JavaScript  
+
+---
+
+## Considerações finais {-}
+
+O conteúdo foi estruturado para ser utilizado tanto em sala de aula quanto como material de estudo independente. Recomenda-se que o leitor execute todos os exemplos e desenvolva as atividades propostas, pois a aprendizagem neste contexto é fortemente baseada na prática.
+
+Ao final do livro, espera-se que o leitor tenha desenvolvido não apenas conhecimento técnico, mas também autonomia para construir e evoluir aplicações web completas.

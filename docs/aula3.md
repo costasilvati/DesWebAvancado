@@ -1,4 +1,4 @@
-# Javascript e Orientação a Objetos
+# Javascript e Objetos
 
 
 ## Hash Tables (Tabelas de Hash)

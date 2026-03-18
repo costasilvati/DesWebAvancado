@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capítulo 1 JavaScript Basico para NodeJS | Desenvolvimento web Avançado</title>
+<meta name="author" content="Juliana Costa Silva">
+<meta name="description" content="Disciplina: Desenvolvimento Web AvançadoContexto: Programação Back-end com Node.jsData: 10/03/2026  1.1 O que é JavaScript no contexto do Node.js JavaScript é uma linguagem de programação...">
+<meta name="generator" content="bookdown 0.45 with bs4_book()">
+<meta property="og:title" content="Capítulo 1 JavaScript Basico para NodeJS | Desenvolvimento web Avançado">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Disciplina: Desenvolvimento Web AvançadoContexto: Programação Back-end com Node.jsData: 10/03/2026  1.1 O que é JavaScript no contexto do Node.js JavaScript é uma linguagem de programação...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capítulo 1 JavaScript Basico para NodeJS | Desenvolvimento web Avançado">
+<meta name="twitter:description" content="Disciplina: Desenvolvimento Web AvançadoContexto: Programação Back-end com Node.jsData: 10/03/2026  1.1 O que é JavaScript no contexto do Node.js JavaScript é uma linguagem de programação...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Desenvolvimento web Avançado</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Sobre este livro</a></li>
+<li><a class="active" href="javascript-basico-para-nodejs.html"><span class="header-section-number">1</span> JavaScript Basico para NodeJS</a></li>
+<li><a class="" href="javascript-e-objetos.html"><span class="header-section-number">2</span> Javascript e Objetos</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="javascript-basico-para-nodejs" class="section level1" number="1">
+<h1>
+<span class="header-section-number">Capítulo 1</span> JavaScript Basico para NodeJS<a class="anchor" aria-label="anchor" href="#javascript-basico-para-nodejs"><i class="fas fa-link"></i></a>
+</h1>
+<p><strong>Disciplina:</strong> Desenvolvimento Web Avançado<br><strong>Contexto:</strong> Programação Back-end com Node.js<br><strong>Data:</strong> 10/03/2026</p>
+<hr>
+<div id="o-que-é-javascript-no-contexto-do-node.js" class="section level2" number="1.1">
+<h2>
+<span class="header-section-number">1.1</span> O que é JavaScript no contexto do Node.js<a class="anchor" aria-label="anchor" href="#o-que-%C3%A9-javascript-no-contexto-do-node.js"><i class="fas fa-link"></i></a>
+</h2>
+<p>JavaScript é uma linguagem de programação originalmente criada para execução em navegadores.<br>
+Com o <strong>Node.js</strong>, o JavaScript também pode ser executado <strong>no servidor</strong>, permitindo o desenvolvimento de aplicações back-end.</p>
+<p>Em Node.js, scripts JavaScript são executados diretamente pelo interpretador:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="javascript-basico-para-nodejs.html#cb18-1" tabindex="-1"></a><span class="ex">node</span> arquivo.js</span></code></pre></div>
+<p>Exemplo simples:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb19-1"><a href="javascript-basico-para-nodejs.html#cb19-1" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Hello Node.js"</span>)<span class="op">;</span></span></code></pre></div>
+<hr>
+</div>
+<div id="declaração-de-variáveis" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> Declaração de Variáveis<a class="anchor" aria-label="anchor" href="#declara%C3%A7%C3%A3o-de-vari%C3%A1veis"><i class="fas fa-link"></i></a>
+</h2>
+<p>JavaScript possui três formas principais de declarar variáveis:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Palavra-chave</th>
+<th>Escopo</th>
+<th>Observação</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>var</code></td>
+<td>função</td>
+<td>legado, evitar em código moderno</td>
+</tr>
+<tr class="even">
+<td><code>let</code></td>
+<td>bloco</td>
+<td>variável mutável</td>
+</tr>
+<tr class="odd">
+<td><code>const</code></td>
+<td>bloco</td>
+<td>valor constante</td>
+</tr>
+</tbody>
+</table></div>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb20-1"><a href="javascript-basico-para-nodejs.html#cb20-1" tabindex="-1"></a><span class="kw">let</span> nome <span class="op">=</span> <span class="st">"Ana"</span><span class="op">;</span></span>
+<span id="cb20-2"><a href="javascript-basico-para-nodejs.html#cb20-2" tabindex="-1"></a><span class="kw">const</span> idade <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span>
+<span id="cb20-3"><a href="javascript-basico-para-nodejs.html#cb20-3" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="javascript-basico-para-nodejs.html#cb20-4" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(nome)<span class="op">;</span></span>
+<span id="cb20-5"><a href="javascript-basico-para-nodejs.html#cb20-5" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(idade)<span class="op">;</span></span></code></pre></div>
+<p>Boa prática:</p>
+<ul>
+<li>usar <strong>const por padrão</strong>
+</li>
+<li>usar <strong>let quando o valor precisa mudar</strong>
+</li>
+</ul>
+<hr>
+</div>
+<div id="tipos-de-dados" class="section level2" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> Tipos de Dados<a class="anchor" aria-label="anchor" href="#tipos-de-dados"><i class="fas fa-link"></i></a>
+</h2>
+<p>JavaScript é <strong>dinamicamente tipada</strong>, ou seja, o tipo é definido em tempo de execução.</p>
+<p>Tipos primitivos principais:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Tipo</th>
+<th>Exemplo</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>string</td>
+<td><code>"Olá"</code></td>
+</tr>
+<tr class="even">
+<td>number</td>
+<td>
+<code>10</code>, <code>3.14</code>
+</td>
+</tr>
+<tr class="odd">
+<td>boolean</td>
+<td>
+<code>true</code>, <code>false</code>
+</td>
+</tr>
+<tr class="even">
+<td>null</td>
+<td>ausência de valor</td>
+</tr>
+<tr class="odd">
+<td>undefined</td>
+<td>variável declarada sem valor</td>
+</tr>
+</tbody>
+</table></div>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb21-1"><a href="javascript-basico-para-nodejs.html#cb21-1" tabindex="-1"></a><span class="kw">let</span> nome <span class="op">=</span> <span class="st">"Carlos"</span><span class="op">;</span></span>
+<span id="cb21-2"><a href="javascript-basico-para-nodejs.html#cb21-2" tabindex="-1"></a><span class="kw">let</span> idade <span class="op">=</span> <span class="dv">30</span><span class="op">;</span></span>
+<span id="cb21-3"><a href="javascript-basico-para-nodejs.html#cb21-3" tabindex="-1"></a><span class="kw">let</span> ativo <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb21-4"><a href="javascript-basico-para-nodejs.html#cb21-4" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="javascript-basico-para-nodejs.html#cb21-5" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">typeof</span> nome)<span class="op">;</span></span>
+<span id="cb21-6"><a href="javascript-basico-para-nodejs.html#cb21-6" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">typeof</span> idade)<span class="op">;</span></span>
+<span id="cb21-7"><a href="javascript-basico-para-nodejs.html#cb21-7" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">typeof</span> ativo)<span class="op">;</span></span></code></pre></div>
+<hr>
+</div>
+<div id="operadores-matemáticos" class="section level2 unnumbered">
+<h2>Operadores Matemáticos<a class="anchor" aria-label="anchor" href="#operadores-matem%C3%A1ticos"><i class="fas fa-link"></i></a>
+</h2>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Operador</th>
+<th>Descrição</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>+</code></td>
+<td>soma</td>
+</tr>
+<tr class="even">
+<td><code>-</code></td>
+<td>subtração</td>
+</tr>
+<tr class="odd">
+<td><code>*</code></td>
+<td>multiplicação</td>
+</tr>
+<tr class="even">
+<td><code>/</code></td>
+<td>divisão</td>
+</tr>
+<tr class="odd">
+<td><code>%</code></td>
+<td>resto da divisão</td>
+</tr>
+<tr class="even">
+<td><code>**</code></td>
+<td>potência</td>
+</tr>
+</tbody>
+</table></div>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb22-1"><a href="javascript-basico-para-nodejs.html#cb22-1" tabindex="-1"></a><span class="kw">let</span> a <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb22-2"><a href="javascript-basico-para-nodejs.html#cb22-2" tabindex="-1"></a><span class="kw">let</span> b <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb22-3"><a href="javascript-basico-para-nodejs.html#cb22-3" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="javascript-basico-para-nodejs.html#cb22-4" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a <span class="op">+</span> b)<span class="op">;</span></span>
+<span id="cb22-5"><a href="javascript-basico-para-nodejs.html#cb22-5" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a <span class="op">%</span> b)<span class="op">;</span></span>
+<span id="cb22-6"><a href="javascript-basico-para-nodejs.html#cb22-6" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a <span class="op">**</span> <span class="dv">2</span>)<span class="op">;</span></span></code></pre></div>
+<hr>
+</div>
+<div id="operadores-relacionais" class="section level2 unnumbered">
+<h2>Operadores Relacionais<a class="anchor" aria-label="anchor" href="#operadores-relacionais"><i class="fas fa-link"></i></a>
+</h2>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Operador</th>
+<th>Significado</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>&gt;</code></td>
+<td>maior</td>
+</tr>
+<tr class="even">
+<td><code>&lt;</code></td>
+<td>menor</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;=</code></td>
+<td>maior ou igual</td>
+</tr>
+<tr class="even">
+<td><code>&lt;=</code></td>
+<td>menor ou igual</td>
+</tr>
+<tr class="odd">
+<td><code>==</code></td>
+<td>igualdade (com coerção de tipo)</td>
+</tr>
+<tr class="even">
+<td><code>===</code></td>
+<td>igualdade estrita</td>
+</tr>
+</tbody>
+</table></div>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb23-1"><a href="javascript-basico-para-nodejs.html#cb23-1" tabindex="-1"></a><span class="kw">let</span> x <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb23-2"><a href="javascript-basico-para-nodejs.html#cb23-2" tabindex="-1"></a><span class="kw">let</span> y <span class="op">=</span> <span class="st">"10"</span><span class="op">;</span></span>
+<span id="cb23-3"><a href="javascript-basico-para-nodejs.html#cb23-3" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="javascript-basico-para-nodejs.html#cb23-4" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(x <span class="op">==</span> y)<span class="op">;</span></span>
+<span id="cb23-5"><a href="javascript-basico-para-nodejs.html#cb23-5" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(x <span class="op">===</span> y)<span class="op">;</span></span></code></pre></div>
+<p>Boa prática: usar <strong>sempre <code>===</code></strong>.</p>
+<hr>
+</div>
+<div id="operadores-lógicos" class="section level2 unnumbered">
+<h2>Operadores Lógicos<a class="anchor" aria-label="anchor" href="#operadores-l%C3%B3gicos"><i class="fas fa-link"></i></a>
+</h2>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Operador</th>
+<th>Significado</th>
+<th></th>
+<th></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>&amp;&amp;</code></td>
+<td>AND</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>|             |</code></td>
+<td>OR</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>!</code></td>
+<td>NOT</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb24-1"><a href="javascript-basico-para-nodejs.html#cb24-1" tabindex="-1"></a><span class="kw">let</span> idade <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span>
+<span id="cb24-2"><a href="javascript-basico-para-nodejs.html#cb24-2" tabindex="-1"></a><span class="kw">let</span> possuiCarteira <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb24-3"><a href="javascript-basico-para-nodejs.html#cb24-3" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="javascript-basico-para-nodejs.html#cb24-4" tabindex="-1"></a><span class="cf">if</span> (idade <span class="op">&gt;=</span> <span class="dv">18</span> <span class="op">&amp;&amp;</span> possuiCarteira) {</span>
+<span id="cb24-5"><a href="javascript-basico-para-nodejs.html#cb24-5" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Pode dirigir"</span>)<span class="op">;</span></span>
+<span id="cb24-6"><a href="javascript-basico-para-nodejs.html#cb24-6" tabindex="-1"></a>}</span></code></pre></div>
+<hr>
+</div>
+<div id="estruturas-condicionais" class="section level2" number="1.4">
+<h2>
+<span class="header-section-number">1.4</span> Estruturas Condicionais<a class="anchor" aria-label="anchor" href="#estruturas-condicionais"><i class="fas fa-link"></i></a>
+</h2>
+<div id="if-else" class="section level3 unnumbered">
+<h3>if / else<a class="anchor" aria-label="anchor" href="#if-else"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb25-1"><a href="javascript-basico-para-nodejs.html#cb25-1" tabindex="-1"></a><span class="kw">let</span> idade <span class="op">=</span> <span class="dv">18</span><span class="op">;</span></span>
+<span id="cb25-2"><a href="javascript-basico-para-nodejs.html#cb25-2" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="javascript-basico-para-nodejs.html#cb25-3" tabindex="-1"></a><span class="cf">if</span> (idade <span class="op">&gt;=</span> <span class="dv">18</span>) {</span>
+<span id="cb25-4"><a href="javascript-basico-para-nodejs.html#cb25-4" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Maior de idade"</span>)<span class="op">;</span></span>
+<span id="cb25-5"><a href="javascript-basico-para-nodejs.html#cb25-5" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb25-6"><a href="javascript-basico-para-nodejs.html#cb25-6" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Menor de idade"</span>)<span class="op">;</span></span>
+<span id="cb25-7"><a href="javascript-basico-para-nodejs.html#cb25-7" tabindex="-1"></a>}</span></code></pre></div>
+<hr>
+</div>
+<div id="switch" class="section level3 unnumbered">
+<h3>switch<a class="anchor" aria-label="anchor" href="#switch"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb26-1"><a href="javascript-basico-para-nodejs.html#cb26-1" tabindex="-1"></a><span class="kw">let</span> dia <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb26-2"><a href="javascript-basico-para-nodejs.html#cb26-2" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="javascript-basico-para-nodejs.html#cb26-3" tabindex="-1"></a><span class="cf">switch</span>(dia){</span>
+<span id="cb26-4"><a href="javascript-basico-para-nodejs.html#cb26-4" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">1</span><span class="op">:</span></span>
+<span id="cb26-5"><a href="javascript-basico-para-nodejs.html#cb26-5" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Segunda"</span>)<span class="op">;</span></span>
+<span id="cb26-6"><a href="javascript-basico-para-nodejs.html#cb26-6" tabindex="-1"></a>        <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb26-7"><a href="javascript-basico-para-nodejs.html#cb26-7" tabindex="-1"></a>    <span class="cf">case</span> <span class="dv">2</span><span class="op">:</span></span>
+<span id="cb26-8"><a href="javascript-basico-para-nodejs.html#cb26-8" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Terça"</span>)<span class="op">;</span></span>
+<span id="cb26-9"><a href="javascript-basico-para-nodejs.html#cb26-9" tabindex="-1"></a>        <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb26-10"><a href="javascript-basico-para-nodejs.html#cb26-10" tabindex="-1"></a>    <span class="cf">default</span><span class="op">:</span></span>
+<span id="cb26-11"><a href="javascript-basico-para-nodejs.html#cb26-11" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Outro dia"</span>)<span class="op">;</span></span>
+<span id="cb26-12"><a href="javascript-basico-para-nodejs.html#cb26-12" tabindex="-1"></a>}</span></code></pre></div>
+<hr>
+</div>
+</div>
+<div id="estruturas-de-repetição" class="section level2" number="1.5">
+<h2>
+<span class="header-section-number">1.5</span> Estruturas de Repetição<a class="anchor" aria-label="anchor" href="#estruturas-de-repeti%C3%A7%C3%A3o"><i class="fas fa-link"></i></a>
+</h2>
+<div id="for" class="section level3 unnumbered">
+<h3>for<a class="anchor" aria-label="anchor" href="#for"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb27-1"><a href="javascript-basico-para-nodejs.html#cb27-1" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb27-2"><a href="javascript-basico-para-nodejs.html#cb27-2" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(i)<span class="op">;</span></span>
+<span id="cb27-3"><a href="javascript-basico-para-nodejs.html#cb27-3" tabindex="-1"></a>}</span></code></pre></div>
+<hr>
+</div>
+<div id="while" class="section level3 unnumbered">
+<h3>while<a class="anchor" aria-label="anchor" href="#while"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb28"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb28-1"><a href="javascript-basico-para-nodejs.html#cb28-1" tabindex="-1"></a><span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb28-2"><a href="javascript-basico-para-nodejs.html#cb28-2" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="javascript-basico-para-nodejs.html#cb28-3" tabindex="-1"></a><span class="cf">while</span> (i <span class="op">&lt;</span> <span class="dv">5</span>) {</span>
+<span id="cb28-4"><a href="javascript-basico-para-nodejs.html#cb28-4" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(i)<span class="op">;</span></span>
+<span id="cb28-5"><a href="javascript-basico-para-nodejs.html#cb28-5" tabindex="-1"></a>    i<span class="op">++;</span></span>
+<span id="cb28-6"><a href="javascript-basico-para-nodejs.html#cb28-6" tabindex="-1"></a>}</span></code></pre></div>
+<hr>
+</div>
+<div id="forof-muito-comum-em-javascript" class="section level3 unnumbered">
+<h3>for…of (muito comum em JavaScript)<a class="anchor" aria-label="anchor" href="#forof-muito-comum-em-javascript"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb29-1"><a href="javascript-basico-para-nodejs.html#cb29-1" tabindex="-1"></a><span class="kw">let</span> numeros <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">4</span>]<span class="op">;</span></span>
+<span id="cb29-2"><a href="javascript-basico-para-nodejs.html#cb29-2" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="javascript-basico-para-nodejs.html#cb29-3" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">let</span> n <span class="kw">of</span> numeros) {</span>
+<span id="cb29-4"><a href="javascript-basico-para-nodejs.html#cb29-4" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(n)<span class="op">;</span></span>
+<span id="cb29-5"><a href="javascript-basico-para-nodejs.html#cb29-5" tabindex="-1"></a>}</span></code></pre></div>
+<hr>
+</div>
+</div>
+<div id="funções" class="section level2" number="1.6">
+<h2>
+<span class="header-section-number">1.6</span> Funções<a class="anchor" aria-label="anchor" href="#fun%C3%A7%C3%B5es"><i class="fas fa-link"></i></a>
+</h2>
+<p>Funções podem ser declaradas de várias formas.</p>
+<div id="função-tradicional-1" class="section level3 unnumbered">
+<h3>Função tradicional<a class="anchor" aria-label="anchor" href="#fun%C3%A7%C3%A3o-tradicional-1"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb30"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb30-1"><a href="javascript-basico-para-nodejs.html#cb30-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">soma</span>(a<span class="op">,</span> b){</span>
+<span id="cb30-2"><a href="javascript-basico-para-nodejs.html#cb30-2" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></span>
+<span id="cb30-3"><a href="javascript-basico-para-nodejs.html#cb30-3" tabindex="-1"></a>}</span>
+<span id="cb30-4"><a href="javascript-basico-para-nodejs.html#cb30-4" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="javascript-basico-para-nodejs.html#cb30-5" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">soma</span>(<span class="dv">5</span><span class="op">,</span><span class="dv">3</span>))<span class="op">;</span></span></code></pre></div>
+<hr>
+</div>
+<div id="arrow-function-1" class="section level3 unnumbered">
+<h3>Arrow Function<a class="anchor" aria-label="anchor" href="#arrow-function-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Muito utilizada em aplicações Node.js modernas.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb31-1"><a href="javascript-basico-para-nodejs.html#cb31-1" tabindex="-1"></a><span class="kw">const</span> soma <span class="op">=</span> (a<span class="op">,</span> b) <span class="kw">=&gt;</span> {</span>
+<span id="cb31-2"><a href="javascript-basico-para-nodejs.html#cb31-2" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></span>
+<span id="cb31-3"><a href="javascript-basico-para-nodejs.html#cb31-3" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<p>Versão reduzida:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb32-1"><a href="javascript-basico-para-nodejs.html#cb32-1" tabindex="-1"></a><span class="kw">const</span> soma <span class="op">=</span> (a<span class="op">,</span>b) <span class="kw">=&gt;</span> a <span class="op">+</span> b<span class="op">;</span></span></code></pre></div>
+<!--[Leia mais sobre arrow functions](aula2_arrow_function.md) -->
+</div>
+</div>
+<div id="arrow-functions-em-javascript-1" class="section level2" number="1.7">
+<h2>
+<span class="header-section-number">1.7</span> Arrow Functions em JavaScript<a class="anchor" aria-label="anchor" href="#arrow-functions-em-javascript-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>As <strong>Arrow Functions</strong> são uma forma mais concisa de declarar funções em JavaScript.<br>
+Elas foram introduzidas no <strong>ECMAScript 6 (ES6)</strong> e são amplamente utilizadas em aplicações modernas, especialmente em projetos <strong>Node.js</strong>.</p>
+<p>Seu principal objetivo é:</p>
+<ul>
+<li>reduzir a verbosidade da sintaxe</li>
+<li>tornar funções mais expressivas</li>
+<li>facilitar o uso de funções como argumentos (callbacks)</li>
+<li>preservar o contexto de <code>this</code>
+</li>
+</ul>
+<hr>
+<div id="funções-tradicionais-em-javascript-1" class="section level3 unnumbered">
+<h3>Funções tradicionais em JavaScript<a class="anchor" aria-label="anchor" href="#fun%C3%A7%C3%B5es-tradicionais-em-javascript-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Antes do ES6, a forma mais comum de declarar funções era:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb33-1"><a href="javascript-basico-para-nodejs.html#cb33-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">soma</span>(a<span class="op">,</span> b) {</span>
+<span id="cb33-2"><a href="javascript-basico-para-nodejs.html#cb33-2" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></span>
+<span id="cb33-3"><a href="javascript-basico-para-nodejs.html#cb33-3" tabindex="-1"></a>}</span></code></pre></div>
+<p>Uso:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb34-1"><a href="javascript-basico-para-nodejs.html#cb34-1" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">soma</span>(<span class="dv">2</span><span class="op">,</span><span class="dv">3</span>))<span class="op">;</span></span></code></pre></div>
+<p>Esse modelo é muito semelhante ao que encontramos em linguagens como <strong>C, Java ou C#</strong>.</p>
+<div id="comparação-1" class="section level4 unnumbered">
+<h4>Comparação<a class="anchor" aria-label="anchor" href="#compara%C3%A7%C3%A3o-1"><i class="fas fa-link"></i></a>
+</h4>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Linguagem</th>
+<th>Função</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>C</td>
+<td><code>int soma(int a, int b)</code></td>
+</tr>
+<tr class="even">
+<td>Java</td>
+<td><code>int soma(int a, int b)</code></td>
+</tr>
+<tr class="odd">
+<td>JavaScript</td>
+<td><code>function soma(a,b)</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>A diferença principal é que <strong>JavaScript não exige declaração de tipo</strong>.</p>
+<hr>
+</div>
+</div>
+</div>
+<div id="arrow-functions-sintaxe-básica-1" class="section level2 unnumbered">
+<h2>Arrow Functions — Sintaxe Básica<a class="anchor" aria-label="anchor" href="#arrow-functions-sintaxe-b%C3%A1sica-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>A mesma função pode ser escrita usando <strong>Arrow Function</strong>:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb35-1"><a href="javascript-basico-para-nodejs.html#cb35-1" tabindex="-1"></a><span class="kw">const</span> soma <span class="op">=</span> (a<span class="op">,</span> b) <span class="kw">=&gt;</span> {</span>
+<span id="cb35-2"><a href="javascript-basico-para-nodejs.html#cb35-2" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></span>
+<span id="cb35-3"><a href="javascript-basico-para-nodejs.html#cb35-3" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<p>Uso:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb36-1"><a href="javascript-basico-para-nodejs.html#cb36-1" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">soma</span>(<span class="dv">2</span><span class="op">,</span><span class="dv">3</span>))<span class="op">;</span></span></code></pre></div>
+<p>Componentes da sintaxe:</p>
+<pre><code>(parametros) =&gt; { corpo da função }</code></pre>
+<hr>
+</div>
+<div id="versão-simplificada-1" class="section level2 unnumbered">
+<h2>Versão simplificada<a class="anchor" aria-label="anchor" href="#vers%C3%A3o-simplificada-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Quando a função possui <strong>apenas uma expressão</strong>, o <code>return</code> pode ser omitido:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb38-1"><a href="javascript-basico-para-nodejs.html#cb38-1" tabindex="-1"></a><span class="kw">const</span> soma <span class="op">=</span> (a<span class="op">,</span> b) <span class="kw">=&gt;</span> a <span class="op">+</span> b<span class="op">;</span></span></code></pre></div>
+<p>Esse estilo é muito comum em <strong>Node.js</strong>, especialmente em:</p>
+<ul>
+<li>callbacks</li>
+<li>manipulação de arrays</li>
+<li>APIs assíncronas</li>
+</ul>
+<hr>
+</div>
+<div id="arrow-function-com-um-único-parâmetro-1" class="section level2 unnumbered">
+<h2>Arrow Function com um único parâmetro<a class="anchor" aria-label="anchor" href="#arrow-function-com-um-%C3%BAnico-par%C3%A2metro-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Quando há apenas <strong>um parâmetro</strong>, os parênteses podem ser omitidos:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb39-1"><a href="javascript-basico-para-nodejs.html#cb39-1" tabindex="-1"></a><span class="kw">const</span> quadrado <span class="op">=</span> x <span class="kw">=&gt;</span> x <span class="op">*</span> x<span class="op">;</span></span>
+<span id="cb39-2"><a href="javascript-basico-para-nodejs.html#cb39-2" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="javascript-basico-para-nodejs.html#cb39-3" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">quadrado</span>(<span class="dv">5</span>))<span class="op">;</span></span></code></pre></div>
+<hr>
+</div>
+<div id="comparação-com-outras-linguagens-1" class="section level2 unnumbered">
+<h2>Comparação com outras linguagens<a class="anchor" aria-label="anchor" href="#compara%C3%A7%C3%A3o-com-outras-linguagens-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>As arrow functions possuem semelhanças com <strong>lambda expressions</strong> presentes em outras linguagens.</p>
+</div>
+<div id="java-1" class="section level2" number="1.8">
+<h2>
+<span class="header-section-number">1.8</span> Java<a class="anchor" aria-label="anchor" href="#java-1"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb40"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb40-1"><a href="javascript-basico-para-nodejs.html#cb40-1" tabindex="-1"></a><span class="op">(</span>a<span class="op">,</span> b<span class="op">)</span> <span class="op">-&gt;</span> a <span class="op">+</span> b</span></code></pre></div>
+<p>Usado com interfaces funcionais.</p>
+<hr>
+</div>
+<div id="c-1" class="section level2 unnumbered">
+<h2>C<a class="anchor" aria-label="anchor" href="#c-1"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb41"><pre class="sourceCode csharp"><code class="sourceCode cs"><span id="cb41-1"><a href="javascript-basico-para-nodejs.html#cb41-1" tabindex="-1"></a><span class="op">(</span>a<span class="op">,</span> b<span class="op">)</span> <span class="op">=&gt;</span> a <span class="op">+</span> b</span></code></pre></div>
+<p>Muito utilizado com LINQ.</p>
+<hr>
+</div>
+<div id="python-1" class="section level2" number="1.9">
+<h2>
+<span class="header-section-number">1.9</span> Python<a class="anchor" aria-label="anchor" href="#python-1"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="javascript-basico-para-nodejs.html#cb42-1" tabindex="-1"></a><span class="kw">lambda</span> a, b: a <span class="op">+</span> b</span></code></pre></div>
+<p>Funções anônimas simples.</p>
+<hr>
+</div>
+<div id="javascript-1" class="section level2 unnumbered">
+<h2>JavaScript<a class="anchor" aria-label="anchor" href="#javascript-1"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb43"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb43-1"><a href="javascript-basico-para-nodejs.html#cb43-1" tabindex="-1"></a>(a<span class="op">,</span> b) <span class="kw">=&gt;</span> a <span class="op">+</span> b</span></code></pre></div>
+<p>JavaScript permite usar arrow functions <strong>como qualquer outra função</strong>, inclusive armazenando em variáveis.</p>
+<hr>
+</div>
+<div id="uso-com-arrays-muito-comum-em-node.js-1" class="section level2 unnumbered">
+<h2>Uso com arrays (muito comum em Node.js)<a class="anchor" aria-label="anchor" href="#uso-com-arrays-muito-comum-em-node.js-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Arrow functions aparecem frequentemente em métodos de arrays.</p>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb44-1"><a href="javascript-basico-para-nodejs.html#cb44-1" tabindex="-1"></a><span class="kw">let</span> numeros <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">5</span>]<span class="op">;</span></span>
+<span id="cb44-2"><a href="javascript-basico-para-nodejs.html#cb44-2" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="javascript-basico-para-nodejs.html#cb44-3" tabindex="-1"></a><span class="kw">let</span> dobrados <span class="op">=</span> numeros<span class="op">.</span><span class="fu">map</span>(n <span class="kw">=&gt;</span> n <span class="op">*</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb44-4"><a href="javascript-basico-para-nodejs.html#cb44-4" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="javascript-basico-para-nodejs.html#cb44-5" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(dobrados)<span class="op">;</span></span></code></pre></div>
+<p>Equivalente com função tradicional:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb45-1"><a href="javascript-basico-para-nodejs.html#cb45-1" tabindex="-1"></a><span class="kw">let</span> dobrados <span class="op">=</span> numeros<span class="op">.</span><span class="fu">map</span>(<span class="kw">function</span>(n){</span>
+<span id="cb45-2"><a href="javascript-basico-para-nodejs.html#cb45-2" tabindex="-1"></a>    <span class="cf">return</span> n <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb45-3"><a href="javascript-basico-para-nodejs.html#cb45-3" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p>A arrow function reduz bastante a quantidade de código.</p>
+<hr>
+</div>
+<div id="arrow-functions-e-o-comportamento-de-this-1" class="section level2 unnumbered">
+<h2>Arrow Functions e o comportamento de <code>this</code><a class="anchor" aria-label="anchor" href="#arrow-functions-e-o-comportamento-de-this-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Uma das diferenças mais importantes entre <strong>funções tradicionais</strong> e <strong>arrow functions</strong> é o comportamento de <code>this</code>.</p>
+<div id="função-tradicional-2" class="section level3 unnumbered">
+<h3>Função tradicional<a class="anchor" aria-label="anchor" href="#fun%C3%A7%C3%A3o-tradicional-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>O valor de <code>this</code> depende de <strong>como a função é chamada</strong>.</p>
+</div>
+<div id="arrow-function-2" class="section level3 unnumbered">
+<h3>Arrow Function<a class="anchor" aria-label="anchor" href="#arrow-function-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>A arrow function <strong>não cria seu próprio <code>this</code></strong>.
+Ela utiliza o <code>this</code> do <strong>escopo onde foi definida</strong>.</p>
+<p>Exemplo:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb46-1"><a href="javascript-basico-para-nodejs.html#cb46-1" tabindex="-1"></a><span class="kw">const</span> pessoa <span class="op">=</span> {</span>
+<span id="cb46-2"><a href="javascript-basico-para-nodejs.html#cb46-2" tabindex="-1"></a>    <span class="dt">nome</span><span class="op">:</span> <span class="st">"Ana"</span><span class="op">,</span></span>
+<span id="cb46-3"><a href="javascript-basico-para-nodejs.html#cb46-3" tabindex="-1"></a>    <span class="dt">falar</span><span class="op">:</span> <span class="kw">function</span>(){</span>
+<span id="cb46-4"><a href="javascript-basico-para-nodejs.html#cb46-4" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">this</span><span class="op">.</span><span class="at">nome</span>)<span class="op">;</span></span>
+<span id="cb46-5"><a href="javascript-basico-para-nodejs.html#cb46-5" tabindex="-1"></a>    }</span>
+<span id="cb46-6"><a href="javascript-basico-para-nodejs.html#cb46-6" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb46-7"><a href="javascript-basico-para-nodejs.html#cb46-7" tabindex="-1"></a></span>
+<span id="cb46-8"><a href="javascript-basico-para-nodejs.html#cb46-8" tabindex="-1"></a>pessoa<span class="op">.</span><span class="fu">falar</span>()<span class="op">;</span></span></code></pre></div>
+<p>Agora usando arrow function:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb47-1"><a href="javascript-basico-para-nodejs.html#cb47-1" tabindex="-1"></a><span class="kw">const</span> pessoa <span class="op">=</span> {</span>
+<span id="cb47-2"><a href="javascript-basico-para-nodejs.html#cb47-2" tabindex="-1"></a>    <span class="dt">nome</span><span class="op">:</span> <span class="st">"Ana"</span><span class="op">,</span></span>
+<span id="cb47-3"><a href="javascript-basico-para-nodejs.html#cb47-3" tabindex="-1"></a>    <span class="dt">falar</span><span class="op">:</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb47-4"><a href="javascript-basico-para-nodejs.html#cb47-4" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">this</span><span class="op">.</span><span class="at">nome</span>)<span class="op">;</span></span>
+<span id="cb47-5"><a href="javascript-basico-para-nodejs.html#cb47-5" tabindex="-1"></a>    }</span>
+<span id="cb47-6"><a href="javascript-basico-para-nodejs.html#cb47-6" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<p>Nesse caso, <code>this</code> não se refere ao objeto <code>pessoa</code>.</p>
+<p>Por isso:</p>
+<p><strong>Arrow functions não devem ser usadas como métodos de objetos.</strong></p>
+<hr>
+</div>
+</div>
+<div id="quando-usar-arrow-functions-1" class="section level2 unnumbered">
+<h2>Quando usar Arrow Functions<a class="anchor" aria-label="anchor" href="#quando-usar-arrow-functions-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Arrow functions são ideais para:</p>
+<ul>
+<li>callbacks</li>
+<li>funções pequenas</li>
+<li>operações em arrays</li>
+<li>programação funcional</li>
+<li>manipulação de promessas</li>
+<li>código assíncrono</li>
+</ul>
+<p>Exemplo comum em Node.js:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb48-1"><a href="javascript-basico-para-nodejs.html#cb48-1" tabindex="-1"></a><span class="pp">setTimeout</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb48-2"><a href="javascript-basico-para-nodejs.html#cb48-2" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Executado após 2 segundos"</span>)<span class="op">;</span></span>
+<span id="cb48-3"><a href="javascript-basico-para-nodejs.html#cb48-3" tabindex="-1"></a>}<span class="op">,</span> <span class="dv">2000</span>)<span class="op">;</span></span></code></pre></div>
+<hr>
+</div>
+<div id="quando-não-usar-arrow-functions-1" class="section level2 unnumbered">
+<h2>Quando NÃO usar Arrow Functions<a class="anchor" aria-label="anchor" href="#quando-n%C3%A3o-usar-arrow-functions-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Evite usar arrow functions em:</p>
+<ul>
+<li>métodos de objetos</li>
+<li>construtores</li>
+<li>quando precisar de <code>this</code> dinâmico</li>
+</ul>
+<p>Exemplo incorreto:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb49-1"><a href="javascript-basico-para-nodejs.html#cb49-1" tabindex="-1"></a><span class="kw">const</span> Usuario <span class="op">=</span> (nome) <span class="kw">=&gt;</span> {</span>
+<span id="cb49-2"><a href="javascript-basico-para-nodejs.html#cb49-2" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">nome</span> <span class="op">=</span> nome<span class="op">;</span></span>
+<span id="cb49-3"><a href="javascript-basico-para-nodejs.html#cb49-3" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<p>Arrow functions <strong>não funcionam como construtores</strong>.</p>
+</div>
+<div id="conclusão-1" class="section level2 unnumbered">
+<h2>Conclusão<a class="anchor" aria-label="anchor" href="#conclus%C3%A3o-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Arrow functions são uma ferramenta essencial no desenvolvimento moderno com JavaScript e Node.js.
+Elas permitem escrever código mais conciso e legível, especialmente em cenários com <strong>callbacks, manipulação de dados e programação assíncrona</strong>.</p>
+<hr>
+</div>
+<div id="arrays" class="section level2" number="1.10">
+<h2>
+<span class="header-section-number">1.10</span> Arrays<a class="anchor" aria-label="anchor" href="#arrays"><i class="fas fa-link"></i></a>
+</h2>
+<p>Arrays armazenam coleções de valores.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb50-1"><a href="javascript-basico-para-nodejs.html#cb50-1" tabindex="-1"></a><span class="kw">let</span> numeros <span class="op">=</span> [<span class="dv">10</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">30</span>]<span class="op">;</span></span>
+<span id="cb50-2"><a href="javascript-basico-para-nodejs.html#cb50-2" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="javascript-basico-para-nodejs.html#cb50-3" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(numeros[<span class="dv">0</span>])<span class="op">;</span></span></code></pre></div>
+<p>Iteração:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb51-1"><a href="javascript-basico-para-nodejs.html#cb51-1" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">let</span> n <span class="kw">of</span> numeros) {</span>
+<span id="cb51-2"><a href="javascript-basico-para-nodejs.html#cb51-2" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(n)<span class="op">;</span></span>
+<span id="cb51-3"><a href="javascript-basico-para-nodejs.html#cb51-3" tabindex="-1"></a>}</span></code></pre></div>
+<hr>
+</div>
+<div id="objetos" class="section level2" number="1.11">
+<h2>
+<span class="header-section-number">1.11</span> Objetos<a class="anchor" aria-label="anchor" href="#objetos"><i class="fas fa-link"></i></a>
+</h2>
+<p>Objetos são estruturas chave-valor.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb52-1"><a href="javascript-basico-para-nodejs.html#cb52-1" tabindex="-1"></a><span class="kw">let</span> usuario <span class="op">=</span> {</span>
+<span id="cb52-2"><a href="javascript-basico-para-nodejs.html#cb52-2" tabindex="-1"></a>    <span class="dt">nome</span><span class="op">:</span> <span class="st">"Ana"</span><span class="op">,</span></span>
+<span id="cb52-3"><a href="javascript-basico-para-nodejs.html#cb52-3" tabindex="-1"></a>    <span class="dt">idade</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span></span>
+<span id="cb52-4"><a href="javascript-basico-para-nodejs.html#cb52-4" tabindex="-1"></a>    <span class="dt">ativo</span><span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb52-5"><a href="javascript-basico-para-nodejs.html#cb52-5" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb52-6"><a href="javascript-basico-para-nodejs.html#cb52-6" tabindex="-1"></a></span>
+<span id="cb52-7"><a href="javascript-basico-para-nodejs.html#cb52-7" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(usuario<span class="op">.</span><span class="at">nome</span>)<span class="op">;</span></span></code></pre></div>
+<p>Iteração:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb53-1"><a href="javascript-basico-para-nodejs.html#cb53-1" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">let</span> chave <span class="kw">in</span> usuario){</span>
+<span id="cb53-2"><a href="javascript-basico-para-nodejs.html#cb53-2" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(chave<span class="op">,</span> usuario[chave])<span class="op">;</span></span>
+<span id="cb53-3"><a href="javascript-basico-para-nodejs.html#cb53-3" tabindex="-1"></a>}</span></code></pre></div>
+<hr>
+</div>
+<div id="template-strings" class="section level2" number="1.12">
+<h2>
+<span class="header-section-number">1.12</span> Template Strings<a class="anchor" aria-label="anchor" href="#template-strings"><i class="fas fa-link"></i></a>
+</h2>
+<p>Permitem interpolação de variáveis.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb54-1"><a href="javascript-basico-para-nodejs.html#cb54-1" tabindex="-1"></a><span class="kw">let</span> nome <span class="op">=</span> <span class="st">"João"</span><span class="op">;</span></span>
+<span id="cb54-2"><a href="javascript-basico-para-nodejs.html#cb54-2" tabindex="-1"></a><span class="kw">let</span> idade <span class="op">=</span> <span class="dv">30</span><span class="op">;</span></span>
+<span id="cb54-3"><a href="javascript-basico-para-nodejs.html#cb54-3" tabindex="-1"></a></span>
+<span id="cb54-4"><a href="javascript-basico-para-nodejs.html#cb54-4" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`Nome: </span><span class="sc">${</span>nome<span class="sc">}</span><span class="vs">, Idade: </span><span class="sc">${</span>idade<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span></code></pre></div>
+<hr>
+</div>
+<div id="módulos-no-node.js" class="section level2" number="1.13">
+<h2>
+<span class="header-section-number">1.13</span> Módulos no Node.js<a class="anchor" aria-label="anchor" href="#m%C3%B3dulos-no-node.js"><i class="fas fa-link"></i></a>
+</h2>
+<p>Node.js utiliza <strong>módulos</strong> para organizar código.</p>
+<div id="exportando" class="section level3 unnumbered">
+<h3>Exportando<a class="anchor" aria-label="anchor" href="#exportando"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb55"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb55-1"><a href="javascript-basico-para-nodejs.html#cb55-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">soma</span>(a<span class="op">,</span>b){</span>
+<span id="cb55-2"><a href="javascript-basico-para-nodejs.html#cb55-2" tabindex="-1"></a>    <span class="cf">return</span> a<span class="op">+</span>b<span class="op">;</span></span>
+<span id="cb55-3"><a href="javascript-basico-para-nodejs.html#cb55-3" tabindex="-1"></a>}</span>
+<span id="cb55-4"><a href="javascript-basico-para-nodejs.html#cb55-4" tabindex="-1"></a></span>
+<span id="cb55-5"><a href="javascript-basico-para-nodejs.html#cb55-5" tabindex="-1"></a>module<span class="op">.</span><span class="at">exports</span> <span class="op">=</span> soma<span class="op">;</span></span></code></pre></div>
+<hr>
+</div>
+<div id="importando" class="section level3 unnumbered">
+<h3>Importando<a class="anchor" aria-label="anchor" href="#importando"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb56"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb56-1"><a href="javascript-basico-para-nodejs.html#cb56-1" tabindex="-1"></a><span class="kw">const</span> soma <span class="op">=</span> <span class="pp">require</span>(<span class="st">'./soma'</span>)<span class="op">;</span></span>
+<span id="cb56-2"><a href="javascript-basico-para-nodejs.html#cb56-2" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="javascript-basico-para-nodejs.html#cb56-3" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">soma</span>(<span class="dv">2</span><span class="op">,</span><span class="dv">3</span>))<span class="op">;</span></span></code></pre></div>
+<hr>
+</div>
+<div id="boas-práticas-iniciais" class="section level3 unnumbered">
+<h3>Boas práticas iniciais<a class="anchor" aria-label="anchor" href="#boas-pr%C3%A1ticas-iniciais"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>utilizar <strong>const sempre que possível</strong>
+</li>
+<li>preferir <strong>=== em vez de ==</strong>
+</li>
+<li>usar <strong>arrow functions</strong>
+</li>
+<li>manter funções pequenas</li>
+<li>organizar código em <strong>módulos</strong>
+</li>
+</ul>
+<hr>
+</div>
+<div id="executando-programas-node.js" class="section level3" number="1.13.1">
+<h3>
+<span class="header-section-number">1.13.1</span> Executando programas Node.js<a class="anchor" aria-label="anchor" href="#executando-programas-node.js"><i class="fas fa-link"></i></a>
+</h3>
+<p>Estrutura típica:</p>
+<pre><code>projeto/
+ ├── index.js
+ ├── utils.js
+ └── package.json</code></pre>
+<p>Executar:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb58-1"><a href="javascript-basico-para-nodejs.html#cb58-1" tabindex="-1"></a><span class="ex">node</span> index.js</span></code></pre></div>
+<hr>
+</div>
+<div id="próximos-conceitos-importantes-em-node.js" class="section level3 unnumbered">
+<h3>Próximos conceitos importantes em Node.js<a class="anchor" aria-label="anchor" href="#pr%C3%B3ximos-conceitos-importantes-em-node.js"><i class="fas fa-link"></i></a>
+</h3>
+<p>Após dominar a sintaxe básica, os próximos tópicos normalmente incluem:</p>
+<ul>
+<li>JSON</li>
+<li>manipulação de arquivos</li>
+<li>módulos NPM</li>
+<li>criação de servidores HTTP</li>
+<li>Express</li>
+<li>APIs REST</li>
+<li>acesso a banco de dados</li>
+</ul>
+<hr>
+</div>
+</div>
+<div id="atividade-em-sala-desafio-javascript-node.js" class="section level2" number="1.14">
+<h2>
+<span class="header-section-number">1.14</span> Atividade em Sala — Desafio JavaScript (Node.js)<a class="anchor" aria-label="anchor" href="#atividade-em-sala-desafio-javascript-node.js"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Disciplina:</strong> Desenvolvimento Web Avançado<br></p>
+<hr>
+<div id="desafio-construindo-um-mini-processador-de-dados" class="section level3 unnumbered">
+<h3>Desafio: Construindo um Mini Processador de Dados<a class="anchor" aria-label="anchor" href="#desafio-construindo-um-mini-processador-de-dados"><i class="fas fa-link"></i></a>
+</h3>
+<p>Você recebeu um conjunto de dados simulando registros de usuários de um sistema.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb59-1"><a href="javascript-basico-para-nodejs.html#cb59-1" tabindex="-1"></a><span class="kw">const</span> usuarios <span class="op">=</span> [</span>
+<span id="cb59-2"><a href="javascript-basico-para-nodejs.html#cb59-2" tabindex="-1"></a>  { <span class="dt">nome</span><span class="op">:</span> <span class="st">"Ana"</span><span class="op">,</span> <span class="dt">idade</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span> <span class="dt">ativo</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">compras</span><span class="op">:</span> [<span class="dv">100</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">25</span>] }<span class="op">,</span></span>
+<span id="cb59-3"><a href="javascript-basico-para-nodejs.html#cb59-3" tabindex="-1"></a>  { <span class="dt">nome</span><span class="op">:</span> <span class="st">"Bruno"</span><span class="op">,</span> <span class="dt">idade</span><span class="op">:</span> <span class="dv">17</span><span class="op">,</span> <span class="dt">ativo</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span> <span class="dt">compras</span><span class="op">:</span> [<span class="dv">30</span><span class="op">,</span> <span class="dv">20</span>] }<span class="op">,</span></span>
+<span id="cb59-4"><a href="javascript-basico-para-nodejs.html#cb59-4" tabindex="-1"></a>  { <span class="dt">nome</span><span class="op">:</span> <span class="st">"Carlos"</span><span class="op">,</span> <span class="dt">idade</span><span class="op">:</span> <span class="dv">32</span><span class="op">,</span> <span class="dt">ativo</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">compras</span><span class="op">:</span> [<span class="dv">200</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">100</span>] }<span class="op">,</span></span>
+<span id="cb59-5"><a href="javascript-basico-para-nodejs.html#cb59-5" tabindex="-1"></a>  { <span class="dt">nome</span><span class="op">:</span> <span class="st">"Diana"</span><span class="op">,</span> <span class="dt">idade</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span> <span class="dt">ativo</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">compras</span><span class="op">:</span> [] }<span class="op">,</span></span>
+<span id="cb59-6"><a href="javascript-basico-para-nodejs.html#cb59-6" tabindex="-1"></a>  { <span class="dt">nome</span><span class="op">:</span> <span class="st">"Eduardo"</span><span class="op">,</span> <span class="dt">idade</span><span class="op">:</span> <span class="dv">15</span><span class="op">,</span> <span class="dt">ativo</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span> <span class="dt">compras</span><span class="op">:</span> [<span class="dv">10</span>] }</span>
+<span id="cb59-7"><a href="javascript-basico-para-nodejs.html#cb59-7" tabindex="-1"></a>]<span class="op">;</span></span></code></pre></div>
+<p>Seu objetivo é desenvolver um <strong>script Node.js</strong> que processe esses dados e gere relatórios.</p>
+<hr>
+</div>
+<div id="parte-1-total-de-compras-por-usuário" class="section level3 unnumbered">
+<h3>Parte 1 — Total de Compras por Usuário<a class="anchor" aria-label="anchor" href="#parte-1-total-de-compras-por-usu%C3%A1rio"><i class="fas fa-link"></i></a>
+</h3>
+<p>Utilizando <strong>arrow functions</strong>, calcule o valor total de compras de cada usuário.</p>
+<p>Resultado esperado:</p>
+<pre><code>Ana: total = 175
+Bruno: total = 50
+Carlos: total = 500
+Diana: total = 0
+Eduardo: total = 10</code></pre>
+<hr>
+</div>
+<div id="parte-2-usuários-ativos" class="section level3 unnumbered">
+<h3>Parte 2 — Usuários Ativos<a class="anchor" aria-label="anchor" href="#parte-2-usu%C3%A1rios-ativos"><i class="fas fa-link"></i></a>
+</h3>
+<p>Utilizando <strong>arrow functions</strong>, filtre apenas os usuários que estão <strong>ativos</strong>.</p>
+<p>Resultado esperado:</p>
+<pre><code>Ana
+Carlos
+Diana</code></pre>
+<hr>
+</div>
+<div id="parte-3-usuários-maiores-de-idade" class="section level3 unnumbered">
+<h3>Parte 3 — Usuários Maiores de Idade<a class="anchor" aria-label="anchor" href="#parte-3-usu%C3%A1rios-maiores-de-idade"><i class="fas fa-link"></i></a>
+</h3>
+<p>Liste apenas usuários com <strong>idade &gt;= 18</strong>.</p>
+<p>Utilize <strong>arrow functions</strong>.</p>
+<hr>
+</div>
+<div id="parte-4-usuário-com-maior-volume-de-compras" class="section level3 unnumbered">
+<h3>Parte 4 — Usuário com Maior Volume de Compras<a class="anchor" aria-label="anchor" href="#parte-4-usu%C3%A1rio-com-maior-volume-de-compras"><i class="fas fa-link"></i></a>
+</h3>
+<p>Determine qual usuário possui o <strong>maior total de compras</strong>.</p>
+<p>Resultado esperado (aproximado):</p>
+<pre><code>Usuário com maior volume: Carlos
+Total: 500</code></pre>
+<hr>
+</div>
+<div id="parte-5-desafio-de-coerção-de-tipos" class="section level3 unnumbered">
+<h3>Parte 5 — Desafio de Coerção de Tipos<a class="anchor" aria-label="anchor" href="#parte-5-desafio-de-coer%C3%A7%C3%A3o-de-tipos"><i class="fas fa-link"></i></a>
+</h3>
+<p>Analise o seguinte código:</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb63-1"><a href="javascript-basico-para-nodejs.html#cb63-1" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"5"</span> <span class="op">+</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb63-2"><a href="javascript-basico-para-nodejs.html#cb63-2" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"5"</span> <span class="op">-</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb63-3"><a href="javascript-basico-para-nodejs.html#cb63-3" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">true</span> <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb63-4"><a href="javascript-basico-para-nodejs.html#cb63-4" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">false</span> <span class="op">==</span> <span class="dv">0</span>)<span class="op">;</span></span>
+<span id="cb63-5"><a href="javascript-basico-para-nodejs.html#cb63-5" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">false</span> <span class="op">===</span> <span class="dv">0</span>)<span class="op">;</span></span></code></pre></div>
+<p>Explique <strong>por que cada resultado ocorre</strong>.</p>
+<p>Dica: pesquise sobre <strong>coerção de tipos em JavaScript</strong>.</p>
+<hr>
+</div>
+<div id="parte-6-desafio-arrow-function-vs-function" class="section level3 unnumbered">
+<h3>Parte 6 — Desafio Arrow Function vs Function<a class="anchor" aria-label="anchor" href="#parte-6-desafio-arrow-function-vs-function"><i class="fas fa-link"></i></a>
+</h3>
+<p>Observe os dois códigos:</p>
+<p><strong>Código 1</strong></p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb64-1"><a href="javascript-basico-para-nodejs.html#cb64-1" tabindex="-1"></a><span class="kw">const</span> pessoa <span class="op">=</span> {</span>
+<span id="cb64-2"><a href="javascript-basico-para-nodejs.html#cb64-2" tabindex="-1"></a>  <span class="dt">nome</span><span class="op">:</span> <span class="st">"Maria"</span><span class="op">,</span></span>
+<span id="cb64-3"><a href="javascript-basico-para-nodejs.html#cb64-3" tabindex="-1"></a>  <span class="dt">falar</span><span class="op">:</span> <span class="kw">function</span>(){</span>
+<span id="cb64-4"><a href="javascript-basico-para-nodejs.html#cb64-4" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">this</span><span class="op">.</span><span class="at">nome</span>)<span class="op">;</span></span>
+<span id="cb64-5"><a href="javascript-basico-para-nodejs.html#cb64-5" tabindex="-1"></a>  }</span>
+<span id="cb64-6"><a href="javascript-basico-para-nodejs.html#cb64-6" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb64-7"><a href="javascript-basico-para-nodejs.html#cb64-7" tabindex="-1"></a></span>
+<span id="cb64-8"><a href="javascript-basico-para-nodejs.html#cb64-8" tabindex="-1"></a>pessoa<span class="op">.</span><span class="fu">falar</span>()<span class="op">;</span></span></code></pre></div>
+<p><strong>Código 2</strong></p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb65-1"><a href="javascript-basico-para-nodejs.html#cb65-1" tabindex="-1"></a><span class="kw">const</span> pessoa <span class="op">=</span> {</span>
+<span id="cb65-2"><a href="javascript-basico-para-nodejs.html#cb65-2" tabindex="-1"></a>  <span class="dt">nome</span><span class="op">:</span> <span class="st">"Maria"</span><span class="op">,</span></span>
+<span id="cb65-3"><a href="javascript-basico-para-nodejs.html#cb65-3" tabindex="-1"></a>  <span class="dt">falar</span><span class="op">:</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb65-4"><a href="javascript-basico-para-nodejs.html#cb65-4" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">this</span><span class="op">.</span><span class="at">nome</span>)<span class="op">;</span></span>
+<span id="cb65-5"><a href="javascript-basico-para-nodejs.html#cb65-5" tabindex="-1"></a>  }</span>
+<span id="cb65-6"><a href="javascript-basico-para-nodejs.html#cb65-6" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb65-7"><a href="javascript-basico-para-nodejs.html#cb65-7" tabindex="-1"></a></span>
+<span id="cb65-8"><a href="javascript-basico-para-nodejs.html#cb65-8" tabindex="-1"></a>pessoa<span class="op">.</span><span class="fu">falar</span>()<span class="op">;</span></span></code></pre></div>
+<p>Execute os dois exemplos e responda:</p>
+<ol style="list-style-type: decimal">
+<li>Qual deles funciona corretamente?</li>
+<li>Por que o outro não funciona?</li>
+<li>Qual é o comportamento de <code>this</code> em arrow functions?</li>
+</ol>
+<hr>
+</div>
+<div id="parte-7-desafio-final" class="section level3 unnumbered">
+<h3>Parte 7 — Desafio Final<a class="anchor" aria-label="anchor" href="#parte-7-desafio-final"><i class="fas fa-link"></i></a>
+</h3>
+<p>Crie uma função chamada <code>gerarRelatorio</code>.</p>
+<p>Ela deve retornar um objeto contendo:</p>
+<pre><code>{
+ totalUsuarios: X,
+ usuariosAtivos: X,
+ usuariosInativos: X,
+ mediaIdade: X,
+ maiorComprador: "nome"
+}</code></pre>
+<p>Utilize <strong>arrow functions sempre que possível</strong>.</p>
+<p>Exemplo de saída:</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb67-1"><a href="javascript-basico-para-nodejs.html#cb67-1" tabindex="-1"></a>{</span>
+<span id="cb67-2"><a href="javascript-basico-para-nodejs.html#cb67-2" tabindex="-1"></a> <span class="dt">totalUsuarios</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span></span>
+<span id="cb67-3"><a href="javascript-basico-para-nodejs.html#cb67-3" tabindex="-1"></a> <span class="dt">usuariosAtivos</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span></span>
+<span id="cb67-4"><a href="javascript-basico-para-nodejs.html#cb67-4" tabindex="-1"></a> <span class="dt">usuariosInativos</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb67-5"><a href="javascript-basico-para-nodejs.html#cb67-5" tabindex="-1"></a> <span class="dt">mediaIdade</span><span class="op">:</span> <span class="fl">21.8</span><span class="op">,</span></span>
+<span id="cb67-6"><a href="javascript-basico-para-nodejs.html#cb67-6" tabindex="-1"></a> <span class="dt">maiorComprador</span><span class="op">:</span> <span class="st">"Carlos"</span></span>
+<span id="cb67-7"><a href="javascript-basico-para-nodejs.html#cb67-7" tabindex="-1"></a>}</span></code></pre></div>
+<hr>
+</div>
+<div id="regras-do-desafio" class="section level3 unnumbered">
+<h3>Regras do Desafio<a class="anchor" aria-label="anchor" href="#regras-do-desafio"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Utilize <strong>arrow functions sempre que possível</strong>
+</li>
+<li>Utilize <strong>arrays e objetos</strong>
+</li>
+<li>Utilize <strong>console.log para exibir os resultados</strong>
+</li>
+<li>Não utilizar bibliotecas externas</li>
+</ul>
+<hr>
+</div>
+<div id="desafio-extra-para-quem-terminar-antes" class="section level3 unnumbered">
+<h3>Desafio Extra (para quem terminar antes)<a class="anchor" aria-label="anchor" href="#desafio-extra-para-quem-terminar-antes"><i class="fas fa-link"></i></a>
+</h3>
+<p>Implemente uma função que retorne:</p>
+<ul>
+<li>o <strong>usuário mais jovem</strong>
+</li>
+<li>o <strong>usuário mais velho</strong>
+</li>
+<li>o <strong>valor médio das compras por usuário</strong>
+</li>
+</ul>
+<p>Utilizando <strong>arrow functions e métodos de array</strong>.</p>
+<hr>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="index.html">Sobre este livro</a></div>
+<div class="next"><a href="javascript-e-objetos.html"><span class="header-section-number">2</span> Javascript e Objetos</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#javascript-basico-para-nodejs"><span class="header-section-number">1</span> JavaScript Basico para NodeJS</a></li>
+<li><a class="nav-link" href="#o-que-%C3%A9-javascript-no-contexto-do-node.js"><span class="header-section-number">1.1</span> O que é JavaScript no contexto do Node.js</a></li>
+<li><a class="nav-link" href="#declara%C3%A7%C3%A3o-de-vari%C3%A1veis"><span class="header-section-number">1.2</span> Declaração de Variáveis</a></li>
+<li><a class="nav-link" href="#tipos-de-dados"><span class="header-section-number">1.3</span> Tipos de Dados</a></li>
+<li><a class="nav-link" href="#operadores-matem%C3%A1ticos">Operadores Matemáticos</a></li>
+<li><a class="nav-link" href="#operadores-relacionais">Operadores Relacionais</a></li>
+<li><a class="nav-link" href="#operadores-l%C3%B3gicos">Operadores Lógicos</a></li>
+<li>
+<a class="nav-link" href="#estruturas-condicionais"><span class="header-section-number">1.4</span> Estruturas Condicionais</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#if-else">if / else</a></li>
+<li><a class="nav-link" href="#switch">switch</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#estruturas-de-repeti%C3%A7%C3%A3o"><span class="header-section-number">1.5</span> Estruturas de Repetição</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#for">for</a></li>
+<li><a class="nav-link" href="#while">while</a></li>
+<li><a class="nav-link" href="#forof-muito-comum-em-javascript">for…of (muito comum em JavaScript)</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#fun%C3%A7%C3%B5es"><span class="header-section-number">1.6</span> Funções</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#fun%C3%A7%C3%A3o-tradicional-1">Função tradicional</a></li>
+<li><a class="nav-link" href="#arrow-function-1">Arrow Function</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#arrow-functions-em-javascript-1"><span class="header-section-number">1.7</span> Arrow Functions em JavaScript</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#fun%C3%A7%C3%B5es-tradicionais-em-javascript-1">Funções tradicionais em JavaScript</a></li></ul>
+</li>
+<li><a class="nav-link" href="#arrow-functions-sintaxe-b%C3%A1sica-1">Arrow Functions — Sintaxe Básica</a></li>
+<li><a class="nav-link" href="#vers%C3%A3o-simplificada-1">Versão simplificada</a></li>
+<li><a class="nav-link" href="#arrow-function-com-um-%C3%BAnico-par%C3%A2metro-1">Arrow Function com um único parâmetro</a></li>
+<li><a class="nav-link" href="#compara%C3%A7%C3%A3o-com-outras-linguagens-1">Comparação com outras linguagens</a></li>
+<li><a class="nav-link" href="#java-1"><span class="header-section-number">1.8</span> Java</a></li>
+<li><a class="nav-link" href="#c-1">C</a></li>
+<li><a class="nav-link" href="#python-1"><span class="header-section-number">1.9</span> Python</a></li>
+<li><a class="nav-link" href="#javascript-1">JavaScript</a></li>
+<li><a class="nav-link" href="#uso-com-arrays-muito-comum-em-node.js-1">Uso com arrays (muito comum em Node.js)</a></li>
+<li>
+<a class="nav-link" href="#arrow-functions-e-o-comportamento-de-this-1">Arrow Functions e o comportamento de this</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#fun%C3%A7%C3%A3o-tradicional-2">Função tradicional</a></li>
+<li><a class="nav-link" href="#arrow-function-2">Arrow Function</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#quando-usar-arrow-functions-1">Quando usar Arrow Functions</a></li>
+<li><a class="nav-link" href="#quando-n%C3%A3o-usar-arrow-functions-1">Quando NÃO usar Arrow Functions</a></li>
+<li><a class="nav-link" href="#conclus%C3%A3o-1">Conclusão</a></li>
+<li><a class="nav-link" href="#arrays"><span class="header-section-number">1.10</span> Arrays</a></li>
+<li><a class="nav-link" href="#objetos"><span class="header-section-number">1.11</span> Objetos</a></li>
+<li><a class="nav-link" href="#template-strings"><span class="header-section-number">1.12</span> Template Strings</a></li>
+<li>
+<a class="nav-link" href="#m%C3%B3dulos-no-node.js"><span class="header-section-number">1.13</span> Módulos no Node.js</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exportando">Exportando</a></li>
+<li><a class="nav-link" href="#importando">Importando</a></li>
+<li><a class="nav-link" href="#boas-pr%C3%A1ticas-iniciais">Boas práticas iniciais</a></li>
+<li><a class="nav-link" href="#executando-programas-node.js"><span class="header-section-number">1.13.1</span> Executando programas Node.js</a></li>
+<li><a class="nav-link" href="#pr%C3%B3ximos-conceitos-importantes-em-node.js">Próximos conceitos importantes em Node.js</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#atividade-em-sala-desafio-javascript-node.js"><span class="header-section-number">1.14</span> Atividade em Sala — Desafio JavaScript (Node.js)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#desafio-construindo-um-mini-processador-de-dados">Desafio: Construindo um Mini Processador de Dados</a></li>
+<li><a class="nav-link" href="#parte-1-total-de-compras-por-usu%C3%A1rio">Parte 1 — Total de Compras por Usuário</a></li>
+<li><a class="nav-link" href="#parte-2-usu%C3%A1rios-ativos">Parte 2 — Usuários Ativos</a></li>
+<li><a class="nav-link" href="#parte-3-usu%C3%A1rios-maiores-de-idade">Parte 3 — Usuários Maiores de Idade</a></li>
+<li><a class="nav-link" href="#parte-4-usu%C3%A1rio-com-maior-volume-de-compras">Parte 4 — Usuário com Maior Volume de Compras</a></li>
+<li><a class="nav-link" href="#parte-5-desafio-de-coer%C3%A7%C3%A3o-de-tipos">Parte 5 — Desafio de Coerção de Tipos</a></li>
+<li><a class="nav-link" href="#parte-6-desafio-arrow-function-vs-function">Parte 6 — Desafio Arrow Function vs Function</a></li>
+<li><a class="nav-link" href="#parte-7-desafio-final">Parte 7 — Desafio Final</a></li>
+<li><a class="nav-link" href="#regras-do-desafio">Regras do Desafio</a></li>
+<li><a class="nav-link" href="#desafio-extra-para-quem-terminar-antes">Desafio Extra (para quem terminar antes)</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/02-aula2_conteudo.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/02-aula2_conteudo.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Desenvolvimento web Avançado</strong>" was written by Juliana Costa Silva. It was last built on 2026-03-18.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

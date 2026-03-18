@@ -1,4 +1,4 @@
-# JavaScript Básico para Node.js
+# JavaScript Basico para NodeJS
 
 **Disciplina:** Desenvolvimento Web Avançado\
 **Contexto:** Programação Back-end com Node.js\
@@ -6,7 +6,7 @@
 
 ------------------------------------------------------------------------
 
-## 1. O que é JavaScript no contexto do Node.js {-}
+## O que é JavaScript no contexto do Node.js
 
 JavaScript é uma linguagem de programação originalmente criada para execução em navegadores.\
 Com o **Node.js**, o JavaScript também pode ser executado **no servidor**, permitindo o desenvolvimento de aplicações back-end.
@@ -25,7 +25,7 @@ console.log("Hello Node.js");
 
 ------------------------------------------------------------------------
 
-## 2. Declaração de Variáveis {-}
+## Declaração de Variáveis
 
 JavaScript possui três formas principais de declarar variáveis:
 
@@ -52,7 +52,7 @@ Boa prática:
 
 ------------------------------------------------------------------------
 
-## 3. Tipos de Dados  {-}
+## Tipos de Dados
 
 JavaScript é **dinamicamente tipada**, ou seja, o tipo é definido em tempo de execução.
 
@@ -80,7 +80,7 @@ console.log(typeof ativo);
 
 ------------------------------------------------------------------------
 
-## 4. Operadores Matemáticos {-}
+## Operadores Matemáticos {-}
 
 | Operador | Descrição        |
 |----------|------------------|
@@ -104,7 +104,7 @@ console.log(a ** 2);
 
 ------------------------------------------------------------------------
 
-## 5. Operadores Relacionais  {-}
+## Operadores Relacionais {-}
 
 | Operador | Significado                     |
 |----------|---------------------------------|
@@ -129,7 +129,7 @@ Boa prática: usar **sempre `===`**.
 
 ------------------------------------------------------------------------
 
-## 6. Operadores Lógicos {-}
+## Operadores Lógicos {-}
 
 | Operador          | Significado |     |     |
 |-------------------|-------------|-----|-----|
@@ -150,9 +150,9 @@ if (idade >= 18 && possuiCarteira) {
 
 ------------------------------------------------------------------------
 
-## 7. Estruturas Condicionais {-}
+## Estruturas Condicionais
 
-### if / else
+### if / else {-}
 
 ``` javascript
 let idade = 18;
@@ -185,7 +185,7 @@ switch(dia){
 
 ------------------------------------------------------------------------
 
-## 8. Estruturas de Repetição {-}
+## Estruturas de Repetição
 
 ### for {-}
 
@@ -222,11 +222,11 @@ for (let n of numeros) {
 
 ------------------------------------------------------------------------
 
-## 9. Funções {-}
+## Funções
 
 Funções podem ser declaradas de várias formas.
 
-### Função tradicional
+### Função tradicional {-}
 
 ``` javascript
 function soma(a, b){
@@ -254,11 +254,13 @@ Versão reduzida:
 const soma = (a,b) => a + b;
 ```
 
-[Leia mais sobre arrow functions](aula2_arrow_function.md)
+<!--[Leia mais sobre arrow functions](aula2_arrow_function.md) -->
+```{r child='02-arrow_functions.Rmd'} 
+```
 
 ------------------------------------------------------------------------
 
-## 10. Arrays {-}
+## Arrays
 
 Arrays armazenam coleções de valores.
 
@@ -278,7 +280,7 @@ for (let n of numeros) {
 
 ------------------------------------------------------------------------
 
-## 11. Objetos {-}
+## Objetos
 
 Objetos são estruturas chave-valor.
 
@@ -302,7 +304,7 @@ for (let chave in usuario){
 
 ------------------------------------------------------------------------
 
-## 12. Template Strings {-}
+## Template Strings
 
 Permitem interpolação de variáveis.
 
@@ -315,11 +317,11 @@ console.log(`Nome: ${nome}, Idade: ${idade}`);
 
 ------------------------------------------------------------------------
 
-## 13. Módulos no Node.js {-}
+## Módulos no Node.js
 
 Node.js utiliza **módulos** para organizar código.
 
-## Exportando
+### Exportando {-}
 
 ``` javascript
 function soma(a,b){
@@ -341,7 +343,7 @@ console.log(soma(2,3));
 
 ------------------------------------------------------------------------
 
-## Boas práticas iniciais {-}
+### Boas práticas iniciais {-}
 
 -   utilizar **const sempre que possível**
 -   preferir **=== em vez de ==**
@@ -351,7 +353,7 @@ console.log(soma(2,3));
 
 ------------------------------------------------------------------------
 
-## Executando programas Node.js {-}
+### Executando programas Node.js
 
 Estrutura típica:
 
@@ -370,7 +372,7 @@ node index.js
 
 ------------------------------------------------------------------------
 
-## Próximos conceitos importantes em Node.js {-}
+### Próximos conceitos importantes em Node.js {-}
 
 Após dominar a sintaxe básica, os próximos tópicos normalmente incluem:
 
@@ -384,13 +386,13 @@ Após dominar a sintaxe básica, os próximos tópicos normalmente incluem:
 
 ------------------------------------------------------------------------
 
-# Atividade em Sala — Desafio JavaScript (Node.js)
+## Atividade em Sala — Desafio JavaScript (Node.js)
 
 **Disciplina:** Desenvolvimento Web Avançado\
 
 ------------------------------------------------------------------------
 
-## Desafio: Construindo um Mini Processador de Dados {-}
+### Desafio: Construindo um Mini Processador de Dados {-}
 
 Você recebeu um conjunto de dados simulando registros de usuários de um sistema.
 
@@ -408,7 +410,7 @@ Seu objetivo é desenvolver um **script Node.js** que processe esses dados e ger
 
 ------------------------------------------------------------------------
 
-## Parte 1 — Total de Compras por Usuário {-}
+### Parte 1 — Total de Compras por Usuário {-}
 
 Utilizando **arrow functions**, calcule o valor total de compras de cada usuário.
 
@@ -424,7 +426,7 @@ Eduardo: total = 10
 
 ------------------------------------------------------------------------
 
-## Parte 2 — Usuários Ativos {-}
+### Parte 2 — Usuários Ativos {-}
 
 Utilizando **arrow functions**, filtre apenas os usuários que estão **ativos**.
 
@@ -438,7 +440,7 @@ Diana
 
 ------------------------------------------------------------------------
 
-## Parte 3 — Usuários Maiores de Idade {-}
+### Parte 3 — Usuários Maiores de Idade {-}
 
 Liste apenas usuários com **idade \>= 18**.
 
@@ -446,7 +448,7 @@ Utilize **arrow functions**.
 
 ------------------------------------------------------------------------
 
-## Parte 4 — Usuário com Maior Volume de Compras {-}
+### Parte 4 — Usuário com Maior Volume de Compras {-}
 
 Determine qual usuário possui o **maior total de compras**.
 
@@ -459,7 +461,7 @@ Total: 500
 
 ------------------------------------------------------------------------
 
-## Parte 5 — Desafio de Coerção de Tipos {-}
+### Parte 5 — Desafio de Coerção de Tipos {-}
 
 Analise o seguinte código:
 
@@ -477,11 +479,11 @@ Dica: pesquise sobre **coerção de tipos em JavaScript**.
 
 ------------------------------------------------------------------------
 
-## Parte 6 — Desafio Arrow Function vs Function {-}
+### Parte 6 — Desafio Arrow Function vs Function {-}
 
 Observe os dois códigos:
 
-### Código 1
+**Código 1**
 
 ``` javascript
 const pessoa = {
@@ -494,7 +496,7 @@ const pessoa = {
 pessoa.falar();
 ```
 
-### Código 2
+**Código 2**
 
 ``` javascript
 const pessoa = {
@@ -515,7 +517,7 @@ Execute os dois exemplos e responda:
 
 ------------------------------------------------------------------------
 
-## Parte 7 — Desafio Final {-}
+### Parte 7 — Desafio Final {-}
 
 Crie uma função chamada `gerarRelatorio`.
 
@@ -547,7 +549,7 @@ Exemplo de saída:
 
 ------------------------------------------------------------------------
 
-## Regras do Desafio {-}
+### Regras do Desafio {-}
 
 -   Utilize **arrow functions sempre que possível**
 -   Utilize **arrays e objetos**
@@ -556,7 +558,7 @@ Exemplo de saída:
 
 ------------------------------------------------------------------------
 
-## Desafio Extra (para quem terminar antes) {-}
+### Desafio Extra (para quem terminar antes) {-}
 
 Implemente uma função que retorne:
 
