@@ -72,4 +72,16 @@ tipo-de-conteúdo-content-type-mime-type
 tipos-mais-comuns
 exemplo-de-resposta-json
 exemplo-de-requisição-http
-considerações-finais-1
+criando-um-projeto-node.js-com-get-e-post
+criando-a-pasta-do-projeto
+inicializando-o-projeto
+criando-o-arquivo-principal
+implementando-o-servidor
+explicação-do-código
+executando-o-servidor
+testando-a-rota-get
+testando-a-rota-post
+o-que-esse-exemplo-permite-compreender
+melhorando-a-organização
+observação-importante
+conclusão-1
