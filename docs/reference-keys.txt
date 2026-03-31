@@ -47,6 +47,7 @@ atividade-em-sala-processamento-funcional-de-dados-em-node.js
 cenário
 programação-funcional-1
 atividade-avaliativa
+código-resposta
 web-services
 o-que-são-web-services
 get-versus-post
