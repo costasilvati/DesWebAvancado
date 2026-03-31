@@ -92,4 +92,4 @@ B)  o uso adequado dos conceitos básicos de JavaScript;
 C)  a clareza da solução e a organização do código.
 
 ## Código resposta
-O código da atividade está disponível na pasta de códigos do repositório de aula: (Para ver o código, clique AQUI)[]
+O código da atividade está disponível na pasta de códigos do repositório de aula: [Para ver o código, clique AQUI](https://github.com/costasilvati/DesWebAvancado/blob/main/codigos/atividadde1/script.js)
