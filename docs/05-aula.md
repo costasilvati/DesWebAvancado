@@ -1,0 +1,266 @@
+# Web Services
+
+Este capítulo apresenta os conceitos fundamentais de **Web Services**, essenciais para o desenvolvimento de aplicações back-end com Node.js. A comunicação entre sistemas modernos ocorre majoritariamente por meio de APIs, utilizando o protocolo HTTP e o padrão REST.
+
+---
+
+## O que são Web Services
+
+Web Services são serviços acessíveis via rede que permitem a comunicação entre diferentes sistemas. No contexto do desenvolvimento web, eles são geralmente implementados como **APIs (Application Programming Interfaces)**, que recebem requisições e retornam respostas, normalmente no formato JSON.
+
+Em aplicações Node.js, Web Services são utilizados para:
+
+- fornecer dados para aplicações front-end  
+- integrar sistemas diferentes  
+- disponibilizar funcionalidades via rede  
+
+---
+
+## GET versus POST
+
+Os métodos **GET** e **POST** são os mais utilizados em APIs.
+
+### GET
+
+O método GET é utilizado para **buscar dados** no servidor.
+
+Características:
+
+- não altera o estado do sistema  
+- parâmetros enviados na URL  
+- pode ser cacheado  
+
+### Exemplo (API pública)
+
+```bash
+GET https://jsonplaceholder.typicode.com/posts
+````
+
+Resposta (JSON):
+
+```json
+[
+  {
+    "userId": 1,
+    "id": 1,
+    "title": "Exemplo",
+    "body": "Conteúdo do post"
+  }
+]
+```
+
+---
+
+### POST
+
+O método POST é utilizado para **enviar dados ao servidor**, geralmente para criar novos registros.
+
+Características:
+
+* altera o estado do sistema
+* dados enviados no corpo da requisição
+* não é cacheado
+
+### Exemplo
+
+```bash
+POST https://jsonplaceholder.typicode.com/posts
+```
+
+Corpo da requisição:
+
+```json
+{
+  "title": "Novo Post",
+  "body": "Conteúdo",
+  "userId": 1
+}
+```
+
+Resposta:
+
+```json
+{
+  "id": 101,
+  "title": "Novo Post",
+  "body": "Conteúdo",
+  "userId": 1
+}
+```
+
+---
+
+## Web Services RESTful
+
+REST (Representational State Transfer) é um estilo arquitetural baseado em recursos e operações HTTP.
+
+### REST
+
+* define princípios de comunicação
+* utiliza recursos identificados por URLs
+* usa métodos HTTP
+
+### RESTful
+
+Um serviço é considerado **RESTful** quando segue corretamente os princípios REST:
+
+* uso adequado dos métodos HTTP
+* URLs que representam recursos (ex: `/usuarios`, `/produtos`)
+* respostas padronizadas (geralmente JSON)
+* ausência de estado no servidor (stateless)
+
+### Exemplo RESTful
+
+```bash
+GET /usuarios
+GET /usuarios/1
+POST /usuarios
+PUT /usuarios/1
+DELETE /usuarios/1
+```
+
+---
+
+## Métodos do Protocolo HTTP
+
+Os principais métodos HTTP utilizados em APIs são:
+
+### GET
+
+* utilizado para obter dados
+* não altera o servidor
+
+```javascript
+app.get('/usuarios', (req, res) => {
+    res.json(listaUsuarios);
+});
+```
+
+---
+
+### POST
+
+* utilizado para criar novos dados
+
+```javascript
+app.post('/usuarios', (req, res) => {
+    const usuario = req.body;
+    listaUsuarios.push(usuario);
+    res.status(201).json(usuario);
+});
+```
+
+---
+
+### PUT
+
+* utilizado para atualizar dados existentes
+
+```javascript
+app.put('/usuarios/:id', (req, res) => {
+    const id = req.params.id;
+    const dados = req.body;
+
+    // atualização simulada
+    res.json({ id, ...dados });
+});
+```
+
+---
+
+### DELETE
+
+* utilizado para remover dados
+
+```javascript
+app.delete('/usuarios/:id', (req, res) => {
+    const id = req.params.id;
+
+    res.json({ mensagem: `Usuário ${id} removido` });
+});
+```
+
+---
+
+## Códigos de Retorno HTTP
+
+As respostas HTTP possuem códigos que indicam o resultado da requisição.
+
+### Principais categorias
+
+| Código | Significado      |
+| ------ | ---------------- |
+| 1xx    | Informacional    |
+| 2xx    | Sucesso          |
+| 3xx    | Redirecionamento |
+| 4xx    | Erro do cliente  |
+| 5xx    | Erro do servidor |
+
+---
+
+### Exemplos comuns
+
+| Código | Descrição           |
+| ------ | ------------------- |
+| 200    | OK                  |
+| 201    | Criado              |
+| 204    | Sem conteúdo        |
+| 400    | Requisição inválida |
+| 401    | Não autorizado      |
+| 404    | Não encontrado      |
+| 500    | Erro interno        |
+
+### Exemplo em Node.js
+
+```javascript
+res.status(200).json(dados);
+res.status(201).json(novoRegistro);
+res.status(404).json({ erro: "Não encontrado" });
+```
+
+---
+
+## Tipo de Conteúdo (Content-Type / MIME Type)
+
+O cabeçalho `Content-Type` informa o formato dos dados enviados na requisição ou resposta.
+
+### Tipos mais comuns
+
+| Tipo                | Descrição          |
+| ------------------- | ------------------ |
+| application/json    | JSON               |
+| text/html           | HTML               |
+| text/plain          | Texto simples      |
+| multipart/form-data | Upload de arquivos |
+
+---
+
+### Exemplo de resposta JSON
+
+```javascript
+res.setHeader("Content-Type", "application/json");
+res.json({ mensagem: "Sucesso" });
+```
+
+---
+
+### Exemplo de requisição HTTP
+
+```http
+POST /usuarios HTTP/1.1
+Content-Type: application/json
+```
+
+---
+
+## Considerações Finais
+
+Web Services são a base da comunicação entre sistemas modernos.
+Compreender:
+
+* métodos HTTP
+* padrões REST
+* códigos de resposta
+* tipos de conteúdo
+
+é essencial para o desenvolvimento de APIs com Node.js.

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Capítulo 3 Atividade avaliativa | 04-aula</title>
+<meta name="author" content="Juliana Costa Silva">
+<meta name="description" content="Desenvolva, em JavaScript executado com node.js, um programa capaz de processar os dados de um pequeno sistema de controle de participantes de um evento de tecnologia. Seu programa deverá...">
+<meta name="generator" content="bookdown 0.45 with bs4_book()">
+<meta property="og:title" content="Capítulo 3 Atividade avaliativa | 04-aula">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Desenvolva, em JavaScript executado com node.js, um programa capaz de processar os dados de um pequeno sistema de controle de participantes de um evento de tecnologia. Seu programa deverá...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capítulo 3 Atividade avaliativa | 04-aula">
+<meta name="twitter:description" content="Desenvolva, em JavaScript executado com node.js, um programa capaz de processar os dados de um pequeno sistema de controle de participantes de um evento de tecnologia. Seu programa deverá...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">04-aula</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Sobre este livro</a></li>
+<li><a class="" href="javascript-basico-para-nodejs.html"><span class="header-section-number">1</span> JavaScript Basico para NodeJS</a></li>
+<li><a class="" href="javascript-e-objetos.html"><span class="header-section-number">2</span> Javascript e Objetos</a></li>
+<li><a class="active" href="atividade-avaliativa.html"><span class="header-section-number">3</span> Atividade avaliativa</a></li>
+<li><a class="" href="web-services.html"><span class="header-section-number">4</span> Web Services</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="atividade-avaliativa" class="section level1" number="3">
+<h1>
+<span class="header-section-number">Capítulo 3</span> Atividade avaliativa<a class="anchor" aria-label="anchor" href="#atividade-avaliativa"><i class="fas fa-link"></i></a>
+</h1>
+<p>Desenvolva, em JavaScript executado com <em>node.js</em>, um programa capaz de
+processar os dados de um pequeno sistema de controle de participantes de
+um evento de tecnologia.</p>
+<p>Seu programa deverá trabalhar com um conjunto de participantes
+previamente definido no código.</p>
+<ol style="list-style-type: decimal">
+<li>Cada participante deve ser representado por um objeto contendo, no
+mínimo, as seguintes informações: nome; idade; curso; presença no
+evento (true ou false); Uma lista com três notas correspondentes ao
+desempenho em desafios práticos realizados durante a oficina.</li>
+</ol>
+<div class="sourceCode" id="cb74"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb74-1"><a href="atividade-avaliativa.html#cb74-1" tabindex="-1"></a><span class="kw">const</span> participante <span class="op">=</span> {</span>
+<span id="cb74-2"><a href="atividade-avaliativa.html#cb74-2" tabindex="-1"></a>  <span class="dt">nome</span><span class="op">:</span> <span class="st">"Ana"</span><span class="op">,</span></span>
+<span id="cb74-3"><a href="atividade-avaliativa.html#cb74-3" tabindex="-1"></a>  <span class="dt">idade</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span></span>
+<span id="cb74-4"><a href="atividade-avaliativa.html#cb74-4" tabindex="-1"></a>  <span class="dt">curso</span><span class="op">:</span> <span class="st">"BES"</span><span class="op">,</span></span>
+<span id="cb74-5"><a href="atividade-avaliativa.html#cb74-5" tabindex="-1"></a>  <span class="dt">presenca</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb74-6"><a href="atividade-avaliativa.html#cb74-6" tabindex="-1"></a>  notas <span class="op">=</span> [<span class="dv">7</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="fl">8.1</span>]</span>
+<span id="cb74-7"><a href="atividade-avaliativa.html#cb74-7" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Você deve criar um array com pelo menos cinco participantes
+diferentes;</p></li>
+<li>
+<p>A partir desses dados, o programa deverá exibir no terminal um
+relatório organizado com as seguintes informações:</p>
+<blockquote>
+<p>nome e curso de cada participante;</p>
+<p>média das três notas de cada participante;</p>
+<p>situação de cada participante de acordo com a média, considerando
+“aprovado” para média maior ou igual a 7 e “em recuperação” para
+média menor que 7;</p>
+<p>indicação de maioridade, informando se o participante é maior ou
+menor de idade;</p>
+<p>indicação de presença, informando se compareceu ou faltou ao
+evento.</p>
+</blockquote>
+</li>
+<li>
+<p>Além disso, seu programa deverá calcular e exibir:</p>
+<blockquote>
+<p>a quantidade total de participantes cadastrados;</p>
+<p>a quantidade de participantes presentes;</p>
+<p>a quantidade de participantes ausentes;</p>
+<p>a média geral das notas de todos os participantes;</p>
+<p>o nome do participante com maior média;</p>
+<p>e uma lista contendo apenas os nomes dos participantes aprovados.</p>
+</blockquote>
+</li>
+<li>
+<p>Implemente pelo menos uma função tradicional e pelo menos uma arrow
+function. Uma das funções deve ser responsável por calcular a média
+de um participante, e outra deve ser usada em algum processamento
+sobre arrays, como seleção, transformação ou agregação de dados.</p>
+<ul>
+<li>Sempre que fizer sentido, utilize template strings para montar
+as mensagens exibidas no terminal.</li>
+<li>Durante o desenvolvimento, evite repetir código
+desnecessariamente.</li>
+<li>Organize o programa de modo legível, com nomes claros para
+variáveis e funções.</li>
+<li>O uso de estruturas como for, for…of, if, operadores lógicos e
+métodos de array pode ser combinado conforme a sua estratégia de
+solução.</li>
+</ul>
+</li>
+</ol>
+<p>Ao final, entregue apenas o conteúdo (copie e cole o script) do arquivo
+.js gerado, contendo todo o código-fonte. O programa deve executar sem
+erros com o comando node script.js.</p>
+<p>A avaliação considerará:</p>
+<ol style="list-style-type: upper-alpha">
+<li><p>o funcionamento correto do programa;</p></li>
+<li><p>o uso adequado dos conceitos básicos de JavaScript;</p></li>
+<li><p>a clareza da solução e a organização do código.</p></li>
+</ol>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="javascript-e-objetos.html"><span class="header-section-number">2</span> Javascript e Objetos</a></div>
+<div class="next"><a href="web-services.html"><span class="header-section-number">4</span> Web Services</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#atividade-avaliativa"><span class="header-section-number">3</span> Atividade avaliativa</a></li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/04-aula.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/04-aula.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>04-aula</strong>" was written by Juliana Costa Silva. It was last built on 2026-03-31.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>
