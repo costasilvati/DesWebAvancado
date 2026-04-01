@@ -85,3 +85,6 @@ o-que-esse-exemplo-permite-compreender
 melhorando-a-organização
 observação-importante
 conclusão-1
+lista-de-atividades-estudo-javascript-nodejs
+instruções
+dica-importante
