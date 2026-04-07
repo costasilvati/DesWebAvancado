@@ -88,3 +88,15 @@ conclusão-1
 lista-de-atividades-estudo-javascript-nodejs
 instruções
 dica-importante
+criando-um-servidor-http-com-nodejs
+criando-um-servidor-http-simples
+entendendo-o-createserver
+adicionando-rotas
+criando-a-terceira-versão-do-servidor-com-arquivos-json
+arquivo-classicos.json
+arquivo-esportivos.json
+arquivo-luxo.json
+servidor-versão-3
+testando-as-rotas
+o-que-foi-aprendido-neste-capítulo
+exercício

@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Criando um servidor HTTP com Node.js | 04-aula</title>
+
+    <meta name="author" content="Juliana Costa Silva" />
+  
+   <meta name="description" content="<p>This is a minimal book of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Criando um servidor HTTP com Node.js | 04-aula" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>This is a minimal book of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Criando um servidor HTTP com Node.js | 04-aula" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal book of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::bs4_book,
+set in the _output.yml file.</p>" />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.10.0/transition.js"></script>
+    <script src="libs/bs3compat-0.10.0/tabs.js"></script>
+    <script src="libs/bs3compat-0.10.0/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+    <style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+      <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">04-aula</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="criando-um-servidor-http-com-node.js" class="section level1 unnumbered">
+<h1>Criando um servidor HTTP com Node.js</h1>
+<p>Neste capítulo vamos construir, passo a passo, um servidor HTTP usando apenas módulos nativos do Node.js. O objetivo é compreender a base do funcionamento de um servidor web antes de avançar para frameworks como Express. O módulo <code>node:http</code> faz parte da API oficial do Node.js e permite criar servidores HTTP; já o construtor <code>URL</code> pode ser usado para interpretar a URL da requisição, inclusive separando rota e parâmetros.<span class="citation"><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></span></p>
+<p>Ao longo do capítulo, vamos evoluir o servidor em três versões: primeiro, um servidor mínimo que responde na rota raiz; depois, uma versão com callback nomeado e rotas; por fim, uma versão que lê arquivos JSON e responde com dados diferentes para rotas específicas. Como o servidor será criado com <code>node:http</code>, os testes serão feitos com endereços do tipo <code>http://localhost:3000/...</code>. Para usar HTTPS, o Node disponibiliza o módulo <code>node:https</code>, que trabalha com conexões criptografadas.<span class="citation"><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></span></p>
+<div id="criando-um-servidor-http-simples" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Criando um servidor HTTP simples</h2>
+<p>Vamos começar com a menor versão possível de um servidor HTTP. Crie uma pasta para o projeto e, dentro dela, um arquivo chamado <code>server.js</code>.</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb107-1"><a href="criando-um-servidor-http-com-node.html#cb107-1" tabindex="-1"></a><span class="fu">mkdir</span> servidor-http</span>
+<span id="cb107-2"><a href="criando-um-servidor-http-com-node.html#cb107-2" tabindex="-1"></a><span class="bu">cd</span> servidor-http</span></code></pre></div>
+<p>Agora adicione o seguinte código ao arquivo <code>server.js</code>:</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb108-1"><a href="criando-um-servidor-http-com-node.html#cb108-1" tabindex="-1"></a><span class="kw">const</span> http <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;node:http&#39;</span>)<span class="op">;</span></span>
+<span id="cb108-2"><a href="criando-um-servidor-http-com-node.html#cb108-2" tabindex="-1"></a></span>
+<span id="cb108-3"><a href="criando-um-servidor-http-com-node.html#cb108-3" tabindex="-1"></a><span class="kw">const</span> server <span class="op">=</span> http<span class="op">.</span><span class="fu">createServer</span>((req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
+<span id="cb108-4"><a href="criando-um-servidor-http-com-node.html#cb108-4" tabindex="-1"></a>  res<span class="op">.</span><span class="at">statusCode</span> <span class="op">=</span> <span class="dv">200</span><span class="op">;</span></span>
+<span id="cb108-5"><a href="criando-um-servidor-http-com-node.html#cb108-5" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">setHeader</span>(<span class="st">&#39;Content-Type&#39;</span><span class="op">,</span> <span class="st">&#39;text/plain; charset=utf-8&#39;</span>)<span class="op">;</span></span>
+<span id="cb108-6"><a href="criando-um-servidor-http-com-node.html#cb108-6" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">end</span>(<span class="st">&#39;Servidor HTTP ativo na rota /&#39;</span>)<span class="op">;</span></span>
+<span id="cb108-7"><a href="criando-um-servidor-http-com-node.html#cb108-7" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb108-8"><a href="criando-um-servidor-http-com-node.html#cb108-8" tabindex="-1"></a></span>
+<span id="cb108-9"><a href="criando-um-servidor-http-com-node.html#cb108-9" tabindex="-1"></a>server<span class="op">.</span><span class="fu">listen</span>(<span class="dv">3000</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb108-10"><a href="criando-um-servidor-http-com-node.html#cb108-10" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Servidor executando em http://localhost:3000&#39;</span>)<span class="op">;</span></span>
+<span id="cb108-11"><a href="criando-um-servidor-http-com-node.html#cb108-11" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p>Esse primeiro exemplo importa o módulo <code>node:http</code>, cria uma instância de <code>http.Server</code> com <code>http.createServer(...)</code> e coloca o servidor para escutar na porta <code>3000</code>. A documentação oficial informa que <code>http.createServer([options][, requestListener])</code> retorna uma nova instância de <code>http.Server</code>, e que o <code>requestListener</code> é automaticamente associado ao evento <code>'request'</code>.<span class="citation"><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></span></p>
+<p>Para executar:</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb109-1"><a href="criando-um-servidor-http-com-node.html#cb109-1" tabindex="-1"></a><span class="ex">node</span> server.js</span></code></pre></div>
+<p>Depois, abra o navegador em:</p>
+<pre class="text"><code>http://localhost:3000</code></pre>
+<p>Como esse servidor ainda não trata rotas, ele responderá da mesma forma para qualquer caminho acessado, por exemplo <code>/</code>, <code>/teste</code> ou <code>/qualquer-coisa</code>.</p>
+</div>
+<div id="entendendo-o-createserver" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Entendendo o <code>createServer</code></h2>
+<p>A função <code>createServer</code> pode ser usada de duas formas didaticamente importantes. A primeira é passar a função diretamente como callback, como fizemos no exemplo anterior. A segunda é criar a função antes e guardá-la em uma variável, deixando mais explícito o papel do callback. A documentação do Node mostra tanto a criação do servidor já com a função passada ao <code>createServer</code>, quanto a alternativa de criar o servidor e tratar o evento <code>'request'</code> separadamente.<span class="citation"><a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></span></p>
+<p>Veja a versão com callback armazenado em variável:</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb111-1"><a href="criando-um-servidor-http-com-node.html#cb111-1" tabindex="-1"></a><span class="kw">const</span> http <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;node:http&#39;</span>)<span class="op">;</span></span>
+<span id="cb111-2"><a href="criando-um-servidor-http-com-node.html#cb111-2" tabindex="-1"></a></span>
+<span id="cb111-3"><a href="criando-um-servidor-http-com-node.html#cb111-3" tabindex="-1"></a><span class="kw">const</span> callback <span class="op">=</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
+<span id="cb111-4"><a href="criando-um-servidor-http-com-node.html#cb111-4" tabindex="-1"></a>  res<span class="op">.</span><span class="at">statusCode</span> <span class="op">=</span> <span class="dv">200</span><span class="op">;</span></span>
+<span id="cb111-5"><a href="criando-um-servidor-http-com-node.html#cb111-5" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">setHeader</span>(<span class="st">&#39;Content-Type&#39;</span><span class="op">,</span> <span class="st">&#39;text/plain; charset=utf-8&#39;</span>)<span class="op">;</span></span>
+<span id="cb111-6"><a href="criando-um-servidor-http-com-node.html#cb111-6" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">end</span>(<span class="st">&#39;Resposta enviada pela função callback&#39;</span>)<span class="op">;</span></span>
+<span id="cb111-7"><a href="criando-um-servidor-http-com-node.html#cb111-7" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb111-8"><a href="criando-um-servidor-http-com-node.html#cb111-8" tabindex="-1"></a></span>
+<span id="cb111-9"><a href="criando-um-servidor-http-com-node.html#cb111-9" tabindex="-1"></a><span class="kw">const</span> server <span class="op">=</span> http<span class="op">.</span><span class="fu">createServer</span>(callback)<span class="op">;</span></span>
+<span id="cb111-10"><a href="criando-um-servidor-http-com-node.html#cb111-10" tabindex="-1"></a></span>
+<span id="cb111-11"><a href="criando-um-servidor-http-com-node.html#cb111-11" tabindex="-1"></a>server<span class="op">.</span><span class="fu">listen</span>(<span class="dv">3000</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb111-12"><a href="criando-um-servidor-http-com-node.html#cb111-12" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Servidor executando em http://localhost:3000&#39;</span>)<span class="op">;</span></span>
+<span id="cb111-13"><a href="criando-um-servidor-http-com-node.html#cb111-13" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p>Aqui, a variável <code>callback</code> guarda a função que recebe dois objetos muito importantes:</p>
+<ul>
+<li><code>req</code>: representa a requisição recebida pelo servidor;</li>
+<li><code>res</code>: representa a resposta que o servidor enviará ao cliente.</li>
+</ul>
+<p>Essa organização ajuda bastante no início do estudo, porque deixa claro que o servidor apenas “entrega” a requisição para uma função que sabe o que fazer com ela.</p>
+<p>Se você quiser apresentar a documentação oficial no capítulo, uma boa forma é comentar no texto que:</p>
+<ul>
+<li>o método está documentado no módulo HTTP do Node.js;</li>
+<li>ele retorna um <code>http.Server</code>;</li>
+<li>o callback passado é o <code>requestListener</code>;</li>
+<li>esse <code>requestListener</code> é associado ao evento <code>'request'</code>.</li>
+</ul>
+</div>
+<div id="adicionando-rotas" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Adicionando rotas</h2>
+<p>Até aqui, o servidor responde exatamente da mesma maneira para qualquer URL. Em aplicações reais, isso não é suficiente, pois normalmente queremos que cada rota represente um recurso ou uma funcionalidade diferente.</p>
+<p>De forma simples, podemos pensar na rota como a parte da URL que identifica o recurso solicitado. Em Node.js, a URL bruta da requisição chega em <code>request.url</code>, e a documentação oficial mostra que esse valor contém apenas a URL presente na requisição HTTP. A própria documentação sugere usar <code>new URL(...)</code> para separar essa URL em partes.<span class="citation"><a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></span></p>
+<p>Vamos criar uma segunda versão do servidor que aceita apenas duas rotas:</p>
+<ul>
+<li><code>/</code></li>
+<li><code>/carros</code></li>
+</ul>
+<p>Se o usuário acessar qualquer outra rota, o servidor exibirá “rota inválida”.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb112-1"><a href="criando-um-servidor-http-com-node.html#cb112-1" tabindex="-1"></a><span class="kw">const</span> http <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;node:http&#39;</span>)<span class="op">;</span></span>
+<span id="cb112-2"><a href="criando-um-servidor-http-com-node.html#cb112-2" tabindex="-1"></a></span>
+<span id="cb112-3"><a href="criando-um-servidor-http-com-node.html#cb112-3" tabindex="-1"></a><span class="kw">const</span> callback <span class="op">=</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
+<span id="cb112-4"><a href="criando-um-servidor-http-com-node.html#cb112-4" tabindex="-1"></a>  <span class="kw">const</span> url <span class="op">=</span> <span class="kw">new</span> <span class="fu">URL</span>(<span class="vs">`http://localhost:3000</span><span class="sc">${</span>req<span class="op">.</span><span class="at">url</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb112-5"><a href="criando-um-servidor-http-com-node.html#cb112-5" tabindex="-1"></a>  <span class="kw">const</span> rota <span class="op">=</span> url<span class="op">.</span><span class="at">pathname</span><span class="op">;</span></span>
+<span id="cb112-6"><a href="criando-um-servidor-http-com-node.html#cb112-6" tabindex="-1"></a></span>
+<span id="cb112-7"><a href="criando-um-servidor-http-com-node.html#cb112-7" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">setHeader</span>(<span class="st">&#39;Content-Type&#39;</span><span class="op">,</span> <span class="st">&#39;text/plain; charset=utf-8&#39;</span>)<span class="op">;</span></span>
+<span id="cb112-8"><a href="criando-um-servidor-http-com-node.html#cb112-8" tabindex="-1"></a></span>
+<span id="cb112-9"><a href="criando-um-servidor-http-com-node.html#cb112-9" tabindex="-1"></a>  <span class="cf">if</span> (rota <span class="op">===</span> <span class="st">&#39;/&#39;</span>) {</span>
+<span id="cb112-10"><a href="criando-um-servidor-http-com-node.html#cb112-10" tabindex="-1"></a>    res<span class="op">.</span><span class="at">statusCode</span> <span class="op">=</span> <span class="dv">200</span><span class="op">;</span></span>
+<span id="cb112-11"><a href="criando-um-servidor-http-com-node.html#cb112-11" tabindex="-1"></a>    res<span class="op">.</span><span class="fu">end</span>(<span class="st">&#39;Você acessou a rota /&#39;</span>)<span class="op">;</span></span>
+<span id="cb112-12"><a href="criando-um-servidor-http-com-node.html#cb112-12" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (rota <span class="op">===</span> <span class="st">&#39;/carros&#39;</span>) {</span>
+<span id="cb112-13"><a href="criando-um-servidor-http-com-node.html#cb112-13" tabindex="-1"></a>    res<span class="op">.</span><span class="at">statusCode</span> <span class="op">=</span> <span class="dv">200</span><span class="op">;</span></span>
+<span id="cb112-14"><a href="criando-um-servidor-http-com-node.html#cb112-14" tabindex="-1"></a>    res<span class="op">.</span><span class="fu">end</span>(<span class="st">&#39;Você acessou a rota /carros&#39;</span>)<span class="op">;</span></span>
+<span id="cb112-15"><a href="criando-um-servidor-http-com-node.html#cb112-15" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb112-16"><a href="criando-um-servidor-http-com-node.html#cb112-16" tabindex="-1"></a>    res<span class="op">.</span><span class="at">statusCode</span> <span class="op">=</span> <span class="dv">404</span><span class="op">;</span></span>
+<span id="cb112-17"><a href="criando-um-servidor-http-com-node.html#cb112-17" tabindex="-1"></a>    res<span class="op">.</span><span class="fu">end</span>(<span class="st">&#39;Rota inválida&#39;</span>)<span class="op">;</span></span>
+<span id="cb112-18"><a href="criando-um-servidor-http-com-node.html#cb112-18" tabindex="-1"></a>  }</span>
+<span id="cb112-19"><a href="criando-um-servidor-http-com-node.html#cb112-19" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb112-20"><a href="criando-um-servidor-http-com-node.html#cb112-20" tabindex="-1"></a></span>
+<span id="cb112-21"><a href="criando-um-servidor-http-com-node.html#cb112-21" tabindex="-1"></a><span class="kw">const</span> server <span class="op">=</span> http<span class="op">.</span><span class="fu">createServer</span>(callback)<span class="op">;</span></span>
+<span id="cb112-22"><a href="criando-um-servidor-http-com-node.html#cb112-22" tabindex="-1"></a></span>
+<span id="cb112-23"><a href="criando-um-servidor-http-com-node.html#cb112-23" tabindex="-1"></a>server<span class="op">.</span><span class="fu">listen</span>(<span class="dv">3000</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb112-24"><a href="criando-um-servidor-http-com-node.html#cb112-24" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Servidor executando em http://localhost:3000&#39;</span>)<span class="op">;</span></span>
+<span id="cb112-25"><a href="criando-um-servidor-http-com-node.html#cb112-25" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p>Alguns pontos merecem destaque:</p>
+<ol style="list-style-type: decimal">
+<li><code>req.url</code> contém a URL enviada na requisição.</li>
+<li><code>new URL(...)</code> cria um objeto <code>URL</code> com várias partes da URL separadas.</li>
+<li><code>url.pathname</code> retorna apenas o caminho da rota, como <code>/</code> ou <code>/carros</code>.<span class="citation"><a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></span></li>
+</ol>
+<p>Agora você pode testar:</p>
+<pre class="text"><code>http://localhost:3000/
+http://localhost:3000/carros
+http://localhost:3000/usuarios</code></pre>
+<p>As duas primeiras rotas retornarão mensagens válidas. A terceira retornará <code>Rota inválida</code>.</p>
+</div>
+<div id="criando-a-terceira-versão-do-servidor-com-arquivos-json" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Criando a terceira versão do servidor com arquivos JSON</h2>
+<p>Agora vamos dar um passo importante: em vez de responder apenas texto, o servidor vai ler arquivos <code>.json</code> e devolver dados diferentes para cada rota. Isso aproxima bastante o exemplo do que fazemos em APIs.</p>
+<p>Para esse exemplo, vamos usar três rotas:</p>
+<ul>
+<li><code>http://localhost:3000/carros/classicos</code></li>
+<li><code>http://localhost:3000/carros/esportivos</code></li>
+<li><code>http://localhost:3000/carros/luxo</code></li>
+</ul>
+<p>Como material didático autocontido, vamos criar três arquivos JSON na pasta do projeto. Para ler os arquivos, usaremos o módulo <code>node:fs</code>, que é o módulo oficial do Node para operações com sistema de arquivos. A documentação informa que <code>node:fs</code> oferece APIs síncronas, assíncronas com callback e baseadas em promises; neste capítulo usaremos a forma síncrona por simplicidade didática.<span class="citation"><a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></span></p>
+<p>Organize a pasta assim:</p>
+<pre class="text"><code>servidor-http/
+├── server.js
+├── classicos.json
+├── esportivos.json
+└── luxo.json</code></pre>
+<div id="arquivo-classicos.json" class="section level3" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> Arquivo <code>classicos.json</code></h3>
+<div class="sourceCode" id="cb115"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb115-1"><a href="criando-um-servidor-http-com-node.html#cb115-1" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb115-2"><a href="criando-um-servidor-http-com-node.html#cb115-2" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb115-3"><a href="criando-um-servidor-http-com-node.html#cb115-3" tabindex="-1"></a>    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb115-4"><a href="criando-um-servidor-http-com-node.html#cb115-4" tabindex="-1"></a>    <span class="dt">&quot;nome&quot;</span><span class="fu">:</span> <span class="st">&quot;Fusca&quot;</span><span class="fu">,</span></span>
+<span id="cb115-5"><a href="criando-um-servidor-http-com-node.html#cb115-5" tabindex="-1"></a>    <span class="dt">&quot;marca&quot;</span><span class="fu">:</span> <span class="st">&quot;Volkswagen&quot;</span><span class="fu">,</span></span>
+<span id="cb115-6"><a href="criando-um-servidor-http-com-node.html#cb115-6" tabindex="-1"></a>    <span class="dt">&quot;ano&quot;</span><span class="fu">:</span> <span class="dv">1972</span></span>
+<span id="cb115-7"><a href="criando-um-servidor-http-com-node.html#cb115-7" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb115-8"><a href="criando-um-servidor-http-com-node.html#cb115-8" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb115-9"><a href="criando-um-servidor-http-com-node.html#cb115-9" tabindex="-1"></a>    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span></span>
+<span id="cb115-10"><a href="criando-um-servidor-http-com-node.html#cb115-10" tabindex="-1"></a>    <span class="dt">&quot;nome&quot;</span><span class="fu">:</span> <span class="st">&quot;Opala&quot;</span><span class="fu">,</span></span>
+<span id="cb115-11"><a href="criando-um-servidor-http-com-node.html#cb115-11" tabindex="-1"></a>    <span class="dt">&quot;marca&quot;</span><span class="fu">:</span> <span class="st">&quot;Chevrolet&quot;</span><span class="fu">,</span></span>
+<span id="cb115-12"><a href="criando-um-servidor-http-com-node.html#cb115-12" tabindex="-1"></a>    <span class="dt">&quot;ano&quot;</span><span class="fu">:</span> <span class="dv">1978</span></span>
+<span id="cb115-13"><a href="criando-um-servidor-http-com-node.html#cb115-13" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb115-14"><a href="criando-um-servidor-http-com-node.html#cb115-14" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
+</div>
+<div id="arquivo-esportivos.json" class="section level3" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> Arquivo <code>esportivos.json</code></h3>
+<div class="sourceCode" id="cb116"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb116-1"><a href="criando-um-servidor-http-com-node.html#cb116-1" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb116-2"><a href="criando-um-servidor-http-com-node.html#cb116-2" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb116-3"><a href="criando-um-servidor-http-com-node.html#cb116-3" tabindex="-1"></a>    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb116-4"><a href="criando-um-servidor-http-com-node.html#cb116-4" tabindex="-1"></a>    <span class="dt">&quot;nome&quot;</span><span class="fu">:</span> <span class="st">&quot;Ferrari F40&quot;</span><span class="fu">,</span></span>
+<span id="cb116-5"><a href="criando-um-servidor-http-com-node.html#cb116-5" tabindex="-1"></a>    <span class="dt">&quot;marca&quot;</span><span class="fu">:</span> <span class="st">&quot;Ferrari&quot;</span><span class="fu">,</span></span>
+<span id="cb116-6"><a href="criando-um-servidor-http-com-node.html#cb116-6" tabindex="-1"></a>    <span class="dt">&quot;ano&quot;</span><span class="fu">:</span> <span class="dv">1987</span></span>
+<span id="cb116-7"><a href="criando-um-servidor-http-com-node.html#cb116-7" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb116-8"><a href="criando-um-servidor-http-com-node.html#cb116-8" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb116-9"><a href="criando-um-servidor-http-com-node.html#cb116-9" tabindex="-1"></a>    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span></span>
+<span id="cb116-10"><a href="criando-um-servidor-http-com-node.html#cb116-10" tabindex="-1"></a>    <span class="dt">&quot;nome&quot;</span><span class="fu">:</span> <span class="st">&quot;Porsche 911&quot;</span><span class="fu">,</span></span>
+<span id="cb116-11"><a href="criando-um-servidor-http-com-node.html#cb116-11" tabindex="-1"></a>    <span class="dt">&quot;marca&quot;</span><span class="fu">:</span> <span class="st">&quot;Porsche&quot;</span><span class="fu">,</span></span>
+<span id="cb116-12"><a href="criando-um-servidor-http-com-node.html#cb116-12" tabindex="-1"></a>    <span class="dt">&quot;ano&quot;</span><span class="fu">:</span> <span class="dv">2020</span></span>
+<span id="cb116-13"><a href="criando-um-servidor-http-com-node.html#cb116-13" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb116-14"><a href="criando-um-servidor-http-com-node.html#cb116-14" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
+</div>
+<div id="arquivo-luxo.json" class="section level3" number="5.6.3">
+<h3><span class="header-section-number">5.6.3</span> Arquivo <code>luxo.json</code></h3>
+<div class="sourceCode" id="cb117"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb117-1"><a href="criando-um-servidor-http-com-node.html#cb117-1" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb117-2"><a href="criando-um-servidor-http-com-node.html#cb117-2" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb117-3"><a href="criando-um-servidor-http-com-node.html#cb117-3" tabindex="-1"></a>    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb117-4"><a href="criando-um-servidor-http-com-node.html#cb117-4" tabindex="-1"></a>    <span class="dt">&quot;nome&quot;</span><span class="fu">:</span> <span class="st">&quot;Mercedes Classe S&quot;</span><span class="fu">,</span></span>
+<span id="cb117-5"><a href="criando-um-servidor-http-com-node.html#cb117-5" tabindex="-1"></a>    <span class="dt">&quot;marca&quot;</span><span class="fu">:</span> <span class="st">&quot;Mercedes-Benz&quot;</span><span class="fu">,</span></span>
+<span id="cb117-6"><a href="criando-um-servidor-http-com-node.html#cb117-6" tabindex="-1"></a>    <span class="dt">&quot;ano&quot;</span><span class="fu">:</span> <span class="dv">2022</span></span>
+<span id="cb117-7"><a href="criando-um-servidor-http-com-node.html#cb117-7" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb117-8"><a href="criando-um-servidor-http-com-node.html#cb117-8" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb117-9"><a href="criando-um-servidor-http-com-node.html#cb117-9" tabindex="-1"></a>    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span></span>
+<span id="cb117-10"><a href="criando-um-servidor-http-com-node.html#cb117-10" tabindex="-1"></a>    <span class="dt">&quot;nome&quot;</span><span class="fu">:</span> <span class="st">&quot;BMW Série 7&quot;</span><span class="fu">,</span></span>
+<span id="cb117-11"><a href="criando-um-servidor-http-com-node.html#cb117-11" tabindex="-1"></a>    <span class="dt">&quot;marca&quot;</span><span class="fu">:</span> <span class="st">&quot;BMW&quot;</span><span class="fu">,</span></span>
+<span id="cb117-12"><a href="criando-um-servidor-http-com-node.html#cb117-12" tabindex="-1"></a>    <span class="dt">&quot;ano&quot;</span><span class="fu">:</span> <span class="dv">2023</span></span>
+<span id="cb117-13"><a href="criando-um-servidor-http-com-node.html#cb117-13" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb117-14"><a href="criando-um-servidor-http-com-node.html#cb117-14" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
+<p>Agora vamos criar uma função auxiliar para ler um arquivo JSON e retornar seu conteúdo:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb118-1"><a href="criando-um-servidor-http-com-node.html#cb118-1" tabindex="-1"></a><span class="kw">const</span> fs <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;node:fs&#39;</span>)<span class="op">;</span></span>
+<span id="cb118-2"><a href="criando-um-servidor-http-com-node.html#cb118-2" tabindex="-1"></a></span>
+<span id="cb118-3"><a href="criando-um-servidor-http-com-node.html#cb118-3" tabindex="-1"></a><span class="kw">function</span> <span class="fu">lerArquivoJson</span>(nomeArquivo) {</span>
+<span id="cb118-4"><a href="criando-um-servidor-http-com-node.html#cb118-4" tabindex="-1"></a>  <span class="kw">const</span> conteudo <span class="op">=</span> fs<span class="op">.</span><span class="fu">readFileSync</span>(nomeArquivo<span class="op">,</span> <span class="st">&#39;utf-8&#39;</span>)<span class="op">;</span></span>
+<span id="cb118-5"><a href="criando-um-servidor-http-com-node.html#cb118-5" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(conteudo)<span class="op">;</span></span>
+<span id="cb118-6"><a href="criando-um-servidor-http-com-node.html#cb118-6" tabindex="-1"></a>}</span></code></pre></div>
+<p>A função usa <code>fs.readFileSync(...)</code> para ler o arquivo como texto UTF-8 e depois <code>JSON.parse(...)</code> para converter o texto em objeto/array JavaScript. Como as APIs síncronas do Node bloqueiam a execução até a operação terminar e reportam erros por exceção, é recomendável tratá-las com <code>try...catch</code> quando o capítulo avançar para cenários mais robustos.<span class="citation"><a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></span></p>
+</div>
+</div>
+<div id="servidor-versão-3" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Servidor versão 3</h2>
+<p>A seguir está a terceira versão completa do servidor:</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb119-1"><a href="criando-um-servidor-http-com-node.html#cb119-1" tabindex="-1"></a><span class="kw">const</span> http <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;node:http&#39;</span>)<span class="op">;</span></span>
+<span id="cb119-2"><a href="criando-um-servidor-http-com-node.html#cb119-2" tabindex="-1"></a><span class="kw">const</span> fs <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;node:fs&#39;</span>)<span class="op">;</span></span>
+<span id="cb119-3"><a href="criando-um-servidor-http-com-node.html#cb119-3" tabindex="-1"></a></span>
+<span id="cb119-4"><a href="criando-um-servidor-http-com-node.html#cb119-4" tabindex="-1"></a><span class="kw">function</span> <span class="fu">lerArquivoJson</span>(nomeArquivo) {</span>
+<span id="cb119-5"><a href="criando-um-servidor-http-com-node.html#cb119-5" tabindex="-1"></a>  <span class="kw">const</span> conteudo <span class="op">=</span> fs<span class="op">.</span><span class="fu">readFileSync</span>(nomeArquivo<span class="op">,</span> <span class="st">&#39;utf-8&#39;</span>)<span class="op">;</span></span>
+<span id="cb119-6"><a href="criando-um-servidor-http-com-node.html#cb119-6" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(conteudo)<span class="op">;</span></span>
+<span id="cb119-7"><a href="criando-um-servidor-http-com-node.html#cb119-7" tabindex="-1"></a>}</span>
+<span id="cb119-8"><a href="criando-um-servidor-http-com-node.html#cb119-8" tabindex="-1"></a></span>
+<span id="cb119-9"><a href="criando-um-servidor-http-com-node.html#cb119-9" tabindex="-1"></a><span class="kw">const</span> callback <span class="op">=</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
+<span id="cb119-10"><a href="criando-um-servidor-http-com-node.html#cb119-10" tabindex="-1"></a>  <span class="kw">const</span> url <span class="op">=</span> <span class="kw">new</span> <span class="fu">URL</span>(<span class="vs">`http://localhost:3000</span><span class="sc">${</span>req<span class="op">.</span><span class="at">url</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb119-11"><a href="criando-um-servidor-http-com-node.html#cb119-11" tabindex="-1"></a>  <span class="kw">const</span> rota <span class="op">=</span> url<span class="op">.</span><span class="at">pathname</span><span class="op">;</span></span>
+<span id="cb119-12"><a href="criando-um-servidor-http-com-node.html#cb119-12" tabindex="-1"></a></span>
+<span id="cb119-13"><a href="criando-um-servidor-http-com-node.html#cb119-13" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">setHeader</span>(<span class="st">&#39;Content-Type&#39;</span><span class="op">,</span> <span class="st">&#39;application/json; charset=utf-8&#39;</span>)<span class="op">;</span></span>
+<span id="cb119-14"><a href="criando-um-servidor-http-com-node.html#cb119-14" tabindex="-1"></a></span>
+<span id="cb119-15"><a href="criando-um-servidor-http-com-node.html#cb119-15" tabindex="-1"></a>  <span class="cf">try</span> {</span>
+<span id="cb119-16"><a href="criando-um-servidor-http-com-node.html#cb119-16" tabindex="-1"></a>    <span class="cf">if</span> (rota <span class="op">===</span> <span class="st">&#39;/carros/classicos&#39;</span>) {</span>
+<span id="cb119-17"><a href="criando-um-servidor-http-com-node.html#cb119-17" tabindex="-1"></a>      <span class="kw">const</span> dados <span class="op">=</span> <span class="fu">lerArquivoJson</span>(<span class="st">&#39;classicos.json&#39;</span>)<span class="op">;</span></span>
+<span id="cb119-18"><a href="criando-um-servidor-http-com-node.html#cb119-18" tabindex="-1"></a>      res<span class="op">.</span><span class="at">statusCode</span> <span class="op">=</span> <span class="dv">200</span><span class="op">;</span></span>
+<span id="cb119-19"><a href="criando-um-servidor-http-com-node.html#cb119-19" tabindex="-1"></a>      res<span class="op">.</span><span class="fu">end</span>(<span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(dados))<span class="op">;</span></span>
+<span id="cb119-20"><a href="criando-um-servidor-http-com-node.html#cb119-20" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (rota <span class="op">===</span> <span class="st">&#39;/carros/esportivos&#39;</span>) {</span>
+<span id="cb119-21"><a href="criando-um-servidor-http-com-node.html#cb119-21" tabindex="-1"></a>      <span class="kw">const</span> dados <span class="op">=</span> <span class="fu">lerArquivoJson</span>(<span class="st">&#39;esportivos.json&#39;</span>)<span class="op">;</span></span>
+<span id="cb119-22"><a href="criando-um-servidor-http-com-node.html#cb119-22" tabindex="-1"></a>      res<span class="op">.</span><span class="at">statusCode</span> <span class="op">=</span> <span class="dv">200</span><span class="op">;</span></span>
+<span id="cb119-23"><a href="criando-um-servidor-http-com-node.html#cb119-23" tabindex="-1"></a>      res<span class="op">.</span><span class="fu">end</span>(<span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(dados))<span class="op">;</span></span>
+<span id="cb119-24"><a href="criando-um-servidor-http-com-node.html#cb119-24" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (rota <span class="op">===</span> <span class="st">&#39;/carros/luxo&#39;</span>) {</span>
+<span id="cb119-25"><a href="criando-um-servidor-http-com-node.html#cb119-25" tabindex="-1"></a>      <span class="kw">const</span> dados <span class="op">=</span> <span class="fu">lerArquivoJson</span>(<span class="st">&#39;luxo.json&#39;</span>)<span class="op">;</span></span>
+<span id="cb119-26"><a href="criando-um-servidor-http-com-node.html#cb119-26" tabindex="-1"></a>      res<span class="op">.</span><span class="at">statusCode</span> <span class="op">=</span> <span class="dv">200</span><span class="op">;</span></span>
+<span id="cb119-27"><a href="criando-um-servidor-http-com-node.html#cb119-27" tabindex="-1"></a>      res<span class="op">.</span><span class="fu">end</span>(<span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(dados))<span class="op">;</span></span>
+<span id="cb119-28"><a href="criando-um-servidor-http-com-node.html#cb119-28" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb119-29"><a href="criando-um-servidor-http-com-node.html#cb119-29" tabindex="-1"></a>      res<span class="op">.</span><span class="at">statusCode</span> <span class="op">=</span> <span class="dv">404</span><span class="op">;</span></span>
+<span id="cb119-30"><a href="criando-um-servidor-http-com-node.html#cb119-30" tabindex="-1"></a>      res<span class="op">.</span><span class="fu">end</span>(<span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>({ <span class="dt">erro</span><span class="op">:</span> <span class="st">&#39;Rota inválida&#39;</span> }))<span class="op">;</span></span>
+<span id="cb119-31"><a href="criando-um-servidor-http-com-node.html#cb119-31" tabindex="-1"></a>    }</span>
+<span id="cb119-32"><a href="criando-um-servidor-http-com-node.html#cb119-32" tabindex="-1"></a>  } <span class="cf">catch</span> (erro) {</span>
+<span id="cb119-33"><a href="criando-um-servidor-http-com-node.html#cb119-33" tabindex="-1"></a>    res<span class="op">.</span><span class="at">statusCode</span> <span class="op">=</span> <span class="dv">500</span><span class="op">;</span></span>
+<span id="cb119-34"><a href="criando-um-servidor-http-com-node.html#cb119-34" tabindex="-1"></a>    res<span class="op">.</span><span class="fu">end</span>(<span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>({ <span class="dt">erro</span><span class="op">:</span> <span class="st">&#39;Erro ao ler arquivo JSON&#39;</span> }))<span class="op">;</span></span>
+<span id="cb119-35"><a href="criando-um-servidor-http-com-node.html#cb119-35" tabindex="-1"></a>  }</span>
+<span id="cb119-36"><a href="criando-um-servidor-http-com-node.html#cb119-36" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb119-37"><a href="criando-um-servidor-http-com-node.html#cb119-37" tabindex="-1"></a></span>
+<span id="cb119-38"><a href="criando-um-servidor-http-com-node.html#cb119-38" tabindex="-1"></a><span class="kw">const</span> server <span class="op">=</span> http<span class="op">.</span><span class="fu">createServer</span>(callback)<span class="op">;</span></span>
+<span id="cb119-39"><a href="criando-um-servidor-http-com-node.html#cb119-39" tabindex="-1"></a></span>
+<span id="cb119-40"><a href="criando-um-servidor-http-com-node.html#cb119-40" tabindex="-1"></a>server<span class="op">.</span><span class="fu">listen</span>(<span class="dv">3000</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb119-41"><a href="criando-um-servidor-http-com-node.html#cb119-41" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Servidor executando em http://localhost:3000&#39;</span>)<span class="op">;</span></span>
+<span id="cb119-42"><a href="criando-um-servidor-http-com-node.html#cb119-42" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p>Nessa versão, o fluxo do servidor é:</p>
+<ol style="list-style-type: decimal">
+<li>receber a requisição;</li>
+<li>fazer o parse da URL;</li>
+<li>verificar a rota acessada;</li>
+<li>carregar o arquivo JSON correspondente;</li>
+<li>devolver os dados ao cliente em formato JSON.</li>
+</ol>
+<p>O cabeçalho <code>Content-Type</code> foi alterado para <code>application/json; charset=utf-8</code>, pois agora a resposta do servidor não é mais texto simples: ela é JSON.</p>
+</div>
+<div id="testando-as-rotas" class="section level2" number="5.8">
+<h2><span class="header-section-number">5.8</span> Testando as rotas</h2>
+<p>Com o servidor em execução, teste no navegador ou com outra ferramenta HTTP:</p>
+<pre class="text"><code>http://localhost:3000/carros/classicos
+http://localhost:3000/carros/esportivos
+http://localhost:3000/carros/luxo</code></pre>
+<p>Você também pode testar com <code>curl</code> no terminal:</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb121-1"><a href="criando-um-servidor-http-com-node.html#cb121-1" tabindex="-1"></a><span class="ex">curl</span> http://localhost:3000/carros/classicos</span>
+<span id="cb121-2"><a href="criando-um-servidor-http-com-node.html#cb121-2" tabindex="-1"></a><span class="ex">curl</span> http://localhost:3000/carros/esportivos</span>
+<span id="cb121-3"><a href="criando-um-servidor-http-com-node.html#cb121-3" tabindex="-1"></a><span class="ex">curl</span> http://localhost:3000/carros/luxo</span></code></pre></div>
+<p>Se a rota não existir, por exemplo:</p>
+<pre class="text"><code>http://localhost:3000/carros/utilitarios</code></pre>
+<p>o servidor responderá com erro <code>404</code> e a mensagem:</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb123-1"><a href="criando-um-servidor-http-com-node.html#cb123-1" tabindex="-1"></a><span class="fu">{</span> <span class="dt">&quot;erro&quot;</span><span class="fu">:</span> <span class="st">&quot;Rota inválida&quot;</span> <span class="fu">}</span></span></code></pre></div>
+</div>
+<div id="o-que-foi-aprendido-neste-capítulo" class="section level2" number="5.9">
+<h2><span class="header-section-number">5.9</span> O que foi aprendido neste capítulo</h2>
+<p>Com essas três versões do servidor, já foi possível praticar conceitos muito importantes para o restante da disciplina:</p>
+<ul>
+<li>criação de um servidor HTTP com <code>node:http</code>;</li>
+<li>uso de <code>http.createServer(...)</code>;</li>
+<li>compreensão de callback como função passada ao servidor;</li>
+<li>leitura da URL da requisição com <code>req.url</code>;</li>
+<li>parse da URL com <code>new URL(...)</code>;</li>
+<li>criação de rotas com base em <code>pathname</code>;</li>
+<li>envio de respostas em texto e em JSON;</li>
+<li>leitura de arquivos com <code>node:fs</code>.</li>
+</ul>
+<p>Esse entendimento prepara muito bem o terreno para o próximo passo, que normalmente é usar o Express para tornar a criação de rotas, middlewares e respostas mais produtiva.</p>
+</div>
+<div id="exercício" class="section level2" number="5.10">
+<h2><span class="header-section-number">5.10</span> Exercício</h2>
+<p>Como atividade de fixação, você pode propor aos alunos que:</p>
+<ol style="list-style-type: decimal">
+<li>adicionem uma nova rota <code>/carros/suv</code>;</li>
+<li>criem o arquivo <code>suv.json</code>;</li>
+<li>modifiquem a função <code>lerArquivoJson()</code> para receber o nome do arquivo dinamicamente;</li>
+<li>retornem também um objeto com metadados, por exemplo:</li>
+</ol>
+<div class="sourceCode" id="cb124"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb124-1"><a href="criando-um-servidor-http-com-node.html#cb124-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb124-2"><a href="criando-um-servidor-http-com-node.html#cb124-2" tabindex="-1"></a>  <span class="dt">&quot;categoria&quot;</span><span class="fu">:</span> <span class="st">&quot;classicos&quot;</span><span class="fu">,</span></span>
+<span id="cb124-3"><a href="criando-um-servidor-http-com-node.html#cb124-3" tabindex="-1"></a>  <span class="dt">&quot;quantidade&quot;</span><span class="fu">:</span> <span class="dv">2</span><span class="fu">,</span></span>
+<span id="cb124-4"><a href="criando-um-servidor-http-com-node.html#cb124-4" tabindex="-1"></a>  <span class="dt">&quot;itens&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="er">...</span><span class="ot">]</span></span>
+<span id="cb124-5"><a href="criando-um-servidor-http-com-node.html#cb124-5" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-lecheta_node" class="csl-entry">
+Lecheta, Ricardo R. <em>Node Essencial</em>. Casa do Código, 2018.
+</div>
+<div id="ref-node_fs" class="csl-entry">
+Node.js Foundation. <em>Node.js File System (Fs) Module Documentation</em>. 2026. <a href="https://nodejs.org/api/fs.html">https://nodejs.org/api/fs.html</a>.
+</div>
+<div id="ref-node_http" class="csl-entry">
+Node.js Foundation. <em>Node.js HTTP Module Documentation</em>. 2026. <a href="https://nodejs.org/api/http.html">https://nodejs.org/api/http.html</a>.
+</div>
+<div id="ref-node_url" class="csl-entry">
+Node.js Foundation. <em>Node.js URL API Documentation</em>. 2026. <a href="https://nodejs.org/api/url.html">https://nodejs.org/api/url.html</a>.
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Ricardo R. Lecheta, <em>Node Essencial</em> (Casa do Código, 2018).<a href="criando-um-servidor-http-com-node.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Node.js Foundation, <em>Node.js HTTP Module Documentation</em> (2026), <a href="https://nodejs.org/api/http.html">https://nodejs.org/api/http.html</a>.<a href="criando-um-servidor-http-com-node.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Node.js Foundation, <em>Node.js HTTP Module Documentation</em>.<a href="criando-um-servidor-http-com-node.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Node.js Foundation, <em>Node.js HTTP Module Documentation</em>.<a href="criando-um-servidor-http-com-node.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Node.js Foundation, <em>Node.js URL API Documentation</em> (2026), <a href="https://nodejs.org/api/url.html">https://nodejs.org/api/url.html</a>.<a href="criando-um-servidor-http-com-node.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Node.js Foundation, <em>Node.js HTTP Module Documentation</em>.<a href="criando-um-servidor-http-com-node.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Node.js Foundation, <em>Node.js File System (Fs) Module Documentation</em> (2026), <a href="https://nodejs.org/api/fs.html">https://nodejs.org/api/fs.html</a>.<a href="criando-um-servidor-http-com-node.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Node.js Foundation, <em>Node.js File System (Fs) Module Documentation</em>.<a href="criando-um-servidor-http-com-node.html#fnref8" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>04-aula</strong>" was written by Juliana Costa Silva. It was last built on 2026-04-07.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+</body>
+
+</html>
