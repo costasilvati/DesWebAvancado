@@ -31,7 +31,7 @@ const callback = (req, res) => {
     }
   } catch (erro) {
     res.statusCode = 500;
-    res.end(JSON.stringify({ erro: 'Erro ao ler arquivo JSON' }));
+    res.end(JSON.stringify({ erro: 'Erro ao ler arquivo JSON novo' }));
   }
 };
 

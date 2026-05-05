@@ -1,0 +1,817 @@
+# NPM, JSON e organização de projetos Node JS
+
+Neste capítulo, vamos estudar o uso do **NPM** em projetos Node.js, a configuração do arquivo `package.json`, o uso de scripts como `npm start`, a instalação de dependências, o uso do `nodemon`, além da manipulação de dados em formato JSON. O conteúdo dá continuidade à criação de servidores HTTP com Node.js, seguindo a abordagem apresentada por Lecheta [@lecheta_node] e complementada pela documentação oficial do Node.js e do NPM [@node_npm; @npm_package_json].
+
+## O que é o NPM
+
+O **NPM** (*Node Package Manager*) é o gerenciador de pacotes padrão do Node.js. Ele permite criar projetos, instalar bibliotecas, gerenciar dependências e configurar comandos de execução.
+
+Segundo a documentação oficial do Node.js, o NPM surgiu como ferramenta para baixar e gerenciar dependências de projetos Node.js, mas atualmente também é amplamente utilizado em aplicações JavaScript front-end e back-end [@node_npm].
+
+Em um projeto Node.js, o NPM é usado principalmente para:
+
+- criar o arquivo `package.json`;
+- instalar bibliotecas externas;
+- registrar dependências do projeto;
+- executar comandos personalizados;
+- facilitar o compartilhamento e a execução do projeto em outros computadores.
+
+## Criando um projeto com npm init
+
+O comando `npm init` é utilizado para iniciar um projeto Node.js e criar o arquivo `package.json`. Esse arquivo armazena informações importantes sobre o projeto, como nome, versão, arquivo principal, scripts e dependências.
+
+Para criar um novo projeto, crie uma pasta e execute:
+
+```bash
+mkdir projeto-npm
+cd projeto-npm
+npm init
+````
+
+O NPM fará algumas perguntas, como:
+
+```text
+package name:
+version:
+description:
+entry point:
+test command:
+git repository:
+keywords:
+author:
+license:
+```
+
+Caso você queira criar o projeto rapidamente, aceitando os valores padrão, utilize:
+
+```bash
+npm init -y
+```
+
+De acordo com a documentação do NPM, o comando `npm init --yes` cria automaticamente um arquivo `package.json` com valores padrão extraídos do diretório atual [@npm_init].
+
+Um exemplo simples de `package.json` gerado é:
+
+```json
+{
+  "name": "projeto-npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+```
+
+## O arquivo package.json
+
+O `package.json` descreve o projeto Node.js. A documentação oficial do Node.js define um pacote como uma árvore de diretórios descrita por um arquivo `package.json` [@node_packages].
+
+Os campos mais comuns são:
+
+```json
+{
+  "name": "api-carros",
+  "version": "1.0.0",
+  "description": "Servidor HTTP para gerenciamento de carros",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
+```
+
+Os campos principais são:
+
+* `name`: nome do projeto;
+* `version`: versão do projeto;
+* `description`: breve descrição;
+* `main`: arquivo principal da aplicação;
+* `scripts`: comandos personalizados que podem ser executados pelo NPM;
+* `dependencies`: bibliotecas necessárias para executar o projeto;
+* `devDependencies`: bibliotecas usadas apenas durante o desenvolvimento.
+
+## Configurando npm start
+
+O comando `npm start` executa o script chamado `start` definido no `package.json`.
+
+Considerando o projeto de gerenciamento de carros desenvolvido anteriormente, com o arquivo principal chamado `server.js`, podemos editar o `package.json` da seguinte forma:
+
+```json
+{
+  "name": "api-carros",
+  "version": "1.0.0",
+  "description": "Servidor HTTP para gerenciamento de carros",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Seu nome",
+  "license": "ISC"
+}
+```
+
+Depois disso, em vez de executar:
+
+```bash
+node server.js
+```
+
+podemos executar:
+
+```bash
+npm start
+```
+
+Esse comando é muito útil porque padroniza a forma de iniciar o projeto. Assim, mesmo que o arquivo principal mude de nome, basta atualizar o campo `scripts`.
+
+Por exemplo, se o arquivo principal fosse `app.js`, bastaria configurar:
+
+```json
+"scripts": {
+  "start": "node app.js"
+}
+```
+
+E o comando continuaria sendo:
+
+```bash
+npm start
+```
+
+## Usando npm start no projeto de carros
+
+No projeto anterior, o servidor HTTP respondia rotas como:
+
+```text
+/carros/classicos
+/carros/esportivos
+/carros/luxo
+```
+
+Suponha que a estrutura do projeto esteja assim:
+
+```text
+api-carros/
+├── package.json
+├── server.js
+├── classicos.json
+├── esportivos.json
+└── luxo.json
+```
+
+O arquivo `server.js` pode conter:
+
+```javascript
+const http = require('node:http');
+const fs = require('node:fs');
+
+function lerArquivoJson(nomeArquivo) {
+  const conteudo = fs.readFileSync(nomeArquivo, 'utf-8');
+  return JSON.parse(conteudo);
+}
+
+const callback = (req, res) => {
+  const url = new URL(`http://localhost:3000${req.url}`);
+  const rota = url.pathname;
+
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+
+  try {
+    if (rota === '/carros/classicos') {
+      const dados = lerArquivoJson('classicos.json');
+      res.statusCode = 200;
+      res.end(JSON.stringify(dados));
+    } else if (rota === '/carros/esportivos') {
+      const dados = lerArquivoJson('esportivos.json');
+      res.statusCode = 200;
+      res.end(JSON.stringify(dados));
+    } else if (rota === '/carros/luxo') {
+      const dados = lerArquivoJson('luxo.json');
+      res.statusCode = 200;
+      res.end(JSON.stringify(dados));
+    } else {
+      res.statusCode = 404;
+      res.end(JSON.stringify({ erro: 'Rota inválida' }));
+    }
+  } catch (erro) {
+    res.statusCode = 500;
+    res.end(JSON.stringify({ erro: 'Erro ao ler arquivo JSON' }));
+  }
+};
+
+const server = http.createServer(callback);
+
+server.listen(3000, () => {
+  console.log('Servidor executando em http://localhost:3000');
+});
+```
+
+Para iniciar esse projeto com NPM, o arquivo `package.json` deve conter:
+
+```json
+{
+  "name": "api-carros",
+  "version": "1.0.0",
+  "description": "API simples de carros usando Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
+```
+
+Depois, execute:
+
+```bash
+npm start
+```
+
+## O problema de reiniciar o servidor manualmente
+
+Durante o desenvolvimento, sempre que alteramos o arquivo `server.js`, precisamos parar o servidor e iniciar novamente.
+
+Normalmente, fazemos isso com:
+
+```bash
+Ctrl + C
+node server.js
+```
+
+Esse processo é repetitivo e pouco produtivo. Para resolver esse problema, podemos utilizar uma ferramenta que reinicia automaticamente o servidor sempre que algum arquivo é alterado.
+
+## Instalando e usando nodemon
+
+O `nodemon` é uma ferramenta usada em desenvolvimento para reiniciar automaticamente aplicações Node.js quando os arquivos do projeto são modificados. Ele é útil durante a criação de APIs, pois evita reiniciar manualmente o servidor a cada alteração.
+
+Para instalar o `nodemon` como dependência de desenvolvimento, execute:
+
+```bash
+npm install nodemon --save-dev
+```
+
+A opção `--save-dev` indica que a biblioteca será usada apenas no desenvolvimento, sendo registrada em `devDependencies`.
+
+O `package.json` ficará parecido com:
+
+```json
+{
+  "name": "api-carros",
+  "version": "1.0.0",
+  "description": "API simples de carros usando Node.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
+```
+
+Agora o projeto pode ser executado em modo desenvolvimento com:
+
+```bash
+npm run dev
+```
+
+Observe que:
+
+* `npm start` executa o script `start`;
+* outros scripts, como `dev`, devem ser executados com `npm run`.
+
+Assim, usamos:
+
+```bash
+npm start
+```
+
+para execução normal, e:
+
+```bash
+npm run dev
+```
+
+para desenvolvimento com reinicialização automática.
+
+## O comando npm install
+
+O comando `npm install` é usado para instalar dependências em um projeto Node.js.
+
+Uma dependência é uma biblioteca externa usada pelo projeto. Por exemplo, quando instalamos `nodemon`, estamos adicionando uma ferramenta externa ao projeto.
+
+Para instalar uma biblioteca, usamos:
+
+```bash
+npm install nome-da-biblioteca
+```
+
+Exemplo:
+
+```bash
+npm install express
+```
+
+Ao executar esse comando, o NPM normalmente realiza três ações:
+
+* cria ou atualiza a pasta `node_modules`;
+* registra a dependência no `package.json`;
+* cria ou atualiza o arquivo `package-lock.json`.
+
+A pasta `node_modules` contém os arquivos das bibliotecas instaladas. O arquivo `package-lock.json` registra exatamente as versões instaladas, ajudando a manter consistência entre diferentes ambientes.
+
+## dependencies e devDependencies
+
+O NPM separa as dependências em dois grupos principais:
+
+```json
+"dependencies": {}
+```
+
+e:
+
+```json
+"devDependencies": {}
+```
+
+As `dependencies` são necessárias para a aplicação funcionar em produção. As `devDependencies` são usadas apenas durante o desenvolvimento.
+
+Segundo a documentação do NPM, dependências podem ser adicionadas ao campo `dependencies` com `npm install <package-name>`, comportamento padrão atual, ou explicitamente com `--save-prod`. Para dependências de desenvolvimento, utiliza-se `--save-dev` [@npm_dependencies].
+
+Exemplo de dependência de produção:
+
+```bash
+npm install express
+```
+
+ou:
+
+```bash
+npm install express --save
+```
+
+Em versões atuais do NPM, o `--save` é o comportamento padrão para dependências de produção.
+
+Exemplo de dependência de desenvolvimento:
+
+```bash
+npm install nodemon --save-dev
+```
+
+O resultado no `package.json` pode ser:
+
+```json
+{
+  "dependencies": {
+    "express": "^4.18.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
+```
+
+## Instalando dependências de um projeto existente
+
+Quando recebemos um projeto Node.js que já possui `package.json`, normalmente não precisamos copiar a pasta `node_modules`.
+
+Basta executar:
+
+```bash
+npm install
+```
+
+Esse comando lê o arquivo `package.json` e instala todas as dependências necessárias.
+
+Por isso, em projetos versionados no GitHub, normalmente a pasta `node_modules` não é enviada. Em vez disso, o projeto contém:
+
+```text
+package.json
+package-lock.json
+```
+
+E cada desenvolvedor executa:
+
+```bash
+npm install
+```
+
+para reconstruir o ambiente local.
+
+## O que é JSON
+
+**JSON** significa *JavaScript Object Notation*. É um formato textual para representação e troca de dados. Apesar de sua sintaxe ser inspirada em objetos JavaScript, JSON é independente de linguagem e pode ser usado por sistemas escritos em Java, Python, PHP, C#, JavaScript e outras linguagens.
+
+JSON é muito utilizado em APIs porque é:
+
+* leve;
+* legível;
+* fácil de gerar;
+* fácil de interpretar;
+* compatível com diversas linguagens.
+
+Um exemplo de JSON é:
+
+```json
+{
+  "nome": "Ana",
+  "sobrenome": "Silva",
+  "idade": 25
+}
+```
+
+Um array JSON pode ser representado assim:
+
+```json
+[
+  {
+    "nome": "Ana",
+    "sobrenome": "Silva"
+  },
+  {
+    "nome": "Carlos",
+    "sobrenome": "Souza"
+  }
+]
+```
+
+Segundo a MDN, `JSON.parse()` interpreta uma string JSON e constrói o valor ou objeto JavaScript correspondente [@mdn_json_parse]. Já `JSON.stringify()` converte um valor JavaScript para uma string JSON [@mdn_json_stringify].
+
+## Criando um novo projeto Node.js com NPM e nodemon
+
+Agora vamos criar um novo projeto Node.js do zero, usando NPM e `nodemon`.
+
+Crie a pasta:
+
+```bash
+mkdir projeto-json-node
+cd projeto-json-node
+```
+
+Inicialize o projeto:
+
+```bash
+npm init -y
+```
+
+Instale o `nodemon` como dependência de desenvolvimento:
+
+```bash
+npm install nodemon --save-dev
+```
+
+Crie o arquivo principal:
+
+```bash
+touch server.js
+```
+
+Edite o `package.json`:
+
+```json
+{
+  "name": "projeto-json-node",
+  "version": "1.0.0",
+  "description": "Projeto introdutório com Node.js, NPM e JSON",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
+```
+
+Agora podemos executar:
+
+```bash
+npm run dev
+```
+
+## Retornando texto simples na resposta
+
+No arquivo `server.js`, crie um servidor HTTP simples:
+
+```javascript
+const http = require('node:http');
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+  res.end('Servidor Node.js funcionando!');
+});
+
+server.listen(3000, () => {
+  console.log('Servidor executando em http://localhost:3000');
+});
+```
+
+Neste exemplo, usamos:
+
+```javascript
+res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+```
+
+Esse cabeçalho informa ao cliente que a resposta enviada é texto simples.
+
+Acesse:
+
+```text
+http://localhost:3000
+```
+
+## Retornando JSON na resposta
+
+Para retornar JSON, alteramos o tipo de conteúdo para:
+
+```javascript
+application/json
+```
+
+Exemplo:
+
+```javascript
+const http = require('node:http');
+
+const server = http.createServer((req, res) => {
+  const resposta = {
+    mensagem: 'Servidor Node.js funcionando!',
+    status: 'ok'
+  };
+
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  res.end(JSON.stringify(resposta));
+});
+
+server.listen(3000, () => {
+  console.log('Servidor executando em http://localhost:3000');
+});
+```
+
+Nesse caso, `resposta` é um objeto JavaScript. Para enviá-lo pela rede como JSON, usamos:
+
+```javascript
+JSON.stringify(resposta)
+```
+
+## Convertendo objetos JavaScript em JSON
+
+Um objeto JavaScript pode ser convertido para JSON usando `JSON.stringify()`.
+
+```javascript
+const pessoa = {
+  nome: 'Ana',
+  sobrenome: 'Silva'
+};
+
+const pessoaJson = JSON.stringify(pessoa);
+
+console.log(pessoaJson);
+```
+
+Saída:
+
+```json
+{"nome":"Ana","sobrenome":"Silva"}
+```
+
+A MDN define `JSON.stringify()` como o método que converte um valor JavaScript em uma string JSON [@mdn_json_stringify].
+
+## Convertendo arrays JavaScript em JSON
+
+Também podemos converter arrays:
+
+```javascript
+const pessoas = [
+  { nome: 'Ana', sobrenome: 'Silva' },
+  { nome: 'Carlos', sobrenome: 'Souza' }
+];
+
+const pessoasJson = JSON.stringify(pessoas);
+
+console.log(pessoasJson);
+```
+
+Saída:
+
+```json
+[
+  {"nome":"Ana","sobrenome":"Silva"},
+  {"nome":"Carlos","sobrenome":"Souza"}
+]
+```
+
+Na prática, quando uma API retorna uma lista de registros, ela normalmente está retornando um array convertido para JSON.
+
+## Convertendo JSON em objeto JavaScript
+
+Quando recebemos uma string JSON, podemos transformá-la em objeto JavaScript usando `JSON.parse()`.
+
+```javascript
+const textoJson = '{"nome":"Ana","sobrenome":"Silva"}';
+
+const objeto = JSON.parse(textoJson);
+
+console.log(objeto.nome);
+console.log(objeto.sobrenome);
+```
+
+Segundo a MDN, `JSON.parse()` interpreta uma string JSON e constrói o valor JavaScript correspondente [@mdn_json_parse].
+
+## Trabalhando com classes e JSON
+
+Classes também podem ser usadas em conjunto com JSON. Quando criamos um objeto a partir de uma classe, podemos convertê-lo para JSON com `JSON.stringify()`.
+
+```javascript
+class Pessoa {
+  constructor(nome, sobrenome) {
+    this.nome = nome;
+    this.sobrenome = sobrenome;
+  }
+
+  nomeCompleto() {
+    return `${this.nome} ${this.sobrenome}`;
+  }
+}
+
+const pessoa = new Pessoa('Ana', 'Silva');
+
+console.log(pessoa.nomeCompleto());
+console.log(JSON.stringify(pessoa));
+```
+
+A saída do `JSON.stringify()` será:
+
+```json
+{"nome":"Ana","sobrenome":"Silva"}
+```
+
+Observe que o método `nomeCompleto()` não aparece no JSON. Isso acontece porque JSON representa dados, não comportamentos. Métodos pertencem à classe/protótipo, mas não são serializados como parte dos dados.
+
+## Criando uma classe em arquivo separado
+
+Em projetos Node.js, é comum separar responsabilidades em arquivos diferentes. Vamos criar uma classe `Pessoa` em um arquivo separado.
+
+Estrutura do projeto:
+
+```text
+projeto-json-node/
+├── package.json
+├── server.js
+└── Pessoa.js
+```
+
+Crie o arquivo `Pessoa.js`:
+
+```javascript
+class Pessoa {
+  constructor(nome, sobrenome) {
+    this.nome = nome;
+    this.sobrenome = sobrenome;
+  }
+
+  nomeCompleto() {
+    return `${this.nome} ${this.sobrenome}`;
+  }
+}
+
+module.exports = Pessoa;
+```
+
+O comando:
+
+```javascript
+module.exports = Pessoa;
+```
+
+exporta a classe para que ela possa ser usada em outros arquivos. Na documentação do Node.js, esse padrão faz parte do sistema de módulos CommonJS, no qual valores são exportados por `module.exports` e importados com `require()` [@node_commonjs].
+
+## Usando a classe no arquivo principal
+
+Agora edite o arquivo `server.js`:
+
+```javascript
+const http = require('node:http');
+const Pessoa = require('./Pessoa');
+
+const server = http.createServer((req, res) => {
+  const pessoa = new Pessoa('Ana', 'Silva');
+
+  const resposta = {
+    nome: pessoa.nome,
+    sobrenome: pessoa.sobrenome,
+    nomeCompleto: pessoa.nomeCompleto()
+  };
+
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  res.end(JSON.stringify(resposta));
+});
+
+server.listen(3000, () => {
+  console.log('Servidor executando em http://localhost:3000');
+});
+```
+
+Agora execute:
+
+```bash
+npm run dev
+```
+
+E acesse:
+
+```text
+http://localhost:3000
+```
+
+A resposta será:
+
+```json
+{
+  "nome": "Ana",
+  "sobrenome": "Silva",
+  "nomeCompleto": "Ana Silva"
+}
+```
+
+## Criando uma rota para listar pessoas
+
+Podemos evoluir o servidor para responder diferentes rotas.
+
+```javascript
+const http = require('node:http');
+const Pessoa = require('./Pessoa');
+
+const pessoas = [
+  new Pessoa('Ana', 'Silva'),
+  new Pessoa('Carlos', 'Souza'),
+  new Pessoa('Mariana', 'Oliveira')
+];
+
+const server = http.createServer((req, res) => {
+  const url = new URL(`http://localhost:3000${req.url}`);
+  const rota = url.pathname;
+
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+
+  if (rota === '/') {
+    res.statusCode = 200;
+    res.end(JSON.stringify({ mensagem: 'API de pessoas' }));
+  } else if (rota === '/pessoas') {
+    const resposta = pessoas.map(pessoa => ({
+      nome: pessoa.nome,
+      sobrenome: pessoa.sobrenome,
+      nomeCompleto: pessoa.nomeCompleto()
+    }));
+
+    res.statusCode = 200;
+    res.end(JSON.stringify(resposta));
+  } else {
+    res.statusCode = 404;
+    res.end(JSON.stringify({ erro: 'Rota não encontrada' }));
+  }
+});
+
+server.listen(3000, () => {
+  console.log('Servidor executando em http://localhost:3000');
+});
+```
+
+Neste exemplo:
+
+* a classe `Pessoa` está em um arquivo separado;
+* o arquivo principal importa a classe com `require`;
+* a rota `/pessoas` retorna um array JSON;
+* `map()` é usado para converter objetos da classe em objetos simples para resposta.
+
+<!--
+## Considerações finais
+
+Neste capítulo, estudamos como o NPM organiza projetos Node.js, como configurar scripts no `package.json`, como instalar dependências e como usar ferramentas de desenvolvimento como o `nodemon`.
+
+Também revisamos o uso de JSON, essencial para APIs REST, e vimos como objetos, arrays e instâncias de classes podem ser convertidos para respostas JSON usando `JSON.stringify()`.
+
+Esses conceitos são fundamentais para avançar para frameworks como Express, pois a criação de APIs modernas depende diretamente de:
+
+* organização de projeto;
+* dependências;
+* scripts de execução;
+* módulos;
+* JSON;
+* rotas;
+* respostas HTTP.-->
+
+## Referências {-}

@@ -1,7 +1,7 @@
 --- 
 title: "Desenvolvimento web Avançado"
 author: "Juliana Costa Silva"
-date: "2026-04-07"
+date: "2026-05-05"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
