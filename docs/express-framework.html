@@ -434,6 +434,10 @@
 <span id="cb219-5"><a href="express-framework.html#cb219-5" tabindex="-1"></a>    <span class="dt">"idade"</span><span class="fu">:</span> <span class="dv">25</span></span>
 <span id="cb219-6"><a href="express-framework.html#cb219-6" tabindex="-1"></a>  <span class="fu">}</span></span>
 <span id="cb219-7"><a href="express-framework.html#cb219-7" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>Envie o JSON através do comando CURL</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb220-1"><a href="express-framework.html#cb220-1" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST https://localhost:3000/usuarios<span class="dt">\</span></span>
+<span id="cb220-2"><a href="express-framework.html#cb220-2" tabindex="-1"></a>     <span class="at">-H</span> <span class="st">"Content-Type: application/json"</span> <span class="dt">\</span></span>
+<span id="cb220-3"><a href="express-framework.html#cb220-3" tabindex="-1"></a>     <span class="at">-d</span> <span class="st">'{"name":"Ana","idade":25}'</span></span></code></pre></div>
 </div>
 </div>
 <div id="recebendo-dados-chavevalor" class="section level2" number="8.16">
@@ -443,42 +447,42 @@
 <p>O Express também pode interpretar formulários enviados como:</p>
 <pre class="text"><code>application/x-www-form-urlencoded</code></pre>
 <p>Ative o middleware:</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb221-1"><a href="express-framework.html#cb221-1" tabindex="-1"></a>app<span class="op">.</span><span class="fu">use</span>(express<span class="op">.</span><span class="fu">urlencoded</span>({ <span class="dt">extended</span><span class="op">:</span> <span class="kw">true</span> }))<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb222-1"><a href="express-framework.html#cb222-1" tabindex="-1"></a>app<span class="op">.</span><span class="fu">use</span>(express<span class="op">.</span><span class="fu">urlencoded</span>({ <span class="dt">extended</span><span class="op">:</span> <span class="kw">true</span> }))<span class="op">;</span></span></code></pre></div>
 <p>Exemplo:</p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb222-1"><a href="express-framework.html#cb222-1" tabindex="-1"></a>app<span class="op">.</span><span class="fu">post</span>(<span class="st">'/login'</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
-<span id="cb222-2"><a href="express-framework.html#cb222-2" tabindex="-1"></a></span>
-<span id="cb222-3"><a href="express-framework.html#cb222-3" tabindex="-1"></a>  <span class="kw">const</span> usuario <span class="op">=</span> req<span class="op">.</span><span class="at">body</span><span class="op">.</span><span class="at">usuario</span><span class="op">;</span></span>
-<span id="cb222-4"><a href="express-framework.html#cb222-4" tabindex="-1"></a>  <span class="kw">const</span> senha <span class="op">=</span> req<span class="op">.</span><span class="at">body</span><span class="op">.</span><span class="at">senha</span><span class="op">;</span></span>
-<span id="cb222-5"><a href="express-framework.html#cb222-5" tabindex="-1"></a></span>
-<span id="cb222-6"><a href="express-framework.html#cb222-6" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">json</span>({</span>
-<span id="cb222-7"><a href="express-framework.html#cb222-7" tabindex="-1"></a>    usuario<span class="op">,</span></span>
-<span id="cb222-8"><a href="express-framework.html#cb222-8" tabindex="-1"></a>    senha</span>
-<span id="cb222-9"><a href="express-framework.html#cb222-9" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb222-10"><a href="express-framework.html#cb222-10" tabindex="-1"></a></span>
-<span id="cb222-11"><a href="express-framework.html#cb222-11" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb223-1"><a href="express-framework.html#cb223-1" tabindex="-1"></a>app<span class="op">.</span><span class="fu">post</span>(<span class="st">'/login'</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
+<span id="cb223-2"><a href="express-framework.html#cb223-2" tabindex="-1"></a></span>
+<span id="cb223-3"><a href="express-framework.html#cb223-3" tabindex="-1"></a>  <span class="kw">const</span> usuario <span class="op">=</span> req<span class="op">.</span><span class="at">body</span><span class="op">.</span><span class="at">usuario</span><span class="op">;</span></span>
+<span id="cb223-4"><a href="express-framework.html#cb223-4" tabindex="-1"></a>  <span class="kw">const</span> senha <span class="op">=</span> req<span class="op">.</span><span class="at">body</span><span class="op">.</span><span class="at">senha</span><span class="op">;</span></span>
+<span id="cb223-5"><a href="express-framework.html#cb223-5" tabindex="-1"></a></span>
+<span id="cb223-6"><a href="express-framework.html#cb223-6" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">json</span>({</span>
+<span id="cb223-7"><a href="express-framework.html#cb223-7" tabindex="-1"></a>    usuario<span class="op">,</span></span>
+<span id="cb223-8"><a href="express-framework.html#cb223-8" tabindex="-1"></a>    senha</span>
+<span id="cb223-9"><a href="express-framework.html#cb223-9" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb223-10"><a href="express-framework.html#cb223-10" tabindex="-1"></a></span>
+<span id="cb223-11"><a href="express-framework.html#cb223-11" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
 </div>
 <div id="definindo-o-tipo-de-conteúdo-aceito" class="section level2" number="8.17">
 <h2>
 <span class="header-section-number">8.17</span> Definindo o tipo de conteúdo aceito<a class="anchor" aria-label="anchor" href="#definindo-o-tipo-de-conte%C3%BAdo-aceito"><i class="fas fa-link"></i></a>
 </h2>
 <p>É possível validar o tipo de conteúdo recebido usando:</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb223-1"><a href="express-framework.html#cb223-1" tabindex="-1"></a>req<span class="op">.</span><span class="fu">is</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb224-1"><a href="express-framework.html#cb224-1" tabindex="-1"></a>req<span class="op">.</span><span class="fu">is</span>()</span></code></pre></div>
 <p>Exemplo:</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb224-1"><a href="express-framework.html#cb224-1" tabindex="-1"></a>app<span class="op">.</span><span class="fu">post</span>(<span class="st">'/dados'</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
-<span id="cb224-2"><a href="express-framework.html#cb224-2" tabindex="-1"></a></span>
-<span id="cb224-3"><a href="express-framework.html#cb224-3" tabindex="-1"></a>  <span class="cf">if</span> (<span class="op">!</span>req<span class="op">.</span><span class="fu">is</span>(<span class="st">'application/json'</span>)) {</span>
-<span id="cb224-4"><a href="express-framework.html#cb224-4" tabindex="-1"></a></span>
-<span id="cb224-5"><a href="express-framework.html#cb224-5" tabindex="-1"></a>    <span class="cf">return</span> res<span class="op">.</span><span class="fu">status</span>(<span class="dv">415</span>)<span class="op">.</span><span class="fu">json</span>({</span>
-<span id="cb224-6"><a href="express-framework.html#cb224-6" tabindex="-1"></a>      <span class="dt">erro</span><span class="op">:</span> <span class="st">'Tipo de conteúdo inválido'</span></span>
-<span id="cb224-7"><a href="express-framework.html#cb224-7" tabindex="-1"></a>    })<span class="op">;</span></span>
-<span id="cb224-8"><a href="express-framework.html#cb224-8" tabindex="-1"></a></span>
-<span id="cb224-9"><a href="express-framework.html#cb224-9" tabindex="-1"></a>  }</span>
-<span id="cb224-10"><a href="express-framework.html#cb224-10" tabindex="-1"></a></span>
-<span id="cb224-11"><a href="express-framework.html#cb224-11" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">json</span>({</span>
-<span id="cb224-12"><a href="express-framework.html#cb224-12" tabindex="-1"></a>    <span class="dt">mensagem</span><span class="op">:</span> <span class="st">'JSON aceito'</span></span>
-<span id="cb224-13"><a href="express-framework.html#cb224-13" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb224-14"><a href="express-framework.html#cb224-14" tabindex="-1"></a></span>
-<span id="cb224-15"><a href="express-framework.html#cb224-15" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb225-1"><a href="express-framework.html#cb225-1" tabindex="-1"></a>app<span class="op">.</span><span class="fu">post</span>(<span class="st">'/dados'</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
+<span id="cb225-2"><a href="express-framework.html#cb225-2" tabindex="-1"></a></span>
+<span id="cb225-3"><a href="express-framework.html#cb225-3" tabindex="-1"></a>  <span class="cf">if</span> (<span class="op">!</span>req<span class="op">.</span><span class="fu">is</span>(<span class="st">'application/json'</span>)) {</span>
+<span id="cb225-4"><a href="express-framework.html#cb225-4" tabindex="-1"></a></span>
+<span id="cb225-5"><a href="express-framework.html#cb225-5" tabindex="-1"></a>    <span class="cf">return</span> res<span class="op">.</span><span class="fu">status</span>(<span class="dv">415</span>)<span class="op">.</span><span class="fu">json</span>({</span>
+<span id="cb225-6"><a href="express-framework.html#cb225-6" tabindex="-1"></a>      <span class="dt">erro</span><span class="op">:</span> <span class="st">'Tipo de conteúdo inválido'</span></span>
+<span id="cb225-7"><a href="express-framework.html#cb225-7" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb225-8"><a href="express-framework.html#cb225-8" tabindex="-1"></a></span>
+<span id="cb225-9"><a href="express-framework.html#cb225-9" tabindex="-1"></a>  }</span>
+<span id="cb225-10"><a href="express-framework.html#cb225-10" tabindex="-1"></a></span>
+<span id="cb225-11"><a href="express-framework.html#cb225-11" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">json</span>({</span>
+<span id="cb225-12"><a href="express-framework.html#cb225-12" tabindex="-1"></a>    <span class="dt">mensagem</span><span class="op">:</span> <span class="st">'JSON aceito'</span></span>
+<span id="cb225-13"><a href="express-framework.html#cb225-13" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb225-14"><a href="express-framework.html#cb225-14" tabindex="-1"></a></span>
+<span id="cb225-15"><a href="express-framework.html#cb225-15" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
 <p>Neste exemplo:</p>
 <ul>
 <li>
@@ -506,30 +510,30 @@
 <p>Arquivo:</p>
 <pre class="text"><code>routes/carros.js</code></pre>
 <p>Conteúdo:</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb227-1"><a href="express-framework.html#cb227-1" tabindex="-1"></a><span class="kw">const</span> express <span class="op">=</span> <span class="pp">require</span>(<span class="st">'express'</span>)<span class="op">;</span></span>
-<span id="cb227-2"><a href="express-framework.html#cb227-2" tabindex="-1"></a></span>
-<span id="cb227-3"><a href="express-framework.html#cb227-3" tabindex="-1"></a><span class="kw">const</span> router <span class="op">=</span> express<span class="op">.</span><span class="fu">Router</span>()<span class="op">;</span></span>
-<span id="cb227-4"><a href="express-framework.html#cb227-4" tabindex="-1"></a></span>
-<span id="cb227-5"><a href="express-framework.html#cb227-5" tabindex="-1"></a>router<span class="op">.</span><span class="fu">get</span>(<span class="st">'/'</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
-<span id="cb227-6"><a href="express-framework.html#cb227-6" tabindex="-1"></a></span>
-<span id="cb227-7"><a href="express-framework.html#cb227-7" tabindex="-1"></a>  <span class="kw">const</span> carros <span class="op">=</span> [</span>
-<span id="cb227-8"><a href="express-framework.html#cb227-8" tabindex="-1"></a>    { <span class="dt">nome</span><span class="op">:</span> <span class="st">'Fusca'</span> }<span class="op">,</span></span>
-<span id="cb227-9"><a href="express-framework.html#cb227-9" tabindex="-1"></a>    { <span class="dt">nome</span><span class="op">:</span> <span class="st">'Ferrari'</span> }</span>
-<span id="cb227-10"><a href="express-framework.html#cb227-10" tabindex="-1"></a>  ]<span class="op">;</span></span>
-<span id="cb227-11"><a href="express-framework.html#cb227-11" tabindex="-1"></a></span>
-<span id="cb227-12"><a href="express-framework.html#cb227-12" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">json</span>(carros)<span class="op">;</span></span>
-<span id="cb227-13"><a href="express-framework.html#cb227-13" tabindex="-1"></a></span>
-<span id="cb227-14"><a href="express-framework.html#cb227-14" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb227-15"><a href="express-framework.html#cb227-15" tabindex="-1"></a></span>
-<span id="cb227-16"><a href="express-framework.html#cb227-16" tabindex="-1"></a>router<span class="op">.</span><span class="fu">get</span>(<span class="st">'/luxo'</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
-<span id="cb227-17"><a href="express-framework.html#cb227-17" tabindex="-1"></a></span>
-<span id="cb227-18"><a href="express-framework.html#cb227-18" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">json</span>({</span>
-<span id="cb227-19"><a href="express-framework.html#cb227-19" tabindex="-1"></a>    <span class="dt">categoria</span><span class="op">:</span> <span class="st">'Luxo'</span></span>
-<span id="cb227-20"><a href="express-framework.html#cb227-20" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb227-21"><a href="express-framework.html#cb227-21" tabindex="-1"></a></span>
-<span id="cb227-22"><a href="express-framework.html#cb227-22" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb227-23"><a href="express-framework.html#cb227-23" tabindex="-1"></a></span>
-<span id="cb227-24"><a href="express-framework.html#cb227-24" tabindex="-1"></a>module<span class="op">.</span><span class="at">exports</span> <span class="op">=</span> router<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb228-1"><a href="express-framework.html#cb228-1" tabindex="-1"></a><span class="kw">const</span> express <span class="op">=</span> <span class="pp">require</span>(<span class="st">'express'</span>)<span class="op">;</span></span>
+<span id="cb228-2"><a href="express-framework.html#cb228-2" tabindex="-1"></a></span>
+<span id="cb228-3"><a href="express-framework.html#cb228-3" tabindex="-1"></a><span class="kw">const</span> router <span class="op">=</span> express<span class="op">.</span><span class="fu">Router</span>()<span class="op">;</span></span>
+<span id="cb228-4"><a href="express-framework.html#cb228-4" tabindex="-1"></a></span>
+<span id="cb228-5"><a href="express-framework.html#cb228-5" tabindex="-1"></a>router<span class="op">.</span><span class="fu">get</span>(<span class="st">'/'</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
+<span id="cb228-6"><a href="express-framework.html#cb228-6" tabindex="-1"></a></span>
+<span id="cb228-7"><a href="express-framework.html#cb228-7" tabindex="-1"></a>  <span class="kw">const</span> carros <span class="op">=</span> [</span>
+<span id="cb228-8"><a href="express-framework.html#cb228-8" tabindex="-1"></a>    { <span class="dt">nome</span><span class="op">:</span> <span class="st">'Fusca'</span> }<span class="op">,</span></span>
+<span id="cb228-9"><a href="express-framework.html#cb228-9" tabindex="-1"></a>    { <span class="dt">nome</span><span class="op">:</span> <span class="st">'Ferrari'</span> }</span>
+<span id="cb228-10"><a href="express-framework.html#cb228-10" tabindex="-1"></a>  ]<span class="op">;</span></span>
+<span id="cb228-11"><a href="express-framework.html#cb228-11" tabindex="-1"></a></span>
+<span id="cb228-12"><a href="express-framework.html#cb228-12" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">json</span>(carros)<span class="op">;</span></span>
+<span id="cb228-13"><a href="express-framework.html#cb228-13" tabindex="-1"></a></span>
+<span id="cb228-14"><a href="express-framework.html#cb228-14" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb228-15"><a href="express-framework.html#cb228-15" tabindex="-1"></a></span>
+<span id="cb228-16"><a href="express-framework.html#cb228-16" tabindex="-1"></a>router<span class="op">.</span><span class="fu">get</span>(<span class="st">'/luxo'</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
+<span id="cb228-17"><a href="express-framework.html#cb228-17" tabindex="-1"></a></span>
+<span id="cb228-18"><a href="express-framework.html#cb228-18" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">json</span>({</span>
+<span id="cb228-19"><a href="express-framework.html#cb228-19" tabindex="-1"></a>    <span class="dt">categoria</span><span class="op">:</span> <span class="st">'Luxo'</span></span>
+<span id="cb228-20"><a href="express-framework.html#cb228-20" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb228-21"><a href="express-framework.html#cb228-21" tabindex="-1"></a></span>
+<span id="cb228-22"><a href="express-framework.html#cb228-22" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb228-23"><a href="express-framework.html#cb228-23" tabindex="-1"></a></span>
+<span id="cb228-24"><a href="express-framework.html#cb228-24" tabindex="-1"></a>module<span class="op">.</span><span class="at">exports</span> <span class="op">=</span> router<span class="op">;</span></span></code></pre></div>
 </div>
 <div id="utilizando-as-rotas-no-arquivo-principal" class="section level2" number="8.20">
 <h2>
@@ -537,34 +541,34 @@
 </h2>
 <p>Arquivo:</p>
 <pre class="text"><code>server.js</code></pre>
-<div class="sourceCode" id="cb229"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb229-1"><a href="express-framework.html#cb229-1" tabindex="-1"></a><span class="kw">const</span> express <span class="op">=</span> <span class="pp">require</span>(<span class="st">'express'</span>)<span class="op">;</span></span>
-<span id="cb229-2"><a href="express-framework.html#cb229-2" tabindex="-1"></a></span>
-<span id="cb229-3"><a href="express-framework.html#cb229-3" tabindex="-1"></a><span class="kw">const</span> app <span class="op">=</span> <span class="fu">express</span>()<span class="op">;</span></span>
-<span id="cb229-4"><a href="express-framework.html#cb229-4" tabindex="-1"></a></span>
-<span id="cb229-5"><a href="express-framework.html#cb229-5" tabindex="-1"></a><span class="kw">const</span> carrosRoutes <span class="op">=</span> <span class="pp">require</span>(<span class="st">'./routes/carros'</span>)<span class="op">;</span></span>
-<span id="cb229-6"><a href="express-framework.html#cb229-6" tabindex="-1"></a></span>
-<span id="cb229-7"><a href="express-framework.html#cb229-7" tabindex="-1"></a>app<span class="op">.</span><span class="fu">use</span>(express<span class="op">.</span><span class="fu">json</span>())<span class="op">;</span></span>
-<span id="cb229-8"><a href="express-framework.html#cb229-8" tabindex="-1"></a></span>
-<span id="cb229-9"><a href="express-framework.html#cb229-9" tabindex="-1"></a>app<span class="op">.</span><span class="fu">use</span>(<span class="st">'/carros'</span><span class="op">,</span> carrosRoutes)<span class="op">;</span></span>
-<span id="cb229-10"><a href="express-framework.html#cb229-10" tabindex="-1"></a></span>
-<span id="cb229-11"><a href="express-framework.html#cb229-11" tabindex="-1"></a>app<span class="op">.</span><span class="fu">listen</span>(<span class="dv">3000</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb229-12"><a href="express-framework.html#cb229-12" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'Servidor executando'</span>)<span class="op">;</span></span>
-<span id="cb229-13"><a href="express-framework.html#cb229-13" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb230-1"><a href="express-framework.html#cb230-1" tabindex="-1"></a><span class="kw">const</span> express <span class="op">=</span> <span class="pp">require</span>(<span class="st">'express'</span>)<span class="op">;</span></span>
+<span id="cb230-2"><a href="express-framework.html#cb230-2" tabindex="-1"></a></span>
+<span id="cb230-3"><a href="express-framework.html#cb230-3" tabindex="-1"></a><span class="kw">const</span> app <span class="op">=</span> <span class="fu">express</span>()<span class="op">;</span></span>
+<span id="cb230-4"><a href="express-framework.html#cb230-4" tabindex="-1"></a></span>
+<span id="cb230-5"><a href="express-framework.html#cb230-5" tabindex="-1"></a><span class="kw">const</span> carrosRoutes <span class="op">=</span> <span class="pp">require</span>(<span class="st">'./routes/carros'</span>)<span class="op">;</span></span>
+<span id="cb230-6"><a href="express-framework.html#cb230-6" tabindex="-1"></a></span>
+<span id="cb230-7"><a href="express-framework.html#cb230-7" tabindex="-1"></a>app<span class="op">.</span><span class="fu">use</span>(express<span class="op">.</span><span class="fu">json</span>())<span class="op">;</span></span>
+<span id="cb230-8"><a href="express-framework.html#cb230-8" tabindex="-1"></a></span>
+<span id="cb230-9"><a href="express-framework.html#cb230-9" tabindex="-1"></a>app<span class="op">.</span><span class="fu">use</span>(<span class="st">'/carros'</span><span class="op">,</span> carrosRoutes)<span class="op">;</span></span>
+<span id="cb230-10"><a href="express-framework.html#cb230-10" tabindex="-1"></a></span>
+<span id="cb230-11"><a href="express-framework.html#cb230-11" tabindex="-1"></a>app<span class="op">.</span><span class="fu">listen</span>(<span class="dv">3000</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb230-12"><a href="express-framework.html#cb230-12" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'Servidor executando'</span>)<span class="op">;</span></span>
+<span id="cb230-13"><a href="express-framework.html#cb230-13" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
 </div>
 <div id="como-funciona-o-app.use" class="section level2" number="8.21">
 <h2>
 <span class="header-section-number">8.21</span> Como funciona o app.use<a class="anchor" aria-label="anchor" href="#como-funciona-o-app.use"><i class="fas fa-link"></i></a>
 </h2>
 <p>O comando:</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb230-1"><a href="express-framework.html#cb230-1" tabindex="-1"></a>app<span class="op">.</span><span class="fu">use</span>(<span class="st">'/carros'</span><span class="op">,</span> carrosRoutes)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb231-1"><a href="express-framework.html#cb231-1" tabindex="-1"></a>app<span class="op">.</span><span class="fu">use</span>(<span class="st">'/carros'</span><span class="op">,</span> carrosRoutes)<span class="op">;</span></span></code></pre></div>
 <p>define que todas as rotas presentes em <code>carrosRoutes</code> terão o prefixo:</p>
 <pre class="text"><code>/carros</code></pre>
 <p>Assim:</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb232-1"><a href="express-framework.html#cb232-1" tabindex="-1"></a>router<span class="op">.</span><span class="fu">get</span>(<span class="st">'/'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb233-1"><a href="express-framework.html#cb233-1" tabindex="-1"></a>router<span class="op">.</span><span class="fu">get</span>(<span class="st">'/'</span>)</span></code></pre></div>
 <p>torna-se:</p>
 <pre class="text"><code>/carros</code></pre>
 <p>E:</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb234-1"><a href="express-framework.html#cb234-1" tabindex="-1"></a>router<span class="op">.</span><span class="fu">get</span>(<span class="st">'/luxo'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb235-1"><a href="express-framework.html#cb235-1" tabindex="-1"></a>router<span class="op">.</span><span class="fu">get</span>(<span class="st">'/luxo'</span>)</span></code></pre></div>
 <p>torna-se:</p>
 <pre class="text"><code>/carros/luxo</code></pre>
 </div>

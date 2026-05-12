@@ -193,7 +193,9 @@ app.get('/', (req, res) => {
 });
 ```
 
+
 ## Retornando JSON
+
 
 ```javascript
 app.get('/produto', (req, res) => {
@@ -420,6 +422,14 @@ app.listen(3000);
     "idade": 25
   }
 }
+```
+
+Envie o JSON através do comando CURL
+
+```bash
+curl -X POST https://localhost:3000/usuarios\
+     -H "Content-Type: application/json" \
+     -d '{"name":"Ana","idade":25}'
 ```
 
 ## Recebendo dados chave=valor
